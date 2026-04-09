@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual do Mecânico</title>
+    <style>
+        :root {
+            --accent: #f2a900;
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --border: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .mm-wrapper {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Título em cima de tudo */
+        .mm-main-header {
+            border-left: 6px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .mm-main-header h1 {
+            text-transform: uppercase;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .mm-main-header p {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Layout de duas colunas embaixo do título */
+        .mm-content-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Estilo da Imagem */
+        .imagemmec {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Menu de Seções */
+        .mm-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mm-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 18px 25px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .mm-item:hover {
+            border-color: var(--accent);
+            background: #252525;
+            transform: scale(1.02);
+        }
+
+        .mm-icon-box {
+            font-size: 24px;
+            margin-right: 20px;
+            background: #121212;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .mm-text-box span {
+            display: block;
+            font-weight: 600;
+            font-size: 17px;
+            color: #fff;
+        }
+
+        .mm-text-box small {
+            font-size: 10px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .mm-content-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+            .imagemmec {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            .mm-main-header {
+                text-align: center;
+                border-left: none;
+                border-bottom: 4px solid var(--accent);
+                padding-left: 0;
+                padding-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mm-wrapper">
+        <header class="mm-main-header">
+            <h1>Manual do Mecânico</h1>
+            <p>Seu amigo do dia a dia • Procedimentos Técnicos</p>
+        </header>
+
+        <div class="mm-content-grid">
+            <img src="image.png" alt="Manual do Mecânico" class="imagemmec">
+
+            <nav class="mm-menu">
+                <div class="mm-item">
+                    <div class="mm-icon-box">⚙️</div>
+                    <div class="mm-text-box">
+                        <small>Seção 01</small>
+                        <span>Rolamentos</span>
+                    </div>
+                </div>
+
+                <div class="mm-item">
+                    <div class="mm-icon-box">🔩</div>
+                    <div class="mm-text-box">
+                        <small>Seção 02</small>
+                        <span>Sistemas de Transmissão</span>
+                    </div>
+                </div>
+
+                <div class="mm-item">
+                    <div class="mm-icon-box">🔨</div>
+                    <div class="mm-text-box">
+                        <small>Seção 03</small>
+                        <span>Elementos de Fixação</span>
+                    </div>
+                </div>
+
+                <div class="mm-item">
+                    <div class="mm-icon-box">📏</div>
+                    <div class="mm-text-box">
+                        <small>Seção 04</small>
+                        <span>Instrumentos de Medição</span>
+                    </div>
+                </div>
+
+                <div class="mm-item">
+                    <div class="mm-icon-box">🛢️</div>
+                    <div class="mm-text-box">
+                        <small>Seção 05</small>
+                        <span>Lubrificação Industrial</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+</body>
+</html>
