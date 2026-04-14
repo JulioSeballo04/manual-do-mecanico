@@ -1,0 +1,112 @@
+:root {
+            --accent: #f2a900;
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --border: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .pagina {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Título */
+        .titulo-principal {
+            border-left: 6px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .titulo-principal h1 {
+            text-transform: uppercase;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .titulo-principal p {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Menu de Seções */
+        .lista-secoes {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .secao-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 18px 25px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .secao-item:hover {
+            border-color: var(--accent);
+            background: #252525;
+            transform: scale(1.02);
+        }
+
+        .secao-icone {
+            font-size: 24px;
+            margin-right: 20px;
+            background: #121212;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .secao-nome span {
+            display: block;
+            font-weight: 600;
+            font-size: 17px;
+            color: #fff;
+        }
+
+        .secao-nome small {
+            font-size: 10px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .titulo-principal {
+                text-align: center;
+                border-left: none;
+                border-bottom: 4px solid var(--accent);
+                padding-left: 0;
+                padding-bottom: 15px;
+            }
+        }

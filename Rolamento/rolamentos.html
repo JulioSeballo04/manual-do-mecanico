@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolamentos - Manual do Mecânico</title>
+    <link rel="stylesheet" href="estilorolamento.css">
+</head>
+<body>
+  <!-- Botão menu -->
+    <button class="menu-botao" onclick="abrirMenu()">☰</button>
+
+    <!-- Painel lateral -->
+    <div class="menu-painel" id="menuPainel">
+        <button class="menu-fechar" onclick="fecharMenu()">✕</button>
+        <nav class="menu-lista">
+            <a href="../Pagina/pagina.html">Voltar</a>
+            <a href="sistemas-transmissao.html">🔩 Sistemas de Transmissão</a>
+            <a href="elementos-fixacao.html">🔨 Elementos de Fixação</a>
+            <a href="instrumentos-medicao.html">📏 Instrumentos de Medição</a>
+            <a href="lubrificacao-industrial.html">🛢️ Lubrificação Industrial</a>
+        </nav>
+    </div>
+
+    <!-- Fundo escurecido -->
+    <div class="menu-overlay" id="menuOverlay" onclick="fecharMenu()"></div>
+
+    <div class="pagina">
+
+        <header class="titulo-principal">
+            <h1>Rolamentos</h1>
+        </header>
+
+        <!-- Imagem de capa -->
+        <div class="galeria">
+            <div class="galeria-item">
+                <h3>Rolamentos Automotivos e Industriais</h3>
+                <img src="rolamentos-automotivos-e-industriais.jpg" alt="Imagem de um rolamento">
+            </div>
+        </div>
+
+        <div class="conteudo">
+
+            <h2 class="title_texto">O que são rolamentos?</h2>
+            <p>
+                Rolamentos são componentes mecânicos essenciais que permitem o movimento suave e eficiente entre partes móveis, 
+                reduzindo o atrito e suportando cargas. Eles são amplamente utilizados em diversas aplicações, 
+                desde veículos automotores até máquinas industriais, garantindo o funcionamento confiável e duradouro dos sistemas mecânicos.
+            </p>
+
+            <h2 class="title_texto">Composição dos rolamentos</h2>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <h3>Componentes de um rolamento</h3>
+                    <img src="Componentes-de-um-rolamento.png" alt="Componentes de um rolamento">
+                </div>
+            </div>
+            <p>
+                Os rolamentos são compostos por anéis internos e externos, elementos rolantes (como esferas ou rolos) e uma gaiola que mantém os elementos rolantes na posição correta. 
+                Os materiais utilizados na fabricação dos rolamentos incluem aço, cerâmica e plásticos de alta resistência, escolhidos com base nas condições de operação e requisitos de desempenho.
+            </p>
+
+            <h2 class="title_texto">Tipos de rolamentos</h2>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <h3>Principais tipos de rolamentos</h3>
+                    <img src="hq720.jpg" alt="Tipos de rolamentos">
+                </div>
+            </div>
+            <p>
+                Existem diversos tipos de rolamentos, cada um projetado para atender a necessidades específicas. 
+                Os principais tipos incluem:
+            </p>
+            <ul>
+                <li><strong>Rolamentos de esferas:</strong> Utilizam esferas como elementos rolantes e são adequados para cargas radiais e axiais moderadas.</li>
+                <li><strong>Rolamentos de rolos:</strong> Utilizam rolos cilíndricos ou cônicos como elementos rolantes, oferecendo maior capacidade de carga em comparação com os rolamentos de esferas.</li>
+                <li><strong>Rolamentos de agulhas:</strong> Utilizam rolos finos e longos, ideais para aplicações com espaço limitado e cargas radiais elevadas.</li>
+                <li><strong>Rolamentos autocompensadores:</strong> Projetados para acomodar desalinhamento entre os anéis interno e externo, garantindo desempenho confiável mesmo em condições adversas.</li>
+            </ul>
+
+            <h2 class="title_texto">Especificando um rolamento</h2>
+            <p>
+                A especificação de um rolamento envolve considerar diversos fatores, como as cargas a serem suportadas, 
+                a velocidade de operação, as condições ambientais e o espaço disponível. 
+                A seleção adequada do tipo, tamanho e material do rolamento é fundamental para garantir o desempenho e a durabilidade do sistema mecânico.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Primeiro dígito <span class="th-subtitulo">Modelo do rolamento</span></th>
+                        <th>Segundo dígito <span class="th-subtitulo">Carga de trabalho</span></th>
+                        <th>Dois últimos dígitos <span class="th-subtitulo">Diâmetro do eixo</span></th>
+                        <th>Blindagem <span class="th-subtitulo">Modelo</span></th>
+                        <th>Lubrificação <span class="th-subtitulo">Tipo</span></th>
+                        <th>Folga <span class="th-subtitulo">Folga interna</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6 rígido de esferas</td>
+                        <td>0 carga leve</td>
+                        <td>00 => 10 mm</td>
+                        <td>Z blindagem metálica (1 lado)</td>
+                        <td>G graxa padrão</td>
+                        <td>C2 menor que o normal</td>
+                    </tr>
+                    <tr>
+                        <td>7 contato angular</td>
+                        <td>1 carga leve</td>
+                        <td>01 => 12 mm</td>
+                        <td>2Z ou ZZ blindagem metálica (2 lados)</td>
+                        <td>L baixa fricção</td>
+                        <td>CN ou sem código >> normal</td>
+                    </tr>
+                    <tr>
+                        <td>5 axial de esferas</td>
+                        <td>2 carga média</td>
+                        <td>02 => 15 mm</td>
+                        <td>RS vedação de borracha (1 lado)</td>
+                        <td>HT alta temperatura</td>
+                        <td>C3 folga maior que o normal</td>
+                    </tr>
+                    <tr>
+                        <td>3 rolos cônicos</td>
+                        <td>3 carga pesada</td>
+                        <td>03 => 17 mm</td>
+                        <td>2RS vedação de borracha (2 lados)</td>
+                        <td>WT resistência à água</td>
+                        <td>C4 folga muito maior que o normal</td>
+                    </tr>
+                    <tr>
+                        <td>2 autocompensador de rolos</td>
+                        <td>4 carga extra pesada</td>
+                        <td>04 => 20 mm</td>
+                        <td>OPEN sem vedação</td>
+                        <td>VT alta velocidade/temperatura</td>
+                        <td>C5 extremamente alta</td>
+                    </tr>
+                    <tr>
+                        <td>NU/NJ rolos cilíndricos</td>
+                        <td>-</td>
+                        <td>05 => 25 mm</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>N/NF rolos cilíndricos (variações)</td>
+                        <td>-</td>
+                        <td>06 => 30 mm</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="title_texto">Mancais</h2>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <h3>Tipos de mancais</h3>
+                    <img src="mancais.jpg" alt="Imagem de um mancal">
+                </div>
+            </div>
+            <p>
+                Mancais são componentes que suportam e guiam os rolamentos, garantindo a estabilidade e o alinhamento adequados durante a operação. 
+                Eles podem ser fixos ou deslizantes, dependendo do tipo de aplicação e das condições de carga. 
+                A escolha do mancal correto é crucial para o desempenho e a durabilidade do sistema mecânico.
+                Rolamentos UC são rolamentos inserto utilizados dentro de mancais como UCP, UCF, UCFL e UCT.
+            </p>
+                    <div class="galeria-item">
+                        <h3>Rolamento UC</h3>
+                        <img src="uc.png" alt="Imagem de um rolamento UC">
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+<script>
+    function abrirMenu() {
+        document.getElementById('menuPainel').classList.add('aberto');
+        document.getElementById('menuOverlay').classList.add('aberto');
+    }
+
+    function fecharMenu() {
+        document.getElementById('menuPainel').classList.remove('aberto');
+        document.getElementById('menuOverlay').classList.remove('aberto');
+    }
+</script>
+</body>
+</html>
