@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas de Transmissão - Manual do Mecânico</title>
+    <link rel="stylesheet" href="sistemas-transmissao.css">
+</head>
+<body>
+
+    <!-- Botão menu -->
+    <button id="menuBotao" class="menu-botao" onclick="abrirMenu()">☰</button>
+
+    <!-- Painel lateral -->
+    <div class="menu-painel" id="menuPainel">
+        <button class="menu-fechar" onclick="fecharMenu()">✕</button>
+        <nav class="menu-lista">
+            <a href="../Pagina/pagina.html">Voltar à página principal</a>
+            <a href="../Rolamento/rolamentos.html">⚙️ Rolamentos</a>
+            <a href="../Elemento-Fixacao/elementos-fixacao.html">🔨 Elementos de Fixação</a>
+            <a href="../Instrumento-Medicao/instrumentos-medicao.html">📏 Instrumentos de Medição</a>
+            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html">🛢️ Lubrificação Industrial</a>
+        </nav>
+    </div>
+
+    <button id="menuSecaoBotao" class="menu-botao menu-secao" onclick="abrirMenuSecao()">↓</button>
+    
+    <div class="menu-painel" id="menuSecaoPainel">
+    <button class="menu-fechar" onclick="fecharMenuSecao()">✕</button>
+    <nav class="menu-lista">
+        <a href="#ST" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão</a>
+        <a href="#STEng" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Engrenagens</a>
+        <a href="#STC" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Correias</a>
+        <a href="#STCO" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Correntes</a>
+        <a href="#STA" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Acoplamento</a>
+        <a href="#STEx" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Eixos</a>
+        <a href="#STCa" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Cardan</a>
+        <a href="#STCh" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Chavetas</a>
+    
+    </nav>
+    </div>
+
+    <!-- Fundo escurecido -->
+    <div class="menu-overlay" id="menuOverlay" onclick="fecharMenu()"></div>
+
+    <div class="pagina">
+
+        <header class="titulo-principal">
+            <h1 id="ST">Sistemas de Transmissão</h1>
+        </header>
+
+        <!-- Imagem de capa -->
+        <div class="galeria">
+            <div class="galeria-item">
+                <img src="imagemcapa.png" alt="Elementos de um sistema de transmissão">
+            </div>
+        </div>
+
+        <div class="conteudo">
+
+            <h2 class="title_texto">O que são os sistemas de transmissão?</h2>
+            <p>
+                Os sistemas de transmissão são conjuntos de componentes mecânicos responsáveis por transferir potência e movimento de um eixo para outro, 
+                permitindo o controle da velocidade e torque em máquinas e veículos. Eles desempenham um papel fundamental na eficiência e desempenho dos equipamentos, 
+                garantindo a transmissão adequada de energia para atender às necessidades específicas de cada aplicação.
+            </p>
+
+            <h2 class="title_texto">Composição dos sistemas de transmissão</h2>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <h3>Componentes de um sistema de transmissão</h3>
+                    <img src="elementos-de-maquinas.jpg" alt="Componentes de um sistema de transmissão">
+                </div>
+            </div>
+            <p>
+                Os sistemas de transmissão são compostos por diversos elementos, incluindo engrenagens, correias, correntes, polias e acoplamentos. 
+                Cada componente desempenha um papel específico na transferência de potência e controle do movimento, e a escolha adequada desses elementos é crucial para o desempenho e a durabilidade do sistema.
+            </p>
+
+            <h2 class="title_texto">Modelos de sistemas de transmissão</h2>
+            <p>
+                Existem diversos tipos de sistemas de transmissão, cada um projetado para atender a necessidades específicas. 
+                Os principais tipos incluem:
+            </p>
+            <ul>
+                <li><strong>Sistemas de transmissão por engrenagens:</strong> Utilizam engrenagens para transferir potência e controle do movimento, oferecendo alta eficiência e durabilidade.</li>
+                <li><strong>Sistemas de transmissão por correias:</strong> Utilizam correias para transmitir potência, sendo ideais para aplicações com distância média entre os eixos.</li>
+                <li><strong>Sistemas de transmissão por correntes:</strong> Utilizam correntes para transmitir potência, proporcionando uma transmissão mais robusta e adequada para cargas pesadas.</li>
+                <li><strong>Sistema de transmissão por acoplamento:</strong> Projetados para acomodar desalinhamento entre os eixos, garantindo desempenho confiável mesmo em condições adversas.</li>
+                <li><strong>Sistemas de transmissão por eixos:</strong> Utilizam eixos para transferir potência e controle do movimento, sendo adequados para aplicações que exigem alta precisão e rigidez.</li>
+                <li><strong>Sistemas de transmissão por cardan:</strong> Utilizam juntas universais para transmitir potência entre eixos que não estão alinhados, sendo comuns em veículos e máquinas agrícolas.</li>
+                <li><strong>Sistemas de transmissão por chavetas:</strong> Utilizam chavetas para conectar componentes e transmitir potência, sendo adequados para aplicações que requerem fácil montagem e desmontagem.</li>
+            </ul>
+
+            <h2 class="title_texto" id="STEng">Sistemas de transmissão por engrenagens</h2>
+            <p>
+                Os sistemas de transmissão por engrenagens são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
+                Eles consistem em um conjunto de engrenagens que se encaixam para transferir potência e controle do movimento entre os eixos. 
+                A escolha do tipo de engrenagem, como engrenagens cilíndricas, cônicas ou helicoidais, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+            </p>
+
+            <!-- CORRIGIDO: h3 com class title_texto ao invés de color="" -->
+            <h3 class="title_texto">Tipos de engrenagens</h3>
+
+            <div class="galeria">
+                <div class="galeria-item">
+                    <img class="imagens_engrenagens" src="engrenagem-cilindrica-de-dentes-retos-3.jpg" alt="Engrenagem cilíndrica de dentes retos">
+                    <p class="imagem-itemp">Engrenagem cilíndrica de dentes retos</p>
+                </div>
+                <div class="galeria-item">
+                    <img class="imagens_engrenagens" src="engrenagem-helicoidal.jpeg" alt="Engrenagem helicoidal">
+                    <p class="imagem-itemp">Engrenagem helicoidal</p>
+                </div>
+                <div class="galeria-item">
+                    <img class="imagens_engrenagens" src="engrenagem-conica.jpg" alt="Engrenagem cônica">
+                    <p class="imagem-itemp">Engrenagem cônica</p>
+                </div>
+                <div class="galeria-item">
+                    <img class="imagens_engrenagens" src="engrenagem-interna.jpg" alt="Engrenagem interna">
+                    <p class="imagem-itemp">Engrenagem interna</p>
+                </div>
+                <div class="galeria-item">
+                    <img class="imagens_engrenagens" src="engrenagem-planetária.jpg" alt="Engrenagem planetária">
+                    <p class="imagem-itemp">Engrenagem planetária</p>
+                </div>
+                <div class="galeria-item">
+                    <img class="imagens_engrenagens" src="engrenagem-cremalheira.jpeg" alt="Engrenagem cremalheira">
+                    <p class="imagem-itemp">Engrenagem cremalheira</p>
+                </div>
+            </div>
+
+            <h2 class="title_texto" id="STC">Sistemas de transmissão por Correias</h2>
+            <p>
+                Os sistemas de transmissão por correias são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
+                Eles consistem em um conjunto de correias que se encaixam para transferir potência e controle do movimento entre os eixos. 
+                A escolha do tipo de correia, como correias planas, correias trapezoidais ou correias sincronizadas, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+            </p>
+
+            <h2 class="title_texto" id="STCO">Sistemas de transmissão por Correntes</h2>
+            <p>
+                Os sistemas de transmissão por correntes são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
+                Eles consistem em um conjunto de correntes que se encaixam para transferir potência e controle do movimento entre os eixos. 
+                A escolha do tipo de corrente, como correntes planas, correntes trapezoidais ou correntes sincronizadas, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+            </p>
+
+            <h2 class="title_texto" id="STA">Sistemas de transmissão por Acoplamento</h2>
+            <p>
+                Os sistemas de transmissão por acoplamento são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
+                Eles consistem em um conjunto de acoplamentos que se encaixam para transferir potência e controle do movimento entre os eixos. 
+                A escolha do tipo de acoplamento, como acoplamentos mecânicos, hidráulicos ou pneumáticos, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+            </p>
+
+            <h2 class="title_texto" id="STEx">Sistemas de transmissão por Eixos</h2>
+            <p>
+                Os sistemas de transmissão por eixos são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
+                Eles consistem em um conjunto de eixos que se encaixam para transferir potência e controle do movimento entre as peças. 
+                A escolha do tipo de eixo, como eixos cilíndricos, cônicos ou helicoidais, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+            </p>
+
+            <h2 class="title_texto" id="STCa">Sistemas de transmissão por Cardan</h2>
+            <p>
+                Os sistemas de transmissão por cardan são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
+                Eles consistem em um conjunto de cardans que se encaixam para transferir potência e controle do movimento entre os eixos. 
+                A escolha do tipo de cardan, como cardans simples ou cardans duplos, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+            </p>
+
+            <h2 class="title_texto" id="STCh">Sistemas de transmissão por Chavetas</h2>
+            <p>
+                Os sistemas de transmissão por chavetas são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
+                Eles consistem em um conjunto de chavetas que se encaixam para transferir potência e controle do movimento entre os eixos. 
+                A escolha do tipo de chaveta, como chavetas retas, curvas ou helicoidais, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+            </p>
+    </div>
+
+    <script>
+        function esconderBotoes() {
+            document.getElementById('menuBotao').style.display = 'none';
+            document.getElementById('menuSecaoBotao').style.display = 'none';
+        }
+
+        function mostrarBotoes() {
+            document.getElementById('menuBotao').style.display = 'block';
+            document.getElementById('menuSecaoBotao').style.display = 'block';
+        }
+
+        // MENU PRINCIPAL
+        function abrirMenu() {
+            document.getElementById('menuPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenu() {
+            document.getElementById('menuPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        // MENU DE SEÇÃO
+        function abrirMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        function fecharTudo() {
+            fecharMenu();
+            fecharMenuSecao();
+        }
+    </script>
+
+</body>
+</html>

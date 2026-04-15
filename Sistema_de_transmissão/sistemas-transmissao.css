@@ -1,0 +1,265 @@
+:root {
+    --accent: #f2a900;
+    --bg: #121212;
+    --card-bg: #1e1e1e;
+    --text: #e0e0e0;
+    --border: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Página */
+.pagina {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Título principal */
+.titulo-principal {
+    border-left: 6px solid var(--accent);
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+.titulo-principal h1 {
+    text-transform: uppercase;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+/* Área de conteúdo */
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Subtítulos */
+.title_texto {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 10px;
+}
+
+/* Parágrafos */
+.conteudo p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+/* Lista */
+.conteudo ul {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.conteudo ul li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.conteudo ul li strong {
+    color: #fff;
+}
+
+/* Galeria de imagens */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+}
+
+.galeria-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.galeria-item h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+.galeria-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border: 1px solid var(--border);
+    background: gold;
+    padding: 20px;
+    animation: danceimg 5s infinite;
+}
+
+@keyframes danceimg {
+    0%, 100% { transform: scale(.9); border-radius: 4% 95% 6% / 95% 4% 92% 5%; }
+    50%       { transform: scale(.8); border-radius: 95% 4% 97% / 4% 96% 3% 97%; }
+}
+
+/* Engrenagens */
+.imagens_engrenagens {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    padding: 15px;
+    animation: balanço 3s ease-in-out infinite;
+}
+
+.imagem-itemp {
+    font-size: 13px;
+    color: var(--accent);
+    text-align: center;
+}
+
+/* Botão hamburguer */
+.menu-botao {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 22px;
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.2s;
+}
+
+.menu-botao:hover {
+    background: #252525;
+}
+
+/* Painel lateral */
+.menu-painel {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--card-bg);
+    border-left: 1px solid var(--border);
+    padding: 60px 20px 20px;
+    z-index: 999;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-painel.aberto {
+    right: 0;
+}
+
+/* Botão fechar */
+.menu-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu-fechar:hover {
+    color: #fff;
+}
+
+/* Links do menu */
+.menu-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-lista a {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 6px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.menu-lista a:hover {
+    background: #252525;
+    color: #fff;
+}
+
+/* Fundo escurecido */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+}
+
+.menu-overlay.aberto {
+    display: block;
+}
+
+.menu-secao {
+    top: 75px; /* abaixo do botão ☰ */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo-principal {
+        border-left: none;
+        border-bottom: 4px solid var(--accent);
+        padding-left: 0;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+
+    .galeria-item img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .imagens_engrenagens {
+        width: 120px;
+        height: 120px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
