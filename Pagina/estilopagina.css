@@ -100,6 +100,13 @@
             letter-spacing: 1px;
         }
 
+        .icone {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 15%;
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .titulo-principal {

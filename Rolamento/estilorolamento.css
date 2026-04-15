@@ -107,9 +107,11 @@ body {
     text-align: center;
 }
 
+/* CORRIGIDO: adicionado object-fit: contain */
 .galeria-item img {
     width: 300px;
     height: 300px;
+    object-fit: contain;
     border-radius: 12px;
     border: 1px solid var(--border);
     background: var(--card-bg);
@@ -120,6 +122,66 @@ body {
 @keyframes balanço {
     0%, 100% { transform: rotate(-2deg); }
     50%       { transform: rotate(2deg); }
+}
+
+/* Menu lista-secoes */
+.lista-secoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.secao-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 18px 25px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+.secao-item:hover {
+    border-color: var(--accent);
+    background: #252525;
+    transform: scale(1.02);
+}
+
+.secao-icone {
+    font-size: 24px;
+    margin-right: 20px;
+    background: #121212;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+}
+
+.secao-nome span {
+    display: block;
+    font-weight: 600;
+    font-size: 17px;
+    color: #fff;
+}
+
+.secao-nome small {
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.icone {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 15%;
 }
 
 /* Tabela */
@@ -171,27 +233,6 @@ tbody tr:hover {
     background: #252525;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .titulo-principal {
-        border-left: none;
-        border-bottom: 4px solid var(--accent);
-        padding-left: 0;
-        padding-bottom: 15px;
-        text-align: center;
-    }
-
-    .galeria-item img {
-        width: 220px;
-        height: 220px;
-    }
-
-    table {
-        display: block;
-        overflow-x: auto;
-    }
-}
-
 /* Botão hamburguer */
 .menu-botao {
     position: fixed;
@@ -213,6 +254,10 @@ tbody tr:hover {
     background: #252525;
 }
 
+.menu-secao {
+    top: 75px;
+}
+
 /* Painel lateral */
 .menu-painel {
     position: fixed;
@@ -228,6 +273,7 @@ tbody tr:hover {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    overflow-y: auto;
 }
 
 .menu-painel.aberto {
@@ -283,4 +329,25 @@ tbody tr:hover {
 
 .menu-overlay.aberto {
     display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo-principal {
+        border-left: none;
+        border-bottom: 4px solid var(--accent);
+        padding-left: 0;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+
+    .galeria-item img {
+        width: 220px;
+        height: 220px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
 }

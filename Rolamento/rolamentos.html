@@ -7,23 +7,73 @@
     <link rel="stylesheet" href="estilorolamento.css">
 </head>
 <body>
-  <!-- Botão menu -->
-    <button class="menu-botao" onclick="abrirMenu()">☰</button>
 
-    <!-- Painel lateral -->
+    <!-- Botão menu principal -->
+    <!-- CORRIGIDO: adicionado id="menuBotao" -->
+    <button id="menuBotao" class="menu-botao" onclick="abrirMenu()">☰</button>
+
+    <!-- Painel lateral principal -->
     <div class="menu-painel" id="menuPainel">
         <button class="menu-fechar" onclick="fecharMenu()">✕</button>
-        <nav class="menu-lista">
-            <a href="../Pagina/pagina.html">Voltar</a>
-            <a href="../Sistema_de_transmissão/sistemas-transmissao.html">🔩 Sistemas de Transmissão</a>
-            <a href="elementos-fixacao.html">🔨 Elementos de Fixação</a>
-            <a href="instrumentos-medicao.html">📏 Instrumentos de Medição</a>
-            <a href="lubrificacao-industrial.html">🛢️ Lubrificação Industrial</a>
+        <nav class="lista-secoes">
+            <a href="../Pagina/pagina.html" class="secao-item">
+                <div class="secao-icone"><img src="menu.png" alt="Ícone de Menu" class="icone"></div>
+                <div class="secao-nome">
+                    <small>Seção 00</small>
+                    <span>Voltar ao menu principal</span>
+                </div>
+            </a>
+            <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="secao-item">
+                <div class="secao-icone"><img src="engrenagem.png" alt="Ícone de Transmissão" class="icone"></div>
+                <div class="secao-nome">
+                    <small>Seção 02</small>
+                    <span>Sistemas de Transmissão</span>
+                </div>
+            </a>
+            <a href="../TPM/tpm.html" class="secao-item">
+                <div class="secao-icone"><img src="tpm.png" alt="Ícone de TPM" class="icone"></div>
+                <div class="secao-nome">
+                    <small>Seção 03</small>
+                    <span>TPM</span>
+                </div>
+            </a>
+            <a href="../Instrumento-Medicao/instrumentos-medicao.html" class="secao-item">
+                <div class="secao-icone"><img src="medicao.png" alt="Ícone de Medição" class="icone"></div>
+                <div class="secao-nome">
+                    <small>Seção 04</small>
+                    <span>Instrumentos de Medição</span>
+                </div>
+            </a>
+            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="secao-item">
+                <div class="secao-icone"><img src="lubi.png" alt="Ícone de Lubrificação" class="icone"></div>
+                <div class="secao-nome">
+                    <small>Seção 05</small>
+                    <span>Lubrificação Industrial</span>
+                </div>
+            </a>
         </nav>
     </div>
 
-    <!-- Fundo escurecido -->
-    <div class="menu-overlay" id="menuOverlay" onclick="fecharMenu()"></div>
+    <!-- Botão menu de seção -->
+    <button id="menuSecaoBotao" class="menu-botao menu-secao" onclick="abrirMenuSecao()">↓</button>
+
+    <!-- CORRIGIDO: id corrigido para menuSecaoPainel -->
+    <div class="menu-painel" id="menuSecaoPainel">
+        <button class="menu-fechar" onclick="fecharMenuSecao()">✕</button>
+        <nav class="menu-lista">
+            <a href="#ST" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão</a>
+            <a href="#STEng" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Engrenagens</a>
+            <a href="#STC" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Correias</a>
+            <a href="#STCO" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Correntes</a>
+            <a href="#STA" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Acoplamento</a>
+            <a href="#STEx" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Eixos</a>
+            <a href="#STCa" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Cardan</a>
+            <a href="#STCh" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Chavetas</a>
+        </nav>
+    </div>
+
+    <!-- CORRIGIDO: overlay fecha tudo -->
+    <div class="menu-overlay" id="menuOverlay" onclick="fecharTudo()"></div>
 
     <div class="pagina">
 
@@ -168,24 +218,61 @@
                 A escolha do mancal correto é crucial para o desempenho e a durabilidade do sistema mecânico.
                 Rolamentos UC são rolamentos inserto utilizados dentro de mancais como UCP, UCF, UCFL e UCT.
             </p>
-                    <div class="galeria-item">
-                        <h3>Rolamento UC</h3>
-                        <img src="uc.png" alt="Imagem de um rolamento UC">
-                    </div>
-                
+
+            <!-- CORRIGIDO: galeria-item dentro de galeria -->
+            <div class="galeria">
+                <div class="galeria-item">
+                    <h3>Rolamento UC</h3>
+                    <img src="uc.png" alt="Imagem de um rolamento UC">
+                </div>
             </div>
+
         </div>
     </div>
-<script>
-    function abrirMenu() {
-        document.getElementById('menuPainel').classList.add('aberto');
-        document.getElementById('menuOverlay').classList.add('aberto');
-    }
 
-    function fecharMenu() {
-        document.getElementById('menuPainel').classList.remove('aberto');
-        document.getElementById('menuOverlay').classList.remove('aberto');
-    }
-</script>
+    <script>
+        function esconderBotoes() {
+            document.getElementById('menuBotao').style.display = 'none';
+            document.getElementById('menuSecaoBotao').style.display = 'none';
+        }
+
+        function mostrarBotoes() {
+            document.getElementById('menuBotao').style.display = 'block';
+            document.getElementById('menuSecaoBotao').style.display = 'block';
+        }
+
+        // MENU PRINCIPAL
+        function abrirMenu() {
+            document.getElementById('menuPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenu() {
+            document.getElementById('menuPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        // MENU DE SEÇÃO
+        function abrirMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        // CORRIGIDO: fecharTudo fecha os dois painéis
+        function fecharTudo() {
+            fecharMenu();
+            fecharMenuSecao();
+        }
+    </script>
+
 </body>
 </html>
