@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPM - Manual do Mecânico</title>
+    <link rel="stylesheet" href="tpm.css">
+</head>
+<body>
+
+    <!-- Botão abrir menu principal -->
+    <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
+
+    <!-- Painel lateral principal -->
+    <div class="painel-lateral" id="menuPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+        <nav class="grade-secoes">
+            <a href="../Pagina/pagina.html" class="botao-secao">
+                <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 00</small>
+                    <span>Voltar ao menu principal</span>
+                </div>
+            </a>
+            <a href="../Rolamento/rolamentos.html" class="botao-secao">
+                <div class="icone-secao"><img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 01</small>
+                    <span>Rolamentos</span>
+                </div>
+            </a>
+            <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="botao-secao">
+                <div class="icone-secao"><img src="engrenagem.png" alt="Ícone de engrenagem" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 02</small>
+                    <span>Sistemas de Transmissão</span>
+                </div>
+            </a>
+            <a href="../Instrumento-Medicao/instrumentos-medicao.html" class="botao-secao">
+                <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 04</small>
+                    <span>Instrumentos de Medição</span>
+                </div>
+            </a>
+            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="botao-secao">
+                <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 05</small>
+                    <span>Lubrificação Industrial</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Botão sumário da página -->
+    <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
+
+    <!-- Painel lateral do sumário -->
+    <!-- CORRIGIDO: links atualizados para o conteúdo de TPM -->
+    <div class="painel-lateral" id="menuSecaoPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+        <nav class="links-menu">
+            <a href="#tpm" onclick="fecharMenuSecao()"> >> O que é TPM</a>
+            <a href="#composicao" onclick="fecharMenuSecao()"> >> Composição do TPM</a>
+            <a href="#manutencao" onclick="fecharMenuSecao()"> >> Pilar da Manutenção</a>
+            <a href="#preventiva" onclick="fecharMenuSecao()"> >> Manutenção Preventiva</a>
+            <a href="#preditiva" onclick="fecharMenuSecao()"> >> Manutenção Preditiva</a>
+            <a href="#corretiva" onclick="fecharMenuSecao()"> >> Manutenção Corretiva</a>
+            <a href="#autonoma" onclick="fecharMenuSecao()"> >> Manutenção Autônoma</a>
+            <a href="#5s" onclick="fecharMenuSecao()"> >> Modelo 5 Sensos</a>
+        </nav>
+    </div>
+
+    <!-- Fundo escurecido -->
+    <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
+
+    <div class="container-pagina">
+
+        <header class="cabecalho">
+            <h1>TPM</h1>
+            <p>Manutenção Produtiva Total</p>
+        </header>
+
+        <!-- Imagem de capa -->
+        <div class="grade-imagens">
+            <div class="cartao-imagem">
+                <img src="capa.png" alt="TPM">
+            </div>
+        </div>
+
+        <div class="area-texto">
+
+            <h2 id="tpm" class="subtitulo">O que é TPM?</h2>
+            <p>
+                A Manutenção Produtiva Total (TPM) é uma abordagem integral de manutenção que visa otimizar o desempenho dos equipamentos 
+                através da participação ativa de todos os colaboradores. 
+                O objetivo é alcançar a excelência operacional, minimizando paradas e maximizando a produtividade.
+            </p>
+
+            <h2 id="composicao" class="subtitulo">Composição do TPM</h2>
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
+                    <h3>Pilares do TPM</h3>
+                    <img src="8-pilares-da-manutencao-produtiva-total-tpm.webp" alt="Pilares do TPM">
+                </div>
+            </div>
+            <p>
+                O TPM é composto por oito pilares fundamentais, cada um focado em aspectos específicos da manutenção e da gestão de equipamentos. 
+                Esses pilares incluem:
+            </p>
+
+            <!-- CORRIGIDO: <ul> fora do <p> -->
+            <ul>
+                <li><strong>Melhoria Específica:</strong> Foco em melhorar continuamente os processos e a qualidade dos produtos ou serviços.</li>
+                <li><strong>Manutenção Autônoma:</strong> Capacita os operadores para realizar tarefas de manutenção básica e inspeção regular.</li>
+                <li><strong>Manutenção Planejada:</strong> Envolve a manutenção preventiva e preditiva para minimizar as paradas e maximizar a disponibilidade dos equipamentos.</li>
+                <li><strong>Treinamento e Educação:</strong> Desenvolvimento contínuo das habilidades e conhecimentos dos colaboradores.</li>
+                <li><strong>Controle Inicial:</strong> Gerenciamento do ciclo de vida dos equipamentos desde a fase de projeto até a operação.</li>
+                <li><strong>Manutenção da Qualidade:</strong> Visando a melhoria contínua da qualidade dos processos de produção.</li>
+                <li><strong>Administração da Qualidade:</strong> Aplicação dos princípios do TPM nas áreas administrativas e de suporte.</li>
+                <li><strong>Segurança, Saúde e Meio Ambiente:</strong> Garantindo um ambiente de trabalho seguro e saudável para todos os colaboradores.</li>
+            </ul>
+
+            <h2 id="manutencao" class="subtitulo">Pilar da Manutenção</h2>
+            <p>
+                O pilar da manutenção é um dos mais importantes do TPM, pois é responsável por garantir a confiabilidade e a eficiência dos equipamentos. 
+                Ele envolve a implementação de práticas de manutenção preventiva, preditiva e corretiva, além de capacitar os operadores para realizar tarefas de manutenção básica.
+            </p>
+
+            <!-- CORRIGIDO: <h3> sem <ul><li> dentro -->
+            <h3 id="preventiva" class="subtitulo">Manutenção Preventiva</h3>
+            <p>
+                A manutenção preventiva é realizada em intervalos regulares para prevenir falhas e garantir o bom funcionamento dos equipamentos. 
+                Ela inclui atividades como lubrificação, limpeza, ajustes e substituição de peças desgastadas.
+            </p>
+
+            <h3 id="preditiva" class="subtitulo">Manutenção Preditiva</h3>
+            <p>
+                A manutenção preditiva utiliza técnicas de monitoramento e análise de dados para prever falhas antes que elas ocorram. 
+                Isso permite que as equipes de manutenção intervenham de forma proativa, minimizando o tempo de inatividade e os custos de reparo.
+            </p>
+
+            <h3 id="corretiva" class="subtitulo">Manutenção Corretiva</h3>
+            <p>
+                A manutenção corretiva é realizada após a ocorrência de uma falha ou problema, com o objetivo de restaurar o funcionamento normal dos equipamentos. 
+                Ela envolve diagnóstico, reparo e substituição de peças danificadas.
+            </p>
+
+            <h3 id="autonoma" class="subtitulo">Manutenção Autônoma</h3>
+            <p>
+                A manutenção autônoma envolve a capacitação dos operadores para realizar tarefas de manutenção básica, como inspeções regulares, limpeza e lubrificação. 
+                Isso permite que os operadores identifiquem problemas antes que eles se agravem e possam realizar intervenções simples, reduzindo a dependência de equipes especializadas.
+            </p>
+
+            <h3 class="subtitulo">Benefícios do Pilar da Manutenção</h3>
+            <p>
+                O pilar da manutenção traz diversos benefícios para a organização, como aumento da produtividade, redução de custos com reparos e paradas, melhoria da segurança e qualidade do produto.
+            </p>
+
+            <h3 class="subtitulo">Análise de Falhas</h3>
+            <p>
+                A análise de falhas é uma prática importante para entender as causas raiz das falhas nos equipamentos. 
+                Isso permite implementar soluções eficazes e prevenir a ocorrência de problemas semelhantes no futuro.
+            </p>
+
+            <h2 id="5s" class="subtitulo">Modelo 5 Sensos</h2>
+            <p>
+                Os 5 sensos (5S) são uma metodologia japonesa de organização e gestão do ambiente de trabalho, que complementa os princípios do TPM. 
+                Eles são fundamentais para criar um ambiente de trabalho eficiente, seguro e produtivo, promovendo a disciplina e a melhoria contínua.
+            </p>
+
+            <ul>
+                <li><strong>Senso de Utilização:</strong> Separar o que é necessário do que não é e descartar o desnecessário do ambiente de trabalho.</li>
+                <li><strong>Senso de Organização:</strong> Organizar os itens de forma sistemática, facilitando o acesso e a localização de ferramentas e materiais.</li>
+                <li><strong>Senso de Limpeza:</strong> Manter o ambiente de trabalho limpo, prevenindo a acumulação de sujeira que possa afetar o desempenho dos equipamentos.</li>
+                <li><strong>Senso de Padronização:</strong> Manter práticas e procedimentos padronizados, garantindo consistência e qualidade nas operações.</li>
+                <li><strong>Senso de Disciplina:</strong> Manter e melhorar continuamente os padrões estabelecidos pelos quatro sensos anteriores.</li>
+            </ul>
+
+            <!-- CORRIGIDO: imagem dentro de grade-imagens e cartao-imagem, sem classe duplicada -->
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
+                    <img src="metodologia-5s-infografico.webp" alt="Modelo 5 sensos">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function esconderBotoes() {
+            document.getElementById('menuBotao').style.display = 'none';
+            document.getElementById('menuSecaoBotao').style.display = 'none';
+        }
+
+        function mostrarBotoes() {
+            document.getElementById('menuBotao').style.display = 'block';
+            document.getElementById('menuSecaoBotao').style.display = 'block';
+        }
+
+        function abrirMenu() {
+            document.getElementById('menuPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenu() {
+            document.getElementById('menuPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        function abrirMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        function fecharTudo() {
+            fecharMenu();
+            fecharMenuSecao();
+        }
+    </script>
+
+</body>
+</html>

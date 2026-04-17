@@ -8,48 +8,44 @@
 </head>
 <body>
 
-    <!-- Botão menu -->
-    <button id="menuBotao" class="menu-botao" onclick="abrirMenu()">☰</button>
+    <!-- Botão abrir menu principal -->
+    <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
 
-    <!-- Painel lateral -->
-    <div class="menu-painel" id="menuPainel">
-        <button class="menu-fechar" onclick="fecharMenu()">✕</button>
-        <nav class="lista-secoes">
-            <a href="../Pagina/pagina.html" class="secao-item">
-                <div class="secao-icone"><img src="menu.png" alt="Ícone de Menu" class="icone"></div>
-                <div class="secao-nome">
+    <!-- Painel lateral principal -->
+    <div class="painel-lateral" id="menuPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+        <nav class="grade-secoes">
+            <a href="../Pagina/pagina.html" class="botao-secao">
+                <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 00</small>
                     <span>Voltar ao menu principal</span>
                 </div>
             </a>
-
-            <a href="../Rolamento/rolamentos.html" class="secao-item">
-                <div class="secao-icone"><img src="rolamento.png" alt="Ícone de Rolamento" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../Rolamento/rolamentos.html" class="botao-secao">
+                <div class="icone-secao"><img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 01</small>
                     <span>Rolamentos</span>
                 </div>
             </a>
-
-            <a href="../TPM/tpm.html" class="secao-item">
-                <div class="secao-icone"><img src="tpm.png" alt="Ícone de Fixação" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../TPM/tpm.html" class="botao-secao">
+                <div class="icone-secao"><img src="tpm.png" alt="Ícone de TPM" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 03</small>
                     <span>TPM</span>
                 </div>
             </a>
-
-            <a href="../Instrumento-Medicao/instrumentos-medicao.html" class="secao-item">
-                <div class="secao-icone"><img src="medicao.png" alt="Ícone de Medição" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../Instrumento-Medicao/instrumentos-medicao.html" class="botao-secao">
+                <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 04</small>
                     <span>Instrumentos de Medição</span>
                 </div>
             </a>
-
-            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="secao-item">
-                <div class="secao-icone"><img src="lubi.png" alt="Ícone de Lubrificação" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="botao-secao">
+                <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 05</small>
                     <span>Lubrificação Industrial</span>
                 </div>
@@ -57,51 +53,52 @@
         </nav>
     </div>
 
-    <button id="menuSecaoBotao" class="menu-botao menu-secao" onclick="abrirMenuSecao()">↓</button>
-    
-    <div class="menu-painel" id="menuSecaoPainel">
-    <button class="menu-fechar" onclick="fecharMenuSecao()">✕</button>
-    <nav class="menu-lista">
-        <a href="#ST" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão</a>
-        <a href="#STEng" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Engrenagens</a>
-        <a href="#STC" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Correias</a>
-        <a href="#STCO" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Correntes</a>
-        <a href="#STA" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Acoplamento</a>
-        <a href="#STEx" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Eixos</a>
-        <a href="#STCa" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Cardan</a>
-        <a href="#STCh" onclick="fecharMenuSecao()"> >>Sistemas de Transmissão por Chavetas</a>
-    
-    </nav>
+    <!-- Botão sumário da página -->
+    <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
+
+    <!-- Painel lateral do sumário -->
+    <div class="painel-lateral" id="menuSecaoPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+        <nav class="links-menu">
+            <a href="#ST" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão</a>
+            <a href="#STEng" onclick="fecharMenuSecao()"> >> Engrenagens</a>
+            <a href="#STC" onclick="fecharMenuSecao()"> >> Correias</a>
+            <a href="#STCO" onclick="fecharMenuSecao()"> >> Correntes</a>
+            <a href="#STA" onclick="fecharMenuSecao()"> >> Acoplamento</a>
+            <a href="#STEx" onclick="fecharMenuSecao()"> >> Eixos</a>
+            <a href="#STCa" onclick="fecharMenuSecao()"> >> Cardan</a>
+            <a href="#STCh" onclick="fecharMenuSecao()"> >> Chavetas</a>
+        </nav>
     </div>
 
     <!-- Fundo escurecido -->
-    <div class="menu-overlay" id="menuOverlay" onclick="fecharMenu()"></div>
+    <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
 
-    <div class="pagina">
+    <div class="container-pagina">
 
-        <header class="titulo-principal">
+        <header class="cabecalho">
             <h1 id="ST">Sistemas de Transmissão</h1>
         </header>
 
         <!-- Imagem de capa -->
-        <div class="galeria">
-            <div class="galeria-item">
+        <div class="grade-imagens">
+            <div class="cartao-imagem">
                 <img src="imagemcapa.png" alt="Elementos de um sistema de transmissão">
             </div>
         </div>
 
-        <div class="conteudo">
+        <div class="area-texto">
 
-            <h2 class="title_texto">O que são os sistemas de transmissão?</h2>
+            <h2 class="subtitulo">O que são os sistemas de transmissão?</h2>
             <p>
                 Os sistemas de transmissão são conjuntos de componentes mecânicos responsáveis por transferir potência e movimento de um eixo para outro, 
                 permitindo o controle da velocidade e torque em máquinas e veículos. Eles desempenham um papel fundamental na eficiência e desempenho dos equipamentos, 
                 garantindo a transmissão adequada de energia para atender às necessidades específicas de cada aplicação.
             </p>
 
-            <h2 class="title_texto">Composição dos sistemas de transmissão</h2>
-            <div class="galeria">
-                <div class="galeria-item">
+            <h2 class="subtitulo">Composição dos sistemas de transmissão</h2>
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
                     <h3>Componentes de um sistema de transmissão</h3>
                     <img src="elementos-de-maquinas.jpg" alt="Componentes de um sistema de transmissão">
                 </div>
@@ -111,7 +108,7 @@
                 Cada componente desempenha um papel específico na transferência de potência e controle do movimento, e a escolha adequada desses elementos é crucial para o desempenho e a durabilidade do sistema.
             </p>
 
-            <h2 class="title_texto">Modelos de sistemas de transmissão</h2>
+            <h2 class="subtitulo">Modelos de sistemas de transmissão</h2>
             <p>
                 Existem diversos tipos de sistemas de transmissão, cada um projetado para atender a necessidades específicas. 
                 Os principais tipos incluem:
@@ -126,84 +123,78 @@
                 <li><strong>Sistemas de transmissão por chavetas:</strong> Utilizam chavetas para conectar componentes e transmitir potência, sendo adequados para aplicações que requerem fácil montagem e desmontagem.</li>
             </ul>
 
-            <h2 class="title_texto" id="STEng">Sistemas de transmissão por engrenagens</h2>
+            <h2 id="STEng" class="subtitulo">Sistemas de transmissão por engrenagens</h2>
             <p>
                 Os sistemas de transmissão por engrenagens são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
                 Eles consistem em um conjunto de engrenagens que se encaixam para transferir potência e controle do movimento entre os eixos. 
-                A escolha do tipo de engrenagem, como engrenagens cilíndricas, cônicas ou helicoidais, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+                A escolha do tipo de engrenagem depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
             </p>
 
-           
-            <h3 class="title_texto">Tipos de engrenagens</h3>
-
-            <div class="galeria">
-                <div class="galeria-item">
-                    <img class="imagens_engrenagens" src="engrenagem-cilindrica-de-dentes-retos-3.jpg" alt="Engrenagem cilíndrica de dentes retos">
-                    <p class="imagem-itemp">Engrenagem cilíndrica de dentes retos</p>
+            <h3 class="subtitulo">Tipos de engrenagens</h3>
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="engrenagem-cilindrica-de-dentes-retos-3.jpg" alt="Engrenagem cilíndrica de dentes retos">
+                    <p class="legenda-imagem">Engrenagem cilíndrica de dentes retos</p>
                 </div>
-                <div class="galeria-item">
-                    <img class="imagens_engrenagens" src="engrenagem-helicoidal.jpeg" alt="Engrenagem helicoidal">
-                    <p class="imagem-itemp">Engrenagem helicoidal</p>
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="engrenagem-helicoidal.jpeg" alt="Engrenagem helicoidal">
+                    <p class="legenda-imagem">Engrenagem helicoidal</p>
                 </div>
-                <div class="galeria-item">
-                    <img class="imagens_engrenagens" src="engrenagem-conica.jpg" alt="Engrenagem cônica">
-                    <p class="imagem-itemp">Engrenagem cônica</p>
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="engrenagem-conica.jpg" alt="Engrenagem cônica">
+                    <p class="legenda-imagem">Engrenagem cônica</p>
                 </div>
-                <div class="galeria-item">
-                    <img class="imagens_engrenagens" src="engrenagem-interna.jpg" alt="Engrenagem interna">
-                    <p class="imagem-itemp">Engrenagem interna</p>
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="engrenagem-interna.jpg" alt="Engrenagem interna">
+                    <p class="legenda-imagem">Engrenagem interna</p>
                 </div>
-                <div class="galeria-item">
-                    <img class="imagens_engrenagens" src="engrenagem-planetária.jpg" alt="Engrenagem planetária">
-                    <p class="imagem-itemp">Engrenagem planetária</p>
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="engrenagem-planetária.jpg" alt="Engrenagem planetária">
+                    <p class="legenda-imagem">Engrenagem planetária</p>
                 </div>
-                <div class="galeria-item">
-                    <img class="imagens_engrenagens" src="engrenagem-cremalheira.jpeg" alt="Engrenagem cremalheira">
-                    <p class="imagem-itemp">Engrenagem cremalheira</p>
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="engrenagem-cremalheira.jpeg" alt="Engrenagem cremalheira">
+                    <p class="legenda-imagem">Engrenagem cremalheira</p>
                 </div>
             </div>
 
-            <h2 class="title_texto" id="STC">Sistemas de transmissão por Correias</h2>
+            <h2 id="STC" class="subtitulo">Sistemas de transmissão por Correias</h2>
             <p>
-                Os sistemas de transmissão por correias são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
-                Eles consistem em um conjunto de correias que se encaixam para transferir potência e controle do movimento entre os eixos. 
-                A escolha do tipo de correia, como correias planas, correias trapezoidais ou correias sincronizadas, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+                Os sistemas de transmissão por correias consistem em um conjunto de correias que transferem potência e controle do movimento entre os eixos. 
+                A escolha do tipo de correia, como correias planas, trapezoidais ou sincronizadas, depende das necessidades da aplicação.
             </p>
 
-            <h2 class="title_texto" id="STCO">Sistemas de transmissão por Correntes</h2>
+            <h2 id="STCO" class="subtitulo">Sistemas de transmissão por Correntes</h2>
             <p>
-                Os sistemas de transmissão por correntes são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
-                Eles consistem em um conjunto de correntes que se encaixam para transferir potência e controle do movimento entre os eixos. 
-                A escolha do tipo de corrente, como correntes planas, correntes trapezoidais ou correntes sincronizadas, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+                Os sistemas de transmissão por correntes consistem em um conjunto de correntes que transferem potência e controle do movimento entre os eixos. 
+                A escolha do tipo de corrente depende das necessidades da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
             </p>
 
-            <h2 class="title_texto" id="STA">Sistemas de transmissão por Acoplamento</h2>
+            <h2 id="STA" class="subtitulo">Sistemas de transmissão por Acoplamento</h2>
             <p>
-                Os sistemas de transmissão por acoplamento são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
-                Eles consistem em um conjunto de acoplamentos que se encaixam para transferir potência e controle do movimento entre os eixos. 
-                A escolha do tipo de acoplamento, como acoplamentos mecânicos, hidráulicos ou pneumáticos, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+                Os sistemas de transmissão por acoplamento consistem em acoplamentos que transferem potência entre os eixos. 
+                A escolha do tipo de acoplamento, como mecânicos, hidráulicos ou pneumáticos, depende das necessidades da aplicação.
             </p>
 
-            <h2 class="title_texto" id="STEx">Sistemas de transmissão por Eixos</h2>
+            <h2 id="STEx" class="subtitulo">Sistemas de transmissão por Eixos</h2>
             <p>
-                Os sistemas de transmissão por eixos são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
-                Eles consistem em um conjunto de eixos que se encaixam para transferir potência e controle do movimento entre as peças. 
-                A escolha do tipo de eixo, como eixos cilíndricos, cônicos ou helicoidais, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+                Os sistemas de transmissão por eixos consistem em eixos que transferem potência entre as peças. 
+                A escolha do tipo de eixo, como cilíndricos, cônicos ou helicoidais, depende das necessidades da aplicação.
             </p>
 
-            <h2 class="title_texto" id="STCa">Sistemas de transmissão por Cardan</h2>
+            <h2 id="STCa" class="subtitulo">Sistemas de transmissão por Cardan</h2>
             <p>
-                Os sistemas de transmissão por cardan são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
-                Eles consistem em um conjunto de cardans que se encaixam para transferir potência e controle do movimento entre os eixos. 
-                A escolha do tipo de cardan, como cardans simples ou cardans duplos, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+                Os sistemas de transmissão por cardan consistem em cardans que transferem potência entre eixos não alinhados. 
+                A escolha entre cardans simples ou duplos depende das necessidades da aplicação.
             </p>
 
-            <h2 class="title_texto" id="STCh">Sistemas de transmissão por Chavetas</h2>
+            <h2 id="STCh" class="subtitulo">Sistemas de transmissão por Chavetas</h2>
             <p>
-                Os sistemas de transmissão por chavetas são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
-                Eles consistem em um conjunto de chavetas que se encaixam para transferir potência e controle do movimento entre os eixos. 
-                A escolha do tipo de chaveta, como chavetas retas, curvas ou helicoidais, depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
+                Os sistemas de transmissão por chavetas consistem em chavetas que conectam componentes e transferem potência entre os eixos. 
+                A escolha do tipo de chaveta, como retas, curvas ou helicoidais, depende das necessidades da aplicação.
             </p>
+
+        </div>
     </div>
 
     <script>
@@ -217,7 +208,6 @@
             document.getElementById('menuSecaoBotao').style.display = 'block';
         }
 
-        // MENU PRINCIPAL
         function abrirMenu() {
             document.getElementById('menuPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');
@@ -230,7 +220,6 @@
             mostrarBotoes();
         }
 
-        // MENU DE SEÇÃO
         function abrirMenuSecao() {
             document.getElementById('menuSecaoPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');

@@ -8,45 +8,44 @@
 </head>
 <body>
 
-    <!-- Botão menu principal -->
-    <!-- CORRIGIDO: adicionado id="menuBotao" -->
-    <button id="menuBotao" class="menu-botao" onclick="abrirMenu()">☰</button>
+    <!-- Botão abrir menu principal -->
+    <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
 
     <!-- Painel lateral principal -->
-    <div class="menu-painel" id="menuPainel">
-        <button class="menu-fechar" onclick="fecharMenu()">✕</button>
-        <nav class="lista-secoes">
-            <a href="../Pagina/pagina.html" class="secao-item">
-                <div class="secao-icone"><img src="menu.png" alt="Ícone de Menu" class="icone"></div>
-                <div class="secao-nome">
+    <div class="painel-lateral" id="menuPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+        <nav class="grade-secoes">
+            <a href="../Pagina/pagina.html" class="botao-secao">
+                <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 00</small>
                     <span>Voltar ao menu principal</span>
                 </div>
             </a>
-            <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="secao-item">
-                <div class="secao-icone"><img src="engrenagem.png" alt="Ícone de Transmissão" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="botao-secao">
+                <div class="icone-secao"><img src="engrenagem.png" alt="Ícone de Transmissão" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 02</small>
                     <span>Sistemas de Transmissão</span>
                 </div>
             </a>
-            <a href="../TPM/tpm.html" class="secao-item">
-                <div class="secao-icone"><img src="tpm.png" alt="Ícone de TPM" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../TPM/tpm.html" class="botao-secao">
+                <div class="icone-secao"><img src="tpm.png" alt="Ícone de TPM" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 03</small>
                     <span>TPM</span>
                 </div>
             </a>
-            <a href="../Instrumento-Medicao/instrumentos-medicao.html" class="secao-item">
-                <div class="secao-icone"><img src="medicao.png" alt="Ícone de Medição" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../Instrumento-Medicao/instrumentos-medicao.html" class="botao-secao">
+                <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 04</small>
                     <span>Instrumentos de Medição</span>
                 </div>
             </a>
-            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="secao-item">
-                <div class="secao-icone"><img src="lubi.png" alt="Ícone de Lubrificação" class="icone"></div>
-                <div class="secao-nome">
+            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="botao-secao">
+                <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
+                <div class="texto-secao">
                     <small>Seção 05</small>
                     <span>Lubrificação Industrial</span>
                 </div>
@@ -54,52 +53,49 @@
         </nav>
     </div>
 
-    <!-- Botão menu de seção -->
-    <button id="menuSecaoBotao" class="menu-botao menu-secao" onclick="abrirMenuSecao()">↓</button>
+    <!-- Botão sumário da página -->
+    <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
 
-    <!-- CORRIGIDO: id corrigido para menuSecaoPainel -->
-    <div class="menu-painel" id="menuSecaoPainel">
-        <button class="menu-fechar" onclick="fecharMenuSecao()">✕</button>
-        <nav class="menu-lista">
-            <a href="#ST" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão</a>
-            <a href="#STEng" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Engrenagens</a>
-            <a href="#STC" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Correias</a>
-            <a href="#STCO" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Correntes</a>
-            <a href="#STA" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Acoplamento</a>
-            <a href="#STEx" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Eixos</a>
-            <a href="#STCa" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Cardan</a>
-            <a href="#STCh" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão por Chavetas</a>
+    <!-- Painel lateral do sumário -->
+    <div class="painel-lateral" id="menuSecaoPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+        <nav class="links-menu">
+            <a href="#oQueEh" onclick="fecharMenuSecao()"> >> O que são rolamentos</a>
+            <a href="#composicao" onclick="fecharMenuSecao()"> >> Composição dos rolamentos</a>
+            <a href="#tipos" onclick="fecharMenuSecao()"> >> Tipos de rolamentos</a>
+            <a href="#especificando" onclick="fecharMenuSecao()"> >> Especificando um rolamento</a>
+            <a href="#mancais" onclick="fecharMenuSecao()"> >> Mancais</a>
         </nav>
     </div>
 
-    <!-- CORRIGIDO: overlay fecha tudo -->
-    <div class="menu-overlay" id="menuOverlay" onclick="fecharTudo()"></div>
+    <!-- Fundo escurecido -->
+    <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
 
-    <div class="pagina">
+    <div class="container-pagina">
 
-        <header class="titulo-principal">
+        <header class="cabecalho">
             <h1>Rolamentos</h1>
         </header>
 
         <!-- Imagem de capa -->
-        <div class="galeria">
-            <div class="galeria-item">
+        <div class="grade-imagens">
+            <div class="cartao-imagem">
                 <img src="rolamentos-automotivos-e-industriais.jpg" alt="Imagem de um rolamento">
             </div>
         </div>
 
-        <div class="conteudo">
+        <div class="area-texto">
 
-            <h2 class="title_texto">O que são rolamentos?</h2>
+            <h2 id="oQueEh" class="subtitulo">O que são rolamentos?</h2>
             <p>
                 Rolamentos são componentes mecânicos essenciais que permitem o movimento suave e eficiente entre partes móveis, 
                 reduzindo o atrito e suportando cargas. Eles são amplamente utilizados em diversas aplicações, 
                 desde veículos automotores até máquinas industriais, garantindo o funcionamento confiável e duradouro dos sistemas mecânicos.
             </p>
 
-            <h2 class="title_texto">Composição dos rolamentos</h2>
-            <div class="galeria">
-                <div class="galeria-item">
+            <h2 id="composicao" class="subtitulo">Composição dos rolamentos</h2>
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
                     <h3>Componentes de um rolamento</h3>
                     <img src="Componentes-de-um-rolamento.png" alt="Componentes de um rolamento">
                 </div>
@@ -109,9 +105,9 @@
                 Os materiais utilizados na fabricação dos rolamentos incluem aço, cerâmica e plásticos de alta resistência, escolhidos com base nas condições de operação e requisitos de desempenho.
             </p>
 
-            <h2 class="title_texto">Tipos de rolamentos</h2>
-            <div class="galeria">
-                <div class="galeria-item">
+            <h2 id="tipos" class="subtitulo">Tipos de rolamentos</h2>
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
                     <h3>Principais tipos de rolamentos</h3>
                     <img src="hq720.jpg" alt="Tipos de rolamentos">
                 </div>
@@ -127,7 +123,7 @@
                 <li><strong>Rolamentos autocompensadores:</strong> Projetados para acomodar desalinhamento entre os anéis interno e externo, garantindo desempenho confiável mesmo em condições adversas.</li>
             </ul>
 
-            <h2 class="title_texto">Especificando um rolamento</h2>
+            <h2 id="especificando" class="subtitulo">Especificando um rolamento</h2>
             <p>
                 A especificação de um rolamento envolve considerar diversos fatores, como as cargas a serem suportadas, 
                 a velocidade de operação, as condições ambientais e o espaço disponível. 
@@ -137,12 +133,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Primeiro dígito <span class="th-subtitulo">Modelo do rolamento</span></th>
-                        <th>Segundo dígito <span class="th-subtitulo">Carga de trabalho</span></th>
-                        <th>Dois últimos dígitos <span class="th-subtitulo">Diâmetro do eixo</span></th>
-                        <th>Blindagem <span class="th-subtitulo">Modelo</span></th>
-                        <th>Lubrificação <span class="th-subtitulo">Tipo</span></th>
-                        <th>Folga <span class="th-subtitulo">Folga interna</span></th>
+                        <th>Primeiro dígito <span class="cabecalho-tabela-detalhe">Modelo do rolamento</span></th>
+                        <th>Segundo dígito <span class="cabecalho-tabela-detalhe">Carga de trabalho</span></th>
+                        <th>Dois últimos dígitos <span class="cabecalho-tabela-detalhe">Diâmetro do eixo</span></th>
+                        <th>Blindagem <span class="cabecalho-tabela-detalhe">Modelo</span></th>
+                        <th>Lubrificação <span class="cabecalho-tabela-detalhe">Tipo</span></th>
+                        <th>Folga <span class="cabecalho-tabela-detalhe">Folga interna</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -205,9 +201,9 @@
                 </tbody>
             </table>
 
-            <h2 class="title_texto">Mancais</h2>
-            <div class="galeria">
-                <div class="galeria-item">
+            <h2 id="mancais" class="subtitulo">Mancais</h2>
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
                     <h3>Tipos de mancais</h3>
                     <img src="mancais.jpg" alt="Imagem de um mancal">
                 </div>
@@ -219,9 +215,8 @@
                 Rolamentos UC são rolamentos inserto utilizados dentro de mancais como UCP, UCF, UCFL e UCT.
             </p>
 
-            <!-- CORRIGIDO: galeria-item dentro de galeria -->
-            <div class="galeria">
-                <div class="galeria-item">
+            <div class="grade-imagens">
+                <div class="cartao-imagem">
                     <h3>Rolamento UC</h3>
                     <img src="uc.png" alt="Imagem de um rolamento UC">
                 </div>
@@ -241,7 +236,6 @@
             document.getElementById('menuSecaoBotao').style.display = 'block';
         }
 
-        // MENU PRINCIPAL
         function abrirMenu() {
             document.getElementById('menuPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');
@@ -254,7 +248,6 @@
             mostrarBotoes();
         }
 
-        // MENU DE SEÇÃO
         function abrirMenuSecao() {
             document.getElementById('menuSecaoPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');
@@ -267,7 +260,6 @@
             mostrarBotoes();
         }
 
-        // CORRIGIDO: fecharTudo fecha os dois painéis
         function fecharTudo() {
             fecharMenu();
             fecharMenuSecao();

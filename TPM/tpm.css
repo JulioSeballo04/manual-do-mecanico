@@ -108,9 +108,21 @@ body {
     text-align: center;
 }
 
+.cartao-capa img {
+    width: 350px;
+    height: 250px;
+    border: 1px solid var(--border);
+    animation: danceimg 5s infinite;
+}   
+
+@keyframes danceimg {
+    0%, 100% { transform: scale(.9); border-radius: 4% 95% 6% / 95% 4% 92% 5%; }
+    50%       { transform: scale(.8); border-radius: 95% 4% 97% / 4% 96% 3% 97%; }
+}
+
 .cartao-imagem img {
-    width: 200px;
-    height: 200px;
+    width: 500px;
+    height: 250px;
     border: 1px solid var(--border);
     animation: danceimg 5s infinite;
 }

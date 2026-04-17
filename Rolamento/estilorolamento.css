@@ -22,35 +22,35 @@ body {
     padding: 40px 20px;
 }
 
-/* Página */
-.pagina {
+/* Div que centraliza todo o conteúdo */
+.container-pagina {
     width: 100%;
     max-width: 900px;
 }
 
-/* Título principal */
-.titulo-principal {
+/* Header com o título da página */
+.cabecalho {
     border-left: 6px solid var(--accent);
     padding-left: 20px;
     margin-bottom: 40px;
 }
 
-.titulo-principal h1 {
+.cabecalho h1 {
     text-transform: uppercase;
     font-size: 32px;
     letter-spacing: 2px;
     color: #fff;
 }
 
-/* Área de conteúdo */
-.conteudo {
+/* Área com os textos e seções */
+.area-texto {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-/* Subtítulos */
-.title_texto {
+/* Títulos amarelos de cada seção */
+.subtitulo {
     font-size: 20px;
     font-weight: 600;
     color: var(--accent);
@@ -58,32 +58,32 @@ body {
 }
 
 /* Parágrafos */
-.conteudo p {
+.area-texto p {
     font-size: 15px;
     line-height: 1.8;
     color: var(--text);
 }
 
 /* Lista */
-.conteudo ul {
+.area-texto ul {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.conteudo ul li {
+.area-texto ul li {
     font-size: 15px;
     line-height: 1.7;
     color: var(--text);
 }
 
-.conteudo ul li strong {
+.area-texto ul li strong {
     color: #fff;
 }
 
-/* Galeria de imagens */
-.galeria {
+/* Linha/grid que agrupa as imagens */
+.grade-imagens {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -91,14 +91,15 @@ body {
     margin: 20px 0;
 }
 
-.galeria-item {
+/* Cada bloco individual de imagem + legenda */
+.cartao-imagem {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
 }
 
-.galeria-item h3 {
+.cartao-imagem h3 {
     font-size: 14px;
     font-weight: 600;
     color: var(--accent);
@@ -107,15 +108,12 @@ body {
     text-align: center;
 }
 
-/* CORRIGIDO: adicionado object-fit: contain */
-.galeria-item img {
+.cartao-imagem img {
     width: 300px;
     height: 300px;
-    object-fit: contain;
     border-radius: 12px;
     border: 1px solid var(--border);
     background: var(--card-bg);
-    padding: 20px;
     animation: balanço 3s ease-in-out infinite;
 }
 
@@ -124,14 +122,15 @@ body {
     50%       { transform: rotate(2deg); }
 }
 
-/* Menu lista-secoes */
-.lista-secoes {
+/* Grade que agrupa os botões de seção (dentro do menu) */
+.grade-secoes {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.secao-item {
+/* Cada botão de seção */
+.botao-secao {
     background: var(--card-bg);
     border: 1px solid var(--border);
     padding: 18px 25px;
@@ -144,13 +143,14 @@ body {
     color: inherit;
 }
 
-.secao-item:hover {
+.botao-secao:hover {
     border-color: var(--accent);
     background: #252525;
     transform: scale(1.02);
 }
 
-.secao-icone {
+/* Caixinha do ícone */
+.icone-secao {
     font-size: 24px;
     margin-right: 20px;
     background: #121212;
@@ -163,21 +163,23 @@ body {
     border: 1px solid var(--border);
 }
 
-.secao-nome span {
+/* Bloco com número e nome da seção */
+.texto-secao span {
     display: block;
     font-weight: 600;
     font-size: 17px;
     color: #fff;
 }
 
-.secao-nome small {
+.texto-secao small {
     font-size: 10px;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.icone {
+/* Imagem dentro do ícone */
+.imagem-icone {
     width: 40px;
     height: 40px;
     background: var(--accent);
@@ -208,7 +210,8 @@ th {
     border-bottom: 1px solid var(--border);
 }
 
-.th-subtitulo {
+/* Texto menor abaixo do título da coluna */
+.cabecalho-tabela-detalhe {
     display: block;
     font-size: 10px;
     color: #aaa;
@@ -233,8 +236,8 @@ tbody tr:hover {
     background: #252525;
 }
 
-/* Botão hamburguer */
-.menu-botao {
+/* Botão fixo no canto para abrir o menu */
+.botao-abrir-menu {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -250,16 +253,17 @@ tbody tr:hover {
     transition: background 0.2s;
 }
 
-.menu-botao:hover {
+.botao-abrir-menu:hover {
     background: #252525;
 }
 
-.menu-secao {
+/* Botão do sumário, fica abaixo do botão ☰ */
+.botao-sumario {
     top: 75px;
 }
 
-/* Painel lateral */
-.menu-painel {
+/* Painel que desliza da direita */
+.painel-lateral {
     position: fixed;
     top: 0;
     right: -300px;
@@ -276,12 +280,12 @@ tbody tr:hover {
     overflow-y: auto;
 }
 
-.menu-painel.aberto {
+.painel-lateral.aberto {
     right: 0;
 }
 
-/* Botão fechar */
-.menu-fechar {
+/* Botão ✕ dentro do painel */
+.botao-fechar-menu {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -292,18 +296,18 @@ tbody tr:hover {
     cursor: pointer;
 }
 
-.menu-fechar:hover {
+.botao-fechar-menu:hover {
     color: #fff;
 }
 
-/* Links do menu */
-.menu-lista {
+/* Lista de links dentro do painel */
+.links-menu {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.menu-lista a {
+.links-menu a {
     display: block;
     padding: 12px 16px;
     border-radius: 6px;
@@ -313,13 +317,13 @@ tbody tr:hover {
     transition: background 0.2s;
 }
 
-.menu-lista a:hover {
+.links-menu a:hover {
     background: #252525;
     color: #fff;
 }
 
-/* Fundo escurecido */
-.menu-overlay {
+/* Fundo escuro ao abrir o menu */
+.fundo-escurecido {
     display: none;
     position: fixed;
     inset: 0;
@@ -327,13 +331,13 @@ tbody tr:hover {
     z-index: 998;
 }
 
-.menu-overlay.aberto {
+.fundo-escurecido.aberto {
     display: block;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .titulo-principal {
+    .cabecalho {
         border-left: none;
         border-bottom: 4px solid var(--accent);
         padding-left: 0;
@@ -341,7 +345,7 @@ tbody tr:hover {
         text-align: center;
     }
 
-    .galeria-item img {
+    .cartao-imagem img {
         width: 220px;
         height: 220px;
     }
