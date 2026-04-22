@@ -436,13 +436,13 @@ body {
 
 /* 📱 MOBILE (até 550px) */
 @media (max-width: 550px) {
-.card-group {
+.grupo-imagens {
     gap: 15px;
     padding: 20px 15px;
 }
 
-.card {
-    width: 90vw;       /* 1 card por linha */
+.cartao {
+    width: 90vw;       
     height: 200px;
 }
 
