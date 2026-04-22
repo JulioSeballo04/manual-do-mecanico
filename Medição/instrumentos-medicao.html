@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrumentos de Medição - Manual do Mecânico</title>
+    <link rel="stylesheet" href="instrumentos-medicao.css">
+</head>
+<body>
+
+    <!-- Botão abrir menu principal -->
+    <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
+
+    <!-- Painel lateral principal -->
+    <div class="painel-lateral" id="menuPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+        <nav class="grade-secoes">
+            <a href="../Pagina/pagina.html" class="botao-secao">
+                <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 00</small>
+                    <span>Voltar ao menu principal</span>
+                </div>
+            </a>
+            <a href="../Rolamento/rolamentos.html" class="botao-secao">
+                <div class="icone-secao"><img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 01</small>
+                    <span>Rolamentos</span>
+                </div>
+            </a>
+            <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="botao-secao">
+                <div class="icone-secao"><img src="engrenagem.png" alt="Ícone de engrenagem" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 02</small>
+                    <span>Sistemas de Transmissão</span>
+                </div>
+            </a>
+            <a href="../TPM/tpm.html" class="botao-secao">
+                <div class="icone-secao"><img src="tpm.png" alt="Ícone de TPM" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 03</small>
+                    <span>TPM</span>
+                </div>
+            </a>
+            <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="botao-secao">
+                <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 05</small>
+                    <span>Lubrificação Industrial</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Botão sumário da página -->
+    <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
+
+    <div class="painel-lateral" id="menuSecaoPainel">
+        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+        <nav class="links-menu">
+            <a href="#instrumentos" onclick="fecharMenuSecao()"> >> O que são Instrumentos de Medição</a>
+            <a href="#composicao" onclick="fecharMenuSecao()"> >> Instrumentos utilizados</a>
+            <a href="#manutencao" onclick="fecharMenuSecao()"> >> Pilar da Manutenção</a>
+            <a href="#preventiva" onclick="fecharMenuSecao()"> >> Manutenção Preventiva</a>
+            <a href="#preditiva" onclick="fecharMenuSecao()"> >> Manutenção Preditiva</a>
+            <a href="#corretiva" onclick="fecharMenuSecao()"> >> Manutenção Corretiva</a>
+            <a href="#autonoma" onclick="fecharMenuSecao()"> >> Manutenção Autônoma</a>
+            <a href="#5s" onclick="fecharMenuSecao()"> >> Modelo 5 Sensos</a>
+        </nav>
+    </div>
+
+    <!-- Fundo escurecido -->
+    <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
+
+    <div class="container-pagina">
+
+        <header class="cabecalho">
+            <h1>Instrumentos de Medição</h1>
+            <p>Mecânica</p>
+        </header>
+
+        <!-- Imagem de capa -->
+        <div class="grade-imagens">
+            <div class="cartao-imagem">
+                <img src="capa.jpg" alt="Instrumentos de Medição">
+            </div>
+        </div>
+
+        <div class="area-texto">
+
+            <h2 id="instrumentos" class="subtitulo">O que são Instrumentos de Medição?</h2>
+            <p>
+                Instrumentos de Medição são dispositivos utilizados para determinar valores de grandezas físicas, 
+                como temperatura, pressão, vazão, entre outras. Eles são essenciais em diversos setores industriais e técnicos, 
+                permitindo o controle e a análise precisa dos processos.
+            </p>
+
+            <h2 id="composicao" class="subtitulo">Quais os instrumentos de medição utilizados na mecânica?</h2>
+
+            <div class="grupo-imagens">
+
+                <div class="cartao">
+                    <img src="escala.png" alt="Escala">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h1>Escala</h1>
+                        <button>Informações</button>
+                    </div>
+                </div>
+
+                <div class="cartao">
+                    <img src="micrometro.png" alt="Micrômetro">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h1>Micrômetro</h1>
+                        <button>Informações</button>
+                    </div>
+                </div>
+
+                <div class="cartao">
+                    <img src="nivel.png" alt="Nível">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h1>Nível</h1>
+                        <button>Informações</button>
+                    </div>
+                </div>
+
+                <div class="cartao">
+                    <img src="paquimetro.webp" alt="Paquímetro">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h1>Paquímetro</h1>
+                        <button>Informações</button>
+                    </div>
+                </div>
+
+                <div class="cartao">
+                    <img src="relogio comparador.webp" alt="Relógio Comparador">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h1>Relógio Comparador</h1>
+                        <button>Informações</button>
+                    </div>
+                </div>
+
+                <div class="cartao">
+                    <img src="subito.webp" alt="Súbito">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h1>Súbito</h1>
+                        <button>Informações</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <ul>
+                <li><strong>Melhoria Específica:</strong> Foco em melhorar continuamente os processos e a qualidade dos produtos ou serviços.</li>
+                <li><strong>Manutenção Autônoma:</strong> Capacita os operadores para realizar tarefas de manutenção básica e inspeção regular.</li>
+                <li><strong>Manutenção Planejada:</strong> Envolve a manutenção preventiva e preditiva para minimizar as paradas e maximizar a disponibilidade dos equipamentos.</li>
+                <li><strong>Treinamento e Educação:</strong> Desenvolvimento contínuo das habilidades e conhecimentos dos colaboradores.</li>
+                <li><strong>Controle Inicial:</strong> Gerenciamento do ciclo de vida dos equipamentos desde a fase de projeto até a operação.</li>
+                <li><strong>Manutenção da Qualidade:</strong> Visando a melhoria contínua da qualidade dos processos de produção.</li>
+                <li><strong>Administração da Qualidade:</strong> Aplicação dos princípios do TPM nas áreas administrativas e de suporte.</li>
+                <li><strong>Segurança, Saúde e Meio Ambiente:</strong> Garantindo um ambiente de trabalho seguro e saudável para todos os colaboradores.</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <script>
+        function esconderBotoes() {
+            document.getElementById('menuBotao').style.display = 'none';
+            document.getElementById('menuSecaoBotao').style.display = 'none';
+        }
+
+        function mostrarBotoes() {
+            document.getElementById('menuBotao').style.display = 'block';
+            document.getElementById('menuSecaoBotao').style.display = 'block';
+        }
+
+        function abrirMenu() {
+            document.getElementById('menuPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenu() {
+            document.getElementById('menuPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        function abrirMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+        function fecharTudo() {
+            fecharMenu();
+            fecharMenuSecao();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+/* =============================================
+   VARIÁVEIS GLOBAIS
+   ============================================= */
+
+:root {
+    --accent: #f2a900;
+    --bg:     #121212;
+    --card-bg:#1e1e1e;
+    --text:   #e0e0e0;
+    --border: #333;
+}
+
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+
+/* =============================================
+   LAYOUT PRINCIPAL
+   ============================================= */
+
+.container-pagina {
+    width: 100%;
+    max-width: 900px;
+}
+
+
+/* =============================================
+   CABEÇALHO
+   ============================================= */
+
+.cabecalho {
+    border-left: 6px solid var(--accent);
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+.cabecalho h1 {
+    text-transform: uppercase;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+
+/* =============================================
+   ÁREA DE TEXTO (parágrafos, listas, títulos)
+   ============================================= */
+
+.area-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.subtitulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 10px;
+}
+
+.area-texto p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.area-texto ul {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.area-texto ul li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.area-texto ul li strong {
+    color: #fff;
+}
+
+
+/* =============================================
+   IMAGENS DE SEÇÃO (capa, infográficos)
+   ============================================= */
+
+.grade-imagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+}
+
+.cartao-imagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.cartao-imagem h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.cartao-imagem img {
+    width: 500px;
+    height: 250px;
+    border: 1px solid var(--border);
+    animation: danceimg 5s infinite;
+}
+
+.cartao-capa img {
+    width: 350px;
+    height: 250px;
+    border: 1px solid var(--border);
+    animation: danceimg 5s infinite;
+}
+
+@keyframes danceimg {
+    0%, 100% { transform: scale(.9); border-radius: 4% 95% 6% / 95% 4% 92% 5%; }
+    50%       { transform: scale(.8); border-radius: 95% 4% 97% / 4% 96% 3% 97%; }
+}
+
+.imagem-pequena {
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    animation: balanco 3s ease-in-out infinite;
+}
+
+@keyframes balanco {
+    0%, 100% { transform: rotate(-2deg); }
+    50%       { transform: rotate(2deg); }
+}
+
+.legenda-imagem {
+    font-size: 13px;
+    color: var(--accent);
+    text-align: center;
+}
+
+
+/* =============================================
+   MENU LATERAL (botões de abrir/fechar)
+   ============================================= */
+
+.botao-abrir-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--accent);
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.2s;
+}
+
+.botao-abrir-menu:hover {
+    background: #252525;
+}
+
+.botao-sumario {
+    top: 75px;
+}
+
+.painel-lateral {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--card-bg);
+    border-left: 1px solid var(--border);
+    padding: 60px 20px 20px;
+    z-index: 999;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.painel-lateral.aberto {
+    right: 0;
+}
+
+.botao-fechar-menu {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.botao-fechar-menu:hover {
+    color: #fff;
+}
+
+.fundo-escurecido {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+}
+
+.fundo-escurecido.aberto {
+    display: block;
+}
+
+
+/* =============================================
+   MENU LATERAL — SEÇÕES DE NAVEGAÇÃO
+   ============================================= */
+
+.grade-secoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.botao-secao {
+    display: flex;
+    align-items: center;
+    padding: 18px 25px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.botao-secao:hover {
+    border-color: var(--accent);
+    background: #252525;
+    transform: scale(1.02);
+}
+
+.icone-secao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin-right: 20px;
+    background: #121212;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 24px;
+}
+
+.imagem-icone {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 15%;
+}
+
+.texto-secao span {
+    display: block;
+    font-weight: 600;
+    font-size: 17px;
+    color: #fff;
+}
+
+.texto-secao small {
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =============================================
+   MENU LATERAL — LINKS DE SUMÁRIO
+   ============================================= */
+
+.links-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.links-menu a {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 6px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.links-menu a:hover {
+    background: #252525;
+    color: #fff;
+}
+
+
+/* =============================================
+   CARTÕES DE INSTRUMENTOS
+   ============================================= */
+
+.grupo-imagens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  max-width: 1300px;
+  padding: 40px 20px;
+}
+
+.cartao {
+    position: relative;
+    width: 400px;
+    height: 225px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.cartao img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: darkgrey;
+    transition: 0.5s;
+}
+
+.layer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.info {
+    position: absolute;
+    bottom: -50%;
+    padding: 15px;
+    color: rgb(184, 134, 11);
+    transition: 0.5s;
+}
+
+.info h1 {
+    font-size: 18px;
+}
+
+.info button {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #490ccc;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* =============================================
+   CARTÕES — EFEITOS HOVER
+   ============================================= */
+
+.cartao:hover {
+    transform: scale(1.05);
+}
+
+.cartao:hover .layer {
+    opacity: 1;
+}
+
+.cartao:hover .info {
+    bottom: 0;
+}
+
+
+/* =============================================
+   RESPONSIVIDADE
+   ============================================= */
+
+/* Tablet (até 900px) */
+@media (max-width: 900px) {
+    .cartao {
+        width: 45vw;
+        height: 200px;
+    }
+}
+
+/* Mobile grande (até 768px) */
+@media (max-width: 768px) {
+    .cabecalho {
+        border-left: none;
+        border-bottom: 4px solid var(--accent);
+        padding-left: 0;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+
+    .cartao-imagem img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .imagem-pequena {
+        width: 120px;
+        height: 120px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Mobile pequeno (até 550px) */
+@media (max-width: 550px) {
+    .grupo-imagens {
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .cartao {
+        width: 90vw;
+        height: 200px;
+    }
+
+    /* Info sempre visível no mobile (sem hover) */
+    .layer {
+        opacity: 1;
+    }
+
+    .info {
+        bottom: 0;
+    }
+
+    /* Blur desativado no touch */
+    .grupo-imagens:hover .cartao:not(:hover) {
+        filter: none;
+    }
+}
