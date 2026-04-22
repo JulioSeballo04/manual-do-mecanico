@@ -476,9 +476,4 @@ body {
     .info {
         bottom: 0;
     }
-
-    /* Blur desativado no touch */
-    .grupo-imagens:hover .cartao:not(:hover) {
-        filter: none;
-    }
 }
