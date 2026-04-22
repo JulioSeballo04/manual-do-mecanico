@@ -423,91 +423,35 @@ body {
 
 
 /* =============================================
-   CARTÕES — EFEITO CLIQUE (mobile)
-   Classe .ativo adicionada via JavaScript
-   ============================================= */
-
-.cartao.ativo {
-    transform: scale(1.05);
-}
-
-.cartao.ativo .layer {
-    opacity: 1;
-}
-
-.cartao.ativo .info {
-    bottom: 0;
-}
-
-.grupo-imagens.tem-ativo .cartao:not(.ativo) {
-    filter: blur(5px);
-    opacity: 0.6;
-    transition: filter 0.3s, opacity 0.3s;
-}
-
-
-/* =============================================
    RESPONSIVIDADE
    ============================================= */
 
-/* Tablet (até 900px) */
+/* 📱 TABLET (até 900px) */
 @media (max-width: 900px) {
-    .cartao {
-        width: 45vw;
-        height: 200px;
+.card {
+    width: 45vw;       /* 2 cards por linha */
+    height: 200px;
     }
 }
 
-/* Mobile grande (até 768px) */
-@media (max-width: 768px) {
-    .cabecalho {
-        border-left: none;
-        border-bottom: 4px solid var(--accent);
-        padding-left: 0;
-        padding-bottom: 15px;
-        text-align: center;
-    }
-
-    .cartao-imagem img {
-        width: 220px;
-        height: 220px;
-    }
-
-    .imagem-pequena {
-        width: 120px;
-        height: 120px;
-    }
-
-    table {
-        display: block;
-        overflow-x: auto;
-    }
-}
-
-/* Mobile pequeno (até 550px) */
+/* 📱 MOBILE (até 550px) */
 @media (max-width: 550px) {
-    .grupo-imagens {
-        gap: 15px;
-        padding: 15px 0;
-    }
+.card-group {
+    gap: 15px;
+    padding: 20px 15px;
+}
 
-    .cartao {
-        width: 90vw;
-        height: 200px;
-    }
+.card {
+    width: 90vw;       /* 1 card por linha */
+    height: 200px;
+}
 
-    /* Desativa hover no mobile (substituído pelo clique via JS) */
-    .grupo-imagens:hover .cartao:not(:hover) {
-        filter: none;
-        opacity: 1;
-    }
+.layer {
+    opacity: 1;
+}
 
-    /* Info sempre visível no mobile */
-    .layer {
-        opacity: 1;
-    }
+.info {
+    bottom: 0;
+}
 
-    .info {
-        bottom: 0;
-    }
 }

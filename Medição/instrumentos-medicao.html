@@ -210,23 +210,6 @@
             fecharMenuSecao();
         }
 
-        // Efeito de blur no clique (mobile)
-        document.querySelectorAll('.cartao').forEach(cartao => {
-            cartao.addEventListener('click', () => {
-                const grupo = cartao.closest('.grupo-imagens');
-                const jaAtivo = cartao.classList.contains('ativo');
-
-                // Remove ativo de todos e limpa o grupo
-                grupo.querySelectorAll('.cartao').forEach(c => c.classList.remove('ativo'));
-                grupo.classList.remove('tem-ativo');
-
-                // Se não estava ativo, ativa agora
-                if (!jaAtivo) {
-                    cartao.classList.add('ativo');
-                    grupo.classList.add('tem-ativo');
-                }
-            });
-        });
     </script>
 
 </body>
