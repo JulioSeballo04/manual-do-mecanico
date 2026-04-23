@@ -473,6 +473,12 @@ body {
     padding: 20px 15px;
 }
 
+.grade-imagens {
+    gap: 20px;
+    padding: auto;
+}
+
+
 .cartao {
     width: 90vw;       
     height: 200px;
