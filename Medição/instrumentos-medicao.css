@@ -390,15 +390,47 @@ body {
 }
 
 .info button {
+    display: inline-block;
     margin-top: 8px;
-    padding: 8px 12px;
+    padding: 8px 18px;
     background: #490ccc;
-    border: none;
     border-radius: 8px;
     color: white;
     font-weight: bold;
+    text-decoration: none;
     cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
 }
+
+/* A onda começa pequena e invisível no centro */
+.info button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
+    opacity: 1; /* começa VISÍVEL */
+}
+
+/* No hover a onda CRESCE e some */
+.info button:hover::after {
+    width: 250px;
+    height: 250px;
+    opacity: 0; /* some enquanto cresce */
+}
+
+.info button:hover {
+    background: #6a2ff0;
+}
+
 
 
 /* =============================================

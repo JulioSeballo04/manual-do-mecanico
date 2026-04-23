@@ -6,15 +6,24 @@
     <title>Instrumentos de Medição - Manual do Mecânico</title>
     <link rel="stylesheet" href="instrumentos-medicao.css">
 </head>
-<body>
 
-    <!-- Botão abrir menu principal -->
+<body>
+        <!--  BOTÃO DE ABRIR O MENU PRINCIPAL (o ☰ no canto da tela)
+         Quando clicado, chama a função abrirMenu() lá no JavaScript -->
     <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
 
-    <!-- Painel lateral principal -->
-    <div class="painel-lateral" id="menuPainel">
+         <!-- MENU LATERAL PRINCIPAL
+         Fica escondido do lado direito da tela.
+         Quando o botão ☰ é clicado, ele aparece deslizando.
+         aside> significa "conteúdo do lado" — perfeito para menus! -->
+
+    <aside class="painel-lateral" id="menuPainel">
+        <!-- Botão do X para fechar o menu -->
         <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+        <!-- Lista de links para as outras páginas do manual -->
         <nav class="grade-secoes">
+        <!-- <nav> significa "navegação" — é onde ficam os links de ir para outros lugares -->
+            <!-- Cada <a> é um botão que leva para outra página -->
             <a href="../Pagina/pagina.html" class="botao-secao">
                 <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -51,44 +60,81 @@
                 </div>
             </a>
         </nav>
-    </div>
-
-    <!-- Botão sumário da página -->
+    </aside> <!-- Fim do menu lateral principal -->
+         <!-- BOTÃO DE ABRIR O SUMÁRIO (o ↓ abaixo do botão ☰)
+         O sumário mostra os tópicos DENTRO desta página -->
     <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
+         <!-- MENU LATERAL DO SUMÁRIO
+         Mostra os títulos desta página para o usuário pular direto
+         para o trecho que ele quer ler -->
+    <aside class="painel-lateral" id="menuSecaoPainel">
 
-    <div class="painel-lateral" id="menuSecaoPainel">
+        <!-- Botão do X para fechar o sumário -->
         <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
-        <nav class="links-menu">
-            <a href="#instrumentos" onclick="fecharMenuSecao()"> >> O que são Instrumentos de Medição</a>
-            <a href="#composicao" onclick="fecharMenuSecao()"> >> Instrumentos utilizados</a>
-            <a href="#manutencao" onclick="fecharMenuSecao()"> >> Pilar da Manutenção</a>
-            <a href="#preventiva" onclick="fecharMenuSecao()"> >> Manutenção Preventiva</a>
-            <a href="#preditiva" onclick="fecharMenuSecao()"> >> Manutenção Preditiva</a>
-            <a href="#corretiva" onclick="fecharMenuSecao()"> >> Manutenção Corretiva</a>
-            <a href="#autonoma" onclick="fecharMenuSecao()"> >> Manutenção Autônoma</a>
-            <a href="#5s" onclick="fecharMenuSecao()"> >> Modelo 5 Sensos</a>
-        </nav>
-    </div>
 
-    <!-- Fundo escurecido -->
+        <!-- Links que levam para cada parte DESTA página -->
+        <nav class="links-menu">
+            <!-- O href="#instrumentos" pula para o elemento com id="instrumentos" na página -->
+            <a href="#instrumentos" onclick="fecharMenuSecao()"> >> O que são Instrumentos de Medição</a>
+            <a href="#composicao"   onclick="fecharMenuSecao()"> >> Instrumentos utilizados</a>
+            <a href="#escala"   onclick="fecharMenuSecao()"> >> Escala</a>
+            <a href="#micrometro"   onclick="fecharMenuSecao()"> >> Micrômetro</a>
+            <a href="#nivel"   onclick="fecharMenuSecao()"> >> Nível</a>
+            <a href="#paquimetro"   onclick="fecharMenuSecao()"> >> Paquímetro</a>
+            <a href="#relógio-comparador"   onclick="fecharMenuSecao()"> >> Relógio Comparador</a>
+            <a href="#súbito"   onclick="fecharMenuSecao()"> >> Súbito</a>
+            <a href="#trena"   onclick="fecharMenuSecao()"> >> Trena</a>
+            <a href="#torquímetro"   onclick="fecharMenuSecao()"> >> Torquímetro</a>
+            <a href="#calibre-de-folga"   onclick="fecharMenuSecao()"> >> Calibre de Folga</a>
+            <a href="#esquadro"   onclick="fecharMenuSecao()"> >> Esquadro</a>
+        </nav>
+
+    </aside>
+    <!-- Fim do sumário -->
+
+    <!-- ============================================================
+         FUNDO ESCURECIDO
+         Quando qualquer menu abre, este fundo escuro aparece por trás.
+         Clicar nele fecha tudo — como clicar fora de uma janelinha.
+         ============================================================ -->
     <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
 
-    <div class="container-pagina">
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA
+         <main> diz: "aqui mora o conteúdo mais importante"
+         Só deve existir UM <main> por página
+         ============================================================ -->
+    <main class="container-pagina">
 
+        <!-- --------------------------------------------------------
+             CABEÇALHO DA PÁGINA
+             Título e subtítulo que aparecem no topo
+             -------------------------------------------------------- -->
         <header class="cabecalho">
             <h1>Instrumentos de Medição</h1>
+            <!-- <h1> é o título mais importante — use só um por página! -->
             <p>Mecânica</p>
         </header>
 
-        <!-- Imagem de capa -->
-        <div class="grade-imagens">
-            <div class="cartao-imagem">
-                <img src="capa.jpg" alt="Instrumentos de Medição">
-            </div>
-        </div>
+        <!-- --------------------------------------------------------
+             IMAGEM DE CAPA
+             <figure> é a tag certa para imagens com contexto,
+             como fotos de um livro ou ilustrações de um artigo
+             -------------------------------------------------------- -->
+        <figure class="grade-imagens">
+            <img src="capa.jpg" alt="Instrumentos de Medição">
+            <!-- alt= é o texto que aparece se a imagem não carregar,
+                 e que leitores de tela usam para descrever a imagem -->
+        </figure>
 
-        <div class="area-texto">
-
+        <!-- --------------------------------------------------------
+             SEÇÃO DE TEXTO
+             <section> agrupa um bloco de conteúdo relacionado,
+             como um capítulo de um livro
+             -------------------------------------------------------- -->
+        <section class="area-texto">
+            <!-- Título da primeira parte — id="instrumentos" permite
+                 o link do sumário pular direto até aqui -->
             <h2 id="instrumentos" class="subtitulo">O que são Instrumentos de Medição?</h2>
             <p>
                 Instrumentos de Medição são dispositivos utilizados para determinar valores de grandezas físicas, 
@@ -96,81 +142,229 @@
                 permitindo o controle e a análise precisa dos processos.
             </p>
 
+            <!-- Título da segunda parte -->
             <h2 id="composicao" class="subtitulo">Quais os instrumentos de medição utilizados na mecânica?</h2>
 
+            <!-- --------------------------------------------------------
+                 GRADE DE CARTÕES DOS INSTRUMENTOS
+                 Cada <article> é um cartão independente com foto e botão.
+                 <article> significa "conteúdo que faz sentido sozinho",
+                 como uma notícia ou um produto numa loja
+                 -------------------------------------------------------- -->
             <div class="grupo-imagens">
 
-                <div class="cartao">
+                <!-- CARTÃO: Escala -->
+                <article class="cartao">
                     <img src="escala.png" alt="Escala">
+                    <!-- Camada escura que aparece quando passa o mouse -->
                     <div class="layer"></div>
+                    <!-- Informações que sobem quando passa o mouse -->
                     <div class="info">
-                        <h1>Escala</h1>
-                        <button>Informações</button>
+                        <h2>Escala</h2>
+                        <button onclick="window.location.href='#escala'" class="info button">Informações</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="cartao">
+                <!-- CARTÃO: Micrômetro -->
+                <article class="cartao">
                     <img src="micrometro.png" alt="Micrômetro">
                     <div class="layer"></div>
                     <div class="info">
-                        <h1>Micrômetro</h1>
-                        <button>Informações</button>
+                        <h2>Micrômetro</h2>
+                        <button onclick="window.location.href='#micrometro'" class="info button">Informações</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="cartao">
+                <!-- CARTÃO: Nível -->
+                <article class="cartao">
                     <img src="nivel.png" alt="Nível">
                     <div class="layer"></div>
                     <div class="info">
-                        <h1>Nível</h1>
-                        <button>Informações</button>
+                        <h2>Nível</h2>
+                        <button onclick="window.location.href='#nivel'" class="info button">Informações</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="cartao">
+                <!-- CARTÃO: Paquímetro -->
+                <article class="cartao">
                     <img src="paquimetro.webp" alt="Paquímetro">
                     <div class="layer"></div>
                     <div class="info">
-                        <h1>Paquímetro</h1>
-                        <button>Informações</button>
+                        <h2>Paquímetro</h2>
+                        <button onclick="window.location.href='#paquimetro'" class="info button">Informações</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="cartao">
+                <!-- CARTÃO: Relógio Comparador -->
+                <article class="cartao">
                     <img src="relogio comparador.webp" alt="Relógio Comparador">
                     <div class="layer"></div>
                     <div class="info">
-                        <h1>Relógio Comparador</h1>
-                        <button>Informações</button>
+                        <h2>Relógio Comparador</h2>
+                        <button onclick="window.location.href='#relógio-comparador'" class="info button">Informações</button>
                     </div>
-                </div>
+                </article>
 
-                <div class="cartao">
+                <!-- CARTÃO: Súbito -->
+                <article class="cartao">
                     <img src="subito.webp" alt="Súbito">
                     <div class="layer"></div>
                     <div class="info">
-                        <h1>Súbito</h1>
-                        <button>Informações</button>
+                        <h2>Súbito</h2>
+                        <button onclick="window.location.href='#súbito'" class="info button">Informações</button>
                     </div>
-                </div>
+                </article>
+
+                <!-- CARTÃO: Trena -->
+                <article class="cartao">
+                    <img src="trena.jpg" alt="Trena">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h2>Trena</h2>
+                        <button onclick="window.location.href='#trena'" class="info button">Informações</button>
+                    </div>
+                </article>
+
+                <!-- CARTÃO: Torquímetro -->
+                <article class="cartao">
+                    <img src="torquimetro.webp" alt="Torquímetro">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h2>Torquímetro</h2>
+                        <button onclick="window.location.href='#torquímetro'" class="info button">Informações</button>
+                    </div>
+                </article>
+
+                <!-- CARTÃO: Calibre de Folga -->
+                <article class="cartao">
+                    <img src="calibre de folgas.webp" alt="Calibre de Folga">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h2>Calibre de Folga</h2>
+                        <button onclick="window.location.href='#calibre-de-folga'" class="info button">Informações</button>
+                    </div>
+                </article>
+
+                <!-- CARTÃO: Esquadro -->
+                <article class="cartao">
+                    <img src="esquadro.webp" alt="Esquadro">
+                    <div class="layer"></div>
+                    <div class="info">
+                        <h2>Esquadro</h2>
+                        <button onclick="window.location.href='#esquadro'" class="info button">Informações</button>
+                    </div>
+                </article>
 
             </div>
-
+            <!-- Fim da grade de cartões -->
+            <h2 id="escala" class="subtitulo">Escala</h2>
+            <p>Ferramenta simples para medir comprimentos básicos</p>
             <ul>
-                <li><strong>Melhoria Específica:</strong> Foco em melhorar continuamente os processos e a qualidade dos produtos ou serviços.</li>
-                <li><strong>Manutenção Autônoma:</strong> Capacita os operadores para realizar tarefas de manutenção básica e inspeção regular.</li>
-                <li><strong>Manutenção Planejada:</strong> Envolve a manutenção preventiva e preditiva para minimizar as paradas e maximizar a disponibilidade dos equipamentos.</li>
-                <li><strong>Treinamento e Educação:</strong> Desenvolvimento contínuo das habilidades e conhecimentos dos colaboradores.</li>
-                <li><strong>Controle Inicial:</strong> Gerenciamento do ciclo de vida dos equipamentos desde a fase de projeto até a operação.</li>
-                <li><strong>Manutenção da Qualidade:</strong> Visando a melhoria contínua da qualidade dos processos de produção.</li>
-                <li><strong>Administração da Qualidade:</strong> Aplicação dos princípios do TPM nas áreas administrativas e de suporte.</li>
-                <li><strong>Segurança, Saúde e Meio Ambiente:</strong> Garantindo um ambiente de trabalho seguro e saudável para todos os colaboradores.</li>
+                <li>Baixa precisão</li>
+                <li>Facil de usar</li>
+                <li>Não indicada para medidas técnicas exigentes</li>
             </ul>
 
-        </div>
-    </div>
+            <h2 id="micrometro" class="subtitulo">Micrômetro</h2>
+            <p>Instrumento de alta precisão para medir pequenas distâncias</p>
+            <ul>
+                <li>Capaz de medir com precisão de até 0,01 mm</li>
+                <li>Usado para medir peças pequenas e detalhes finos</li>
+                <li>Tem um parafuso micrométrico que permite ajustes precisos</li>
+            </ul>
 
+            <h2 id="nivel" class="subtitulo">Nível</h2>
+            <p>Ferramenta para verificar a horizontalidade ou verticalidade</p>
+            <ul>
+                <li>Contém um tubo com líquido e uma bolha de ar</li>
+                <li>Usado para garantir que superfícies estejam niveladas</li>
+                <li>Essencial para montagem e alinhamento de máquinas</li>
+            </ul>
+
+            <h2 id="paquimetro" class="subtitulo">Paquímetro</h2>
+            <p>Instrumento versátil que mede distâncias com precisão moderada</p>
+            <ul>
+                <li>Diâmetro externo</li>
+                <li>Diâmetro interno</li>
+                <li>Profundidade</li>
+            </ul>
+            <p>Tem três partes principais</p>
+            <ul>
+                <li>Parte fixa: tem a escala principal</li>
+                <li>Parte móvel: tem a escala secundária</li>
+                <li>Parafuso de trava: mantém a parte móvel no lugar</li>
+            </ul>
+
+            <h2 id="relógio-comparador" class="subtitulo">Relógio Comparador</h2>
+            <p>Instrumento para medir pequenas variações de posição</p>
+            <ul>
+                <li>Tem um ponteiro que se move em um mostrador circular</li>
+                <li>Usado para comparar a posição de uma peça com um padrão</li>
+                <li>Essencial para controle de qualidade e alinhamento</li>
+            </ul>
+
+            <h2 id="súbito" class="subtitulo">Súbito</h2>
+            <p>(ou comparador de diâmetro interno) é um instrumento de medição de alta precisão utilizado para verificar diâmetros internos, 
+                ovalização e conicidade de furos</p>
+            <ul>
+                <li>Tem um corpo principal com um parafuso micrométrico e uma haste de medição</li>
+                <li>Usado para medir diâmetros internos de peças como cilindros e buchas</li>
+                <li>Permite ajustes precisos para obter medições exatas</li>    
+            </ul>
+
+            <h2 id="trena" class="subtitulo">Trena</h2>
+            <p>Instrumento de medição de comprimento utilizado para medir distâncias maiores</p>
+            <ul>
+                <li>Tem uma fita metálica ou de fibra que pode ser estendida</li>
+                <li>Usada para medir distâncias em obras, terrenos e grandes peças</li>
+                <li>Disponível em diferentes comprimentos, como 5m, 10m, 30m, etc.</li>
+            </ul>
+
+            <h2 id="torquímetro" class="subtitulo">Torquímetro</h2>
+            <p>Instrumento utilizado para medir o torque aplicado a um parafuso ou porca</p>
+            <ul>
+                <li>Tem um mecanismo que indica a quantidade de torque aplicada</li>
+                <li>Usado para garantir que parafusos sejam apertados com a força correta</li>
+                <li>Essencial para segurança e desempenho de máquinas e veículos</li>
+            </ul>
+
+            <h2 id="calibre-de-folga" class="subtitulo">Calibre de Folga</h2>
+            <p>Instrumento utilizado para medir a folga entre peças, como rolamentos e eixos</p>
+            <ul>
+                <li>Consiste em uma série de lâminas de metal de diferentes espessuras</li>
+                <li>Usado para verificar a folga entre peças móveis</li>
+                <li>Essencial para manutenção e ajuste de máquinas</li>
+            </ul>
+
+            <h2 id="esquadro" class="subtitulo">Esquadro</h2>
+            <p>Instrumento utilizado para verificar a perpendicularidade entre superfícies</p>
+            <ul>
+                <li>Tem um formato de L com um ângulo de 90 graus</li>
+                <li>Usado para garantir que peças estejam alinhadas corretamente</li>
+                <li>Essencial para montagem e fabricação de peças</li>
+            </ul>     
+
+        </section>
+        <!-- Fim da seção de texto -->
+
+
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+
+    <!-- ============================================================
+         JAVASCRIPT
+         É o "cérebro" da página — faz as coisas se moverem e reagirem.
+         Fica no final do <body> para a página carregar mais rápido.
+         ============================================================ -->
     <script>
+
+        /* ----------------------------------------------------------
+           ESCONDER E MOSTRAR OS BOTÕES ☰ e ↓
+           Quando um menu abre, os botões somem para não atrapalhar.
+           Quando fecha, eles voltam.
+           ---------------------------------------------------------- */
+
         function esconderBotoes() {
             document.getElementById('menuBotao').style.display = 'none';
             document.getElementById('menuSecaoBotao').style.display = 'none';
@@ -180,6 +374,14 @@
             document.getElementById('menuBotao').style.display = 'block';
             document.getElementById('menuSecaoBotao').style.display = 'block';
         }
+
+
+        /* ----------------------------------------------------------
+           MENU PRINCIPAL — abrir e fechar
+           classList.add('aberto') adiciona a classe CSS "aberto"
+           classList.remove('aberto') remove a classe CSS "aberto"
+           O CSS usa essa classe para deslizar o painel para dentro/fora
+           ---------------------------------------------------------- */
 
         function abrirMenu() {
             document.getElementById('menuPainel').classList.add('aberto');
@@ -193,6 +395,12 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           MENU SUMÁRIO — abrir e fechar
+           Funciona igual ao menu principal, mas para o painel do sumário
+           ---------------------------------------------------------- */
+
         function abrirMenuSecao() {
             document.getElementById('menuSecaoPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');
@@ -205,12 +413,20 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           FECHAR TUDO DE UMA VEZ
+           Chamado quando o usuário clica no fundo escurecido.
+           Fecha tanto o menu principal quanto o sumário.
+           ---------------------------------------------------------- */
+
         function fecharTudo() {
             fecharMenu();
             fecharMenuSecao();
         }
 
     </script>
+
 
 </body>
 </html>
