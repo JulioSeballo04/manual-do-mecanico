@@ -1,85 +1,161 @@
+/* =============================================
+   VARIÁVEIS GLOBAIS
+
+   Aqui ficam as "cores favoritas" do projeto.
+   Em vez de repetir a mesma cor em todo lugar,
+   a gente salva ela com um nome aqui e usa o nome.
+
+   Exemplo: var(--accent) vira #f2a900 (amarelo)
+   Se quiser mudar a cor, muda só aqui — e muda em todo lugar!
+   ============================================= */
+
 :root {
-    --accent: #f2a900;
-    --bg: #121212;
-    --card-bg: #1e1e1e;
-    --text: #e0e0e0;
-    --border: #333;
+    --accent:  #f2a900; /* Amarelo — cor de destaque dos títulos e bordas */
+    --bg:      #121212; /* Cinza bem escuro — fundo da página */
+    --card-bg: #1e1e1e; /* Cinza um pouco mais claro — fundo dos botões */
+    --text:    #e0e0e0; /* Cinza claro — cor do texto */
+    --border:  #333;    /* Cinza médio — cor das bordas */
 }
 
+
+/* =============================================
+   RESET & BASE
+
+   O navegador tem estilos "padrão" que atrapalham.
+   Aqui a gente "zera" tudo para começar do zero.
+   ============================================= */
+
 * {
+    /* box-sizing faz o tamanho incluir bordas e espaçamentos internos */
     box-sizing: border-box;
+
+    /* Remove espaço externo padrão de todos os elementos */
     margin: 0;
+
+    /* Remove espaço interno padrão de todos os elementos */
     padding: 0;
 }
 
 body {
+    /* Fonte principal — tenta Segoe UI primeiro, depois as outras */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Cor de fundo da página (cinza escuro) */
     background-color: var(--bg);
+
+    /* Cor padrão do texto */
     color: var(--text);
+
+    /* Flexbox: coloca o conteúdo no centro da tela horizontalmente */
     display: flex;
     justify-content: center;
+
+    /* A página ocupa no mínimo a altura toda da tela */
     min-height: 100vh;
+
+    /* Espaço interno: 40px em cima/baixo, 20px nas laterais */
     padding: 40px 20px;
 }
 
-/* Div que centraliza todo o conteúdo */
+
+/* =============================================
+   LAYOUT PRINCIPAL
+
+   O <main> que envolve todo o conteúdo visível.
+   Limita a largura para não ficar esticado demais
+   em telas grandes.
+   ============================================= */
+
 .container-pagina {
-    width: 100%;
-    max-width: 700px;
+    width: 100%;       /* Ocupa toda a largura disponível */
+    max-width: 700px;  /* Mas no máximo 700px */
 }
 
-/* Header com o título da página */
+
+/* =============================================
+   CABEÇALHO
+
+   O bloco do título no topo da página.
+   A barra amarela na esquerda é feita com border-left —
+   como se colássemos uma fita colorida na borda!
+   ============================================= */
+
 .cabecalho {
-    border-left: 6px solid var(--accent);
-    padding-left: 20px;
-    margin-bottom: 40px;
+    border-left: 6px solid var(--accent); /* Fita amarela grossa na esquerda */
+    padding-left: 20px;                   /* Afasta o texto da fita */
+    margin-bottom: 40px;                  /* Espaço abaixo do cabeçalho */
 }
 
 .cabecalho h1 {
-    text-transform: uppercase;
+    text-transform: uppercase; /* Deixa o título em MAIÚSCULAS */
     font-size: 32px;
-    letter-spacing: 2px;
-    color: #fff;
+    letter-spacing: 2px;       /* Espaço entre as letras */
+    color: #fff;               /* Branco */
 }
 
 .cabecalho p {
     font-size: 14px;
-    color: #888;
+    color: #888;       /* Cinza apagado para o subtítulo */
     margin-top: 5px;
 }
 
-/* Grade que agrupa os botões de seção */
+
+/* =============================================
+   GRADE DE SEÇÕES
+
+   A coluna de botões que leva para cada seção do manual.
+   display: flex com flex-direction: column empilha
+   os botões um embaixo do outro.
+   ============================================= */
+
 .grade-secoes {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column; /* Empilha os botões verticalmente */
+    gap: 10px;              /* Espaço de 10px entre cada botão */
 }
 
-/* Cada botão de seção */
+
+/* =============================================
+   BOTÃO DE SEÇÃO
+
+   Cada botão que leva para uma seção do manual.
+   É uma tag <a> estilizada para parecer um botão —
+   por isso tem text-decoration: none (sem sublinhado)
+   e color: inherit (não fica azul de link).
+   ============================================= */
+
 .botao-secao {
     background: var(--card-bg);
     border: 1px solid var(--border);
     padding: 18px 25px;
     border-radius: 6px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-    color: inherit;
+    display: flex;              /* Ícone e texto ficam lado a lado */
+    align-items: center;        /* Alinha no centro verticalmente */
+    cursor: pointer;            /* Cursor de mãozinha ao passar o mouse */
+    transition: all 0.2s ease-in-out; /* Animação suave no hover */
+    text-decoration: none;      /* Remove o sublinhado do link */
+    color: inherit;             /* Herda a cor do pai (não fica azul) */
 }
 
+/* Efeito ao passar o mouse no botão */
 .botao-secao:hover {
-    border-color: var(--accent);
-    background: #252525;
-    transform: scale(1.02);
+    border-color: var(--accent); /* Borda fica amarela */
+    background: #252525;         /* Fundo fica um pouco mais claro */
+    transform: scale(1.02);      /* Cresce levemente */
 }
 
-/* Caixinha do ícone */
+
+/* =============================================
+   ÍCONE DA SEÇÃO
+
+   A caixinha quadrada escura que fica à esquerda
+   do botão, contendo a imagem do ícone.
+   ============================================= */
+
 .icone-secao {
     font-size: 24px;
-    margin-right: 20px;
-    background: #121212;
+    margin-right: 20px;  /* Espaço entre o ícone e o texto */
+    background: #121212; /* Fundo bem escuro dentro da caixinha */
     width: 45px;
     height: 45px;
     display: flex;
@@ -89,36 +165,69 @@ body {
     border: 1px solid var(--border);
 }
 
-/* Bloco com número e nome da seção */
+
+/* =============================================
+   TEXTO DA SEÇÃO
+
+   O bloco com o número (small) e o nome (span)
+   de cada seção, que fica à direita do ícone.
+   ============================================= */
+
+/* Nome da seção — texto grande e em branco */
 .texto-secao span {
-    display: block;
+    display: block;    /* Ocupa a linha inteira */
     font-weight: 600;
     font-size: 17px;
     color: #fff;
 }
 
+/* Número da seção — texto pequeno e amarelo acima do nome */
 .texto-secao small {
     font-size: 10px;
-    color: var(--accent);
+    color: var(--accent); /* Amarelo */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Imagem dentro do ícone */
+
+/* =============================================
+   IMAGEM DENTRO DO ÍCONE
+
+   A imagem (PNG) que aparece dentro da caixinha do ícone.
+   O fundo amarelo aparece enquanto a imagem carrega,
+   ou se a imagem tiver fundo transparente.
+   ============================================= */
+
 .imagem-icone {
     width: 40px;
     height: 40px;
-    background: var(--accent);
-    border-radius: 15%;
+    background: var(--accent); /* Fundo amarelo */
+    border-radius: 15%;        /* Cantos levemente arredondados */
 }
 
-/* Responsividade */
+
+/* =============================================
+   RESPONSIVIDADE
+
+   Adapta o layout para telas menores.
+   @media (max-width: 768px) significa:
+   "aplique estas regras quando a tela for menor que 768px"
+   ============================================= */
+
+/* 📱 MOBILE — telas até 768px */
 @media (max-width: 768px) {
+
+    /*
+       No celular, o cabeçalho muda de estilo:
+       - A fita amarela sai da esquerda e vai para baixo do título
+       - O texto fica centralizado
+    */
     .cabecalho {
         text-align: center;
-        border-left: none;
-        border-bottom: 4px solid var(--accent);
+        border-left: none;                        /* Remove a fita da esquerda */
+        border-bottom: 4px solid var(--accent);   /* Fita vai para baixo */
         padding-left: 0;
         padding-bottom: 15px;
     }
+
 }

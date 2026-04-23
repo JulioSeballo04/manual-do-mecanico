@@ -1,20 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolamentos - Manual do Mecânico</title>
-    <link rel="stylesheet" href="estilorolamento.css">
-</head>
-<body>
+<!--
+    DOCTYPE avisa o navegador: "este é um arquivo HTML moderno!"
+    Sem isso, o navegador pode exibir a página de forma errada.
+-->
 
-    <!-- Botão abrir menu principal -->
+<html lang="pt-br">
+<!--
+    A tag <html> abraça TODO o conteúdo da página.
+    lang="pt-br" diz que o idioma é português do Brasil.
+-->
+
+<head>
+    <!--
+        O <head> é a "mochila invisível" da página.
+        Tudo aqui são configurações — o usuário não vê nada disso na tela.
+    -->
+
+    <!-- Permite usar letras especiais como ã, ç, é -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página funcionar bem no celular (não aparece minúscula) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>Rolamentos - Manual do Mecânico</title>
+
+    <!-- Liga o arquivo CSS que deixa a página bonita -->
+    <link rel="stylesheet" href="estilorolamento.css">
+
+</head>
+
+<body>
+<!--
+    O <body> é onde mora tudo que o usuário VÊ na tela.
+    É como a folha de papel onde você desenha.
+-->
+
+
+    <!-- ============================================================
+         BOTÃO DE ABRIR O MENU PRINCIPAL (o ☰ no canto da tela)
+
+         position: fixed no CSS faz ele ficar sempre visível,
+         mesmo quando o usuário rola a página para baixo.
+         Quando clicado, chama a função abrirMenu() no JavaScript.
+         ============================================================ -->
     <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
 
-    <!-- Painel lateral principal -->
-    <div class="painel-lateral" id="menuPainel">
+
+    <!-- ============================================================
+         MENU LATERAL PRINCIPAL
+
+         Fica escondido do lado direito da tela (right: -300px no CSS).
+         Quando o botão ☰ é clicado, desliza para dentro da tela.
+         <aside> é a tag certa para conteúdo lateral como menus!
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuPainel">
+
+        <!-- Botão ✕ para fechar o menu -->
         <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+
+        <!-- Lista de links para as outras páginas do manual -->
+        <!-- <nav> é a tag certa para blocos de navegação/links -->
         <nav class="grade-secoes">
+
+            <!-- Cada <a> é um botão que leva para outra página -->
+            <!-- "../Pasta/arquivo.html" = sair da pasta atual e ir para outra -->
+
+            <!-- BOTÃO: Voltar ao menu principal -->
             <a href="../Pagina/pagina.html" class="botao-secao">
                 <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -22,6 +74,8 @@
                     <span>Voltar ao menu principal</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Sistemas de Transmissão -->
             <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="botao-secao">
                 <div class="icone-secao"><img src="engrenagem.png" alt="Ícone de Transmissão" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -29,6 +83,8 @@
                     <span>Sistemas de Transmissão</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: TPM -->
             <a href="../TPM/tpm.html" class="botao-secao">
                 <div class="icone-secao"><img src="tpm.png" alt="Ícone de TPM" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -36,6 +92,8 @@
                     <span>TPM</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Instrumentos de Medição -->
             <a href="../Medição/instrumentos-medicao.html" class="botao-secao">
                 <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -43,6 +101,8 @@
                     <span>Instrumentos de Medição</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Lubrificação Industrial -->
             <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="botao-secao">
                 <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -50,42 +110,96 @@
                     <span>Lubrificação Industrial</span>
                 </div>
             </a>
-        </nav>
-    </div>
 
-    <!-- Botão sumário da página -->
+        </nav>
+    </aside>
+    <!-- Fim do menu lateral principal -->
+
+
+    <!-- ============================================================
+         BOTÃO DO SUMÁRIO (o ↓ abaixo do botão ☰)
+
+         O sumário mostra os tópicos DENTRO desta página,
+         para o usuário pular direto para o trecho que quer ler.
+         ============================================================ -->
     <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
 
-    <!-- Painel lateral do sumário -->
-    <div class="painel-lateral" id="menuSecaoPainel">
-        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
-        <nav class="links-menu">
-            <a href="#oQueEh" onclick="fecharMenuSecao()"> >> O que são rolamentos</a>
-            <a href="#composicao" onclick="fecharMenuSecao()"> >> Composição dos rolamentos</a>
-            <a href="#tipos" onclick="fecharMenuSecao()"> >> Tipos de rolamentos</a>
-            <a href="#especificando" onclick="fecharMenuSecao()"> >> Especificando um rolamento</a>
-            <a href="#mancais" onclick="fecharMenuSecao()"> >> Mancais</a>
-        </nav>
-    </div>
 
-    <!-- Fundo escurecido -->
+    <!-- ============================================================
+         PAINEL LATERAL DO SUMÁRIO
+
+         Funciona igual ao menu principal, mas lista os tópicos
+         desta página. Os links com href="#id" pulam direto
+         para o elemento que tem aquele id na página.
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuSecaoPainel">
+
+        <!-- Botão ✕ para fechar o sumário -->
+        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+
+        <!-- Links que levam para cada parte desta página -->
+        <nav class="links-menu">
+            <!-- href="#oQueEh" pula para o elemento com id="oQueEh" -->
+            <a href="#oQueEh"       onclick="fecharMenuSecao()"> >> O que são rolamentos</a>
+            <a href="#composicao"   onclick="fecharMenuSecao()"> >> Composição dos rolamentos</a>
+            <a href="#tipos"        onclick="fecharMenuSecao()"> >> Tipos de rolamentos</a>
+            <a href="#especificando" onclick="fecharMenuSecao()"> >> Especificando um rolamento</a>
+            <a href="#mancais"      onclick="fecharMenuSecao()"> >> Mancais</a>
+        </nav>
+
+    </aside>
+    <!-- Fim do sumário -->
+
+
+    <!-- ============================================================
+         FUNDO ESCURECIDO
+
+         A camada escura que aparece por trás do menu quando ele abre.
+         Clicar nela chama fecharTudo() — fecha os dois menus de vez.
+         ============================================================ -->
     <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
 
-    <div class="container-pagina">
 
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA
+
+         <main> é a tag certa para o conteúdo mais importante.
+         Só deve existir UM <main> por página.
+         ============================================================ -->
+    <main class="container-pagina">
+
+
+        <!-- --------------------------------------------------------
+             CABEÇALHO DA PÁGINA
+             Título principal da seção de Rolamentos.
+             -------------------------------------------------------- -->
         <header class="cabecalho">
+            <!-- <h1> é o título mais importante — use só UM por página! -->
             <h1>Rolamentos</h1>
         </header>
 
-        <!-- Imagem de capa -->
-        <div class="grade-imagens">
+
+        <!-- --------------------------------------------------------
+             IMAGEM DE CAPA
+             <figure> é a tag certa para imagens com contexto,
+             como ilustrações de um artigo ou foto de um produto.
+             -------------------------------------------------------- -->
+        <figure class="grade-imagens">
             <div class="cartao-imagem">
                 <img src="rolamentos-automotivos-e-industriais.jpg" alt="Imagem de um rolamento">
             </div>
-        </div>
+        </figure>
 
-        <div class="area-texto">
 
+        <!-- --------------------------------------------------------
+             SEÇÃO DE CONTEÚDO
+             <section> agrupa um bloco de conteúdo relacionado,
+             como um capítulo de livro.
+             -------------------------------------------------------- -->
+        <section class="area-texto">
+
+
+            <!-- O id="oQueEh" permite o link do sumário pular até aqui -->
             <h2 id="oQueEh" class="subtitulo">O que são rolamentos?</h2>
             <p>
                 Rolamentos são componentes mecânicos essenciais que permitem o movimento suave e eficiente entre partes móveis, 
@@ -93,35 +207,40 @@
                 desde veículos automotores até máquinas industriais, garantindo o funcionamento confiável e duradouro dos sistemas mecânicos.
             </p>
 
+
             <h2 id="composicao" class="subtitulo">Composição dos rolamentos</h2>
-            <div class="grade-imagens">
+            <figure class="grade-imagens">
                 <div class="cartao-imagem">
                     <h3>Componentes de um rolamento</h3>
                     <img src="Componentes-de-um-rolamento.png" alt="Componentes de um rolamento">
                 </div>
-            </div>
+            </figure>
             <p>
                 Os rolamentos são compostos por anéis internos e externos, elementos rolantes (como esferas ou rolos) e uma gaiola que mantém os elementos rolantes na posição correta. 
                 Os materiais utilizados na fabricação dos rolamentos incluem aço, cerâmica e plásticos de alta resistência, escolhidos com base nas condições de operação e requisitos de desempenho.
             </p>
 
+
             <h2 id="tipos" class="subtitulo">Tipos de rolamentos</h2>
-            <div class="grade-imagens">
+            <figure class="grade-imagens">
                 <div class="cartao-imagem">
                     <h3>Principais tipos de rolamentos</h3>
                     <img src="hq720.jpg" alt="Tipos de rolamentos">
                 </div>
-            </div>
+            </figure>
             <p>
                 Existem diversos tipos de rolamentos, cada um projetado para atender a necessidades específicas. 
                 Os principais tipos incluem:
             </p>
+
+            <!-- Lista com os tipos de rolamentos -->
             <ul>
                 <li><strong>Rolamentos de esferas:</strong> Utilizam esferas como elementos rolantes e são adequados para cargas radiais e axiais moderadas.</li>
                 <li><strong>Rolamentos de rolos:</strong> Utilizam rolos cilíndricos ou cônicos como elementos rolantes, oferecendo maior capacidade de carga em comparação com os rolamentos de esferas.</li>
                 <li><strong>Rolamentos de agulhas:</strong> Utilizam rolos finos e longos, ideais para aplicações com espaço limitado e cargas radiais elevadas.</li>
                 <li><strong>Rolamentos autocompensadores:</strong> Projetados para acomodar desalinhamento entre os anéis interno e externo, garantindo desempenho confiável mesmo em condições adversas.</li>
             </ul>
+
 
             <h2 id="especificando" class="subtitulo">Especificando um rolamento</h2>
             <p>
@@ -130,6 +249,15 @@
                 A seleção adequada do tipo, tamanho e material do rolamento é fundamental para garantir o desempenho e a durabilidade do sistema mecânico.
             </p>
 
+            <!-- --------------------------------------------------------
+                 TABELA DE ESPECIFICAÇÃO
+                 <table> organiza dados em linhas e colunas.
+                 <thead> = cabeçalho da tabela (títulos das colunas)
+                 <tbody> = corpo da tabela (os dados em si)
+                 <tr> = linha da tabela (table row)
+                 <th> = célula de título (table header) — negrito por padrão
+                 <td> = célula de dado (table data)
+                 -------------------------------------------------------- -->
             <table>
                 <thead>
                     <tr>
@@ -201,13 +329,14 @@
                 </tbody>
             </table>
 
+
             <h2 id="mancais" class="subtitulo">Mancais</h2>
-            <div class="grade-imagens">
+            <figure class="grade-imagens">
                 <div class="cartao-imagem">
                     <h3>Tipos de mancais</h3>
                     <img src="mancais.jpg" alt="Imagem de um mancal">
                 </div>
-            </div>
+            </figure>
             <p>
                 Mancais são componentes que suportam e guiam os rolamentos, garantindo a estabilidade e o alinhamento adequados durante a operação. 
                 Eles podem ser fixos ou deslizantes, dependendo do tipo de aplicação e das condições de carga. 
@@ -215,17 +344,36 @@
                 Rolamentos UC são rolamentos inserto utilizados dentro de mancais como UCP, UCF, UCFL e UCT.
             </p>
 
-            <div class="grade-imagens">
+            <figure class="grade-imagens">
                 <div class="cartao-imagem">
                     <h3>Rolamento UC</h3>
                     <img src="uc.png" alt="Imagem de um rolamento UC">
                 </div>
-            </div>
+            </figure>
 
-        </div>
-    </div>
 
+        </section>
+        <!-- Fim da seção de conteúdo -->
+
+
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+
+    <!-- ============================================================
+         JAVASCRIPT
+
+         O "cérebro" da página — faz as coisas se moverem e reagirem.
+         Fica no final do <body> para a página carregar mais rápido.
+         ============================================================ -->
     <script>
+
+        /* ----------------------------------------------------------
+           ESCONDER E MOSTRAR OS BOTÕES ☰ e ↓
+           Quando um menu abre, os botões somem para não atrapalhar.
+           Quando fecha, eles voltam.
+           ---------------------------------------------------------- */
+
         function esconderBotoes() {
             document.getElementById('menuBotao').style.display = 'none';
             document.getElementById('menuSecaoBotao').style.display = 'none';
@@ -235,6 +383,15 @@
             document.getElementById('menuBotao').style.display = 'block';
             document.getElementById('menuSecaoBotao').style.display = 'block';
         }
+
+
+        /* ----------------------------------------------------------
+           MENU PRINCIPAL — abrir e fechar
+
+           classList.add('aberto') adiciona a classe CSS "aberto"
+           classList.remove('aberto') remove a classe CSS "aberto"
+           O CSS usa essa classe para deslizar o painel para dentro/fora
+           ---------------------------------------------------------- */
 
         function abrirMenu() {
             document.getElementById('menuPainel').classList.add('aberto');
@@ -248,6 +405,12 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           MENU SUMÁRIO — abrir e fechar
+           Funciona igual ao menu principal, mas para o sumário
+           ---------------------------------------------------------- */
+
         function abrirMenuSecao() {
             document.getElementById('menuSecaoPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');
@@ -260,11 +423,20 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           FECHAR TUDO DE UMA VEZ
+           Chamado quando o usuário clica no fundo escurecido.
+           Fecha tanto o menu principal quanto o sumário.
+           ---------------------------------------------------------- */
+
         function fecharTudo() {
             fecharMenu();
             fecharMenuSecao();
         }
+
     </script>
+
 
 </body>
 </html>

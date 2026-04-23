@@ -1,61 +1,147 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual do Mecânico</title>
-    <link rel="stylesheet" href="estilopagina.css">
-</head>
-<body>
+<!-- 
+    DOCTYPE avisa o navegador: "este é um arquivo HTML moderno!"
+    Sem isso, o navegador pode exibir a página de forma errada.
+-->
 
-    <div class="container-pagina">
+<html lang="pt-br">
+<!--
+    A tag <html> abraça TODO o conteúdo da página.
+    lang="pt-br" diz que o idioma é português do Brasil.
+-->
+
+<head>
+    <!--
+        O <head> é a "mochila invisível" da página.
+        Tudo aqui são configurações — o usuário não vê nada disso na tela.
+    -->
+
+    <!-- Permite usar letras especiais como ã, ç, é -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página funcionar bem no celular (não aparece minúscula) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>Manual do Mecânico</title>
+
+    <!-- Liga o arquivo CSS que deixa a página bonita -->
+    <link rel="stylesheet" href="estilopagina.css">
+
+</head>
+
+<body>
+<!--
+    O <body> é onde mora tudo que o usuário VÊ na tela.
+    É como a folha de papel onde você desenha.
+-->
+
+
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA
+
+         <main> diz: "aqui mora o conteúdo mais importante".
+         Só deve existir UM <main> por página.
+         Substituímos o <div class="container-pagina"> por <main> —
+         mais semântico e mais fácil de entender!
+         ============================================================ -->
+    <main class="container-pagina">
+
+
+        <!-- --------------------------------------------------------
+             CABEÇALHO DA PÁGINA
+
+             <header> é o cabeçalho — título e subtítulo do manual.
+             A barra amarela na esquerda é feita com CSS (border-left).
+             -------------------------------------------------------- -->
         <header class="cabecalho">
+            <!-- <h1> é o título mais importante — use só UM por página! -->
             <h1>Manual do Mecânico</h1>
             <p>Seu amigo do dia a dia</p>
         </header>
 
+
+        <!-- --------------------------------------------------------
+             MENU DE NAVEGAÇÃO DAS SEÇÕES
+
+             <nav> significa "navegação" — é o lugar certo para
+             links que levam o usuário para outras páginas.
+             Substituímos o <div class="grade-secoes"> por <nav> —
+             mais semântico e correto!
+             -------------------------------------------------------- -->
         <nav class="grade-secoes">
+
+
+            <!-- Cada <a> é um botão que leva para uma seção do manual -->
+            <!-- O href="../Pasta/arquivo.html" é o caminho até a página -->
+            <!-- "../" significa "sair da pasta atual e voltar uma pasta" -->
+
+
+            <!-- BOTÃO: Rolamentos -->
             <a href="../Rolamento/rolamentos.html" class="botao-secao">
-                <div class="icone-secao"><img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone"></div>
+                <!-- Caixinha com o ícone da seção -->
+                <div class="icone-secao">
+                    <img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone">
+                </div>
+                <!-- Texto com o número e nome da seção -->
                 <div class="texto-secao">
                     <small>Seção 01</small>
                     <span>Rolamentos</span>
                 </div>
             </a>
 
+            <!-- BOTÃO: Sistemas de Transmissão -->
             <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="botao-secao">
-                <div class="icone-secao"><img src="engrenagem.png" alt="Ícone de Transmissão" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="engrenagem.png" alt="Ícone de Transmissão" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 02</small>
                     <span>Sistemas de Transmissão</span>
                 </div>
             </a>
 
+            <!-- BOTÃO: TPM -->
             <a href="../TPM/tpm.html" class="botao-secao">
-                <div class="icone-secao"><img src="tpm.png" alt="Ícone de TPM" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="tpm.png" alt="Ícone de TPM" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 03</small>
                     <span>TPM</span>
                 </div>
             </a>
 
+            <!-- BOTÃO: Instrumentos de Medição -->
             <a href="../Medição/instrumentos-medicao.html" class="botao-secao">
-                <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="medicao.png" alt="Ícone de Medição" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 04</small>
                     <span>Instrumentos de Medição</span>
                 </div>
             </a>
 
+            <!-- BOTÃO: Lubrificação Industrial -->
             <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="botao-secao">
-                <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 05</small>
                     <span>Lubrificação Industrial</span>
                 </div>
             </a>
+
+
         </nav>
-    </div>
+        <!-- Fim do menu de navegação -->
+
+
+    </main>
+    <!-- Fim do conteúdo principal -->
+
 
 </body>
 </html>
