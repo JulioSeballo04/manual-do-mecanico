@@ -1,20 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPM - Manual do Mecânico</title>
-    <link rel="stylesheet" href="tpm.css">
-</head>
-<body>
+<!--
+    DOCTYPE avisa o navegador: "este é um arquivo HTML moderno!"
+    Sem isso, o navegador pode exibir a página de forma errada.
+-->
 
-    <!-- Botão abrir menu principal -->
+<html lang="pt-br">
+<!--
+    A tag <html> abraça TODO o conteúdo da página.
+    lang="pt-br" diz que o idioma é português do Brasil.
+-->
+
+<head>
+    <!--
+        O <head> é a "mochila invisível" da página.
+        Tudo aqui são configurações — o usuário não vê nada disso na tela.
+    -->
+
+    <!-- Permite usar letras especiais como ã, ç, é -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página funcionar bem no celular (não aparece minúscula) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>TPM - Manual do Mecânico</title>
+
+    <!-- Liga o arquivo CSS que deixa a página bonita -->
+    <link rel="stylesheet" href="tpm.css">
+
+</head>
+
+<body>
+<!--
+    O <body> é onde mora tudo que o usuário VÊ na tela.
+    É como a folha de papel onde você desenha.
+-->
+
+
+    <!-- ============================================================
+         BOTÃO DE ABRIR O MENU PRINCIPAL (o ☰ no canto da tela)
+
+         position: fixed no CSS faz ele ficar sempre visível,
+         mesmo quando o usuário rola a página para baixo.
+         Quando clicado, chama a função abrirMenu() no JavaScript.
+         ============================================================ -->
     <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
 
-    <!-- Painel lateral principal -->
-    <div class="painel-lateral" id="menuPainel">
+
+    <!-- ============================================================
+         MENU LATERAL PRINCIPAL
+
+         Fica escondido do lado direito da tela (right: -300px no CSS).
+         Quando o botão ☰ é clicado, desliza para dentro da tela.
+         <aside> é a tag certa para conteúdo lateral como menus!
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuPainel">
+
+        <!-- Botão ✕ para fechar o menu -->
         <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+
+        <!-- Lista de links para as outras páginas do manual -->
         <nav class="grade-secoes">
+
+            <!-- BOTÃO: Voltar ao menu principal -->
             <a href="../Pagina/pagina.html" class="botao-secao">
                 <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -22,6 +70,8 @@
                     <span>Voltar ao menu principal</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Rolamentos -->
             <a href="../Rolamento/rolamentos.html" class="botao-secao">
                 <div class="icone-secao"><img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -29,6 +79,8 @@
                     <span>Rolamentos</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Sistemas de Transmissão -->
             <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="botao-secao">
                 <div class="icone-secao"><img src="engrenagem.png" alt="Ícone de engrenagem" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -36,6 +88,8 @@
                     <span>Sistemas de Transmissão</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Instrumentos de Medição -->
             <a href="../Instrumento-Medicao/instrumentos-medicao.html" class="botao-secao">
                 <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -43,6 +97,8 @@
                     <span>Instrumentos de Medição</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Lubrificação Industrial -->
             <a href="../Lubrificacao-Industrial/lubrificacao-industrial.html" class="botao-secao">
                 <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
                 <div class="texto-secao">
@@ -50,47 +106,96 @@
                     <span>Lubrificação Industrial</span>
                 </div>
             </a>
-        </nav>
-    </div>
 
-    <!-- Botão sumário da página -->
+        </nav>
+    </aside>
+    <!-- Fim do menu lateral principal -->
+
+
+    <!-- ============================================================
+         BOTÃO DO SUMÁRIO (o ↓ abaixo do botão ☰)
+
+         O sumário mostra os tópicos DENTRO desta página,
+         para o usuário pular direto para o trecho que quer ler.
+         ============================================================ -->
     <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
 
-    <!-- Painel lateral do sumário -->
-    <!-- CORRIGIDO: links atualizados para o conteúdo de TPM -->
-    <div class="painel-lateral" id="menuSecaoPainel">
+
+    <!-- ============================================================
+         PAINEL LATERAL DO SUMÁRIO
+
+         Lista os tópicos desta página.
+         Os links com href="#id" pulam direto para o elemento
+         que tem aquele id na página.
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuSecaoPainel">
+
+        <!-- Botão ✕ para fechar o sumário -->
         <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+
+        <!-- Links que levam para cada parte desta página -->
         <nav class="links-menu">
-            <a href="#tpm" onclick="fecharMenuSecao()"> >> O que é TPM</a>
+            <a href="#tpm"        onclick="fecharMenuSecao()"> >> O que é TPM</a>
             <a href="#composicao" onclick="fecharMenuSecao()"> >> Composição do TPM</a>
             <a href="#manutencao" onclick="fecharMenuSecao()"> >> Pilar da Manutenção</a>
             <a href="#preventiva" onclick="fecharMenuSecao()"> >> Manutenção Preventiva</a>
-            <a href="#preditiva" onclick="fecharMenuSecao()"> >> Manutenção Preditiva</a>
-            <a href="#corretiva" onclick="fecharMenuSecao()"> >> Manutenção Corretiva</a>
-            <a href="#autonoma" onclick="fecharMenuSecao()"> >> Manutenção Autônoma</a>
-            <a href="#5s" onclick="fecharMenuSecao()"> >> Modelo 5 Sensos</a>
+            <a href="#preditiva"  onclick="fecharMenuSecao()"> >> Manutenção Preditiva</a>
+            <a href="#corretiva"  onclick="fecharMenuSecao()"> >> Manutenção Corretiva</a>
+            <a href="#autonoma"   onclick="fecharMenuSecao()"> >> Manutenção Autônoma</a>
+            <a href="#5s"         onclick="fecharMenuSecao()"> >> Modelo 5 Sensos</a>
         </nav>
-    </div>
 
-    <!-- Fundo escurecido -->
+    </aside>
+    <!-- Fim do sumário -->
+
+
+    <!-- ============================================================
+         FUNDO ESCURECIDO
+
+         A camada escura que aparece por trás do menu quando ele abre.
+         Clicar nela chama fecharTudo() — fecha os dois menus de vez.
+         ============================================================ -->
     <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
 
-    <div class="container-pagina">
 
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA
+
+         <main> é a tag certa para o conteúdo mais importante.
+         Só deve existir UM <main> por página.
+         ============================================================ -->
+    <main class="container-pagina">
+
+
+        <!-- --------------------------------------------------------
+             CABEÇALHO DA PÁGINA
+             -------------------------------------------------------- -->
         <header class="cabecalho">
             <h1>TPM</h1>
+            <!-- <p> para o subtítulo — mais correto que <h2> no cabeçalho -->
             <p>Manutenção Produtiva Total</p>
         </header>
 
-        <!-- Imagem de capa -->
-        <div class="grade-imagens">
+
+        <!-- --------------------------------------------------------
+             IMAGEM DE CAPA
+             <figure> é a tag certa para imagens com contexto
+             -------------------------------------------------------- -->
+        <figure class="grade-imagens">
             <div class="cartao-imagem">
                 <img src="capa.png" alt="TPM">
             </div>
-        </div>
+        </figure>
 
-        <div class="area-texto">
 
+        <!-- --------------------------------------------------------
+             SEÇÃO DE CONTEÚDO
+             <section> agrupa um bloco de conteúdo relacionado
+             -------------------------------------------------------- -->
+        <section class="area-texto">
+
+
+            <!-- O id="tpm" permite o link do sumário pular até aqui -->
             <h2 id="tpm" class="subtitulo">O que é TPM?</h2>
             <p>
                 A Manutenção Produtiva Total (TPM) é uma abordagem integral de manutenção que visa otimizar o desempenho dos equipamentos 
@@ -98,19 +203,20 @@
                 O objetivo é alcançar a excelência operacional, minimizando paradas e maximizando a produtividade.
             </p>
 
+
             <h2 id="composicao" class="subtitulo">Composição do TPM</h2>
-            <div class="grade-imagens">
+            <figure class="grade-imagens">
                 <div class="cartao-imagem">
                     <h3>Pilares do TPM</h3>
                     <img src="8-pilares-da-manutencao-produtiva-total-tpm.webp" alt="Pilares do TPM">
                 </div>
-            </div>
+            </figure>
             <p>
                 O TPM é composto por oito pilares fundamentais, cada um focado em aspectos específicos da manutenção e da gestão de equipamentos. 
                 Esses pilares incluem:
             </p>
 
-            <!-- CORRIGIDO: <ul> fora do <p> -->
+            <!-- Lista dos 8 pilares do TPM -->
             <ul>
                 <li><strong>Melhoria Específica:</strong> Foco em melhorar continuamente os processos e a qualidade dos produtos ou serviços.</li>
                 <li><strong>Manutenção Autônoma:</strong> Capacita os operadores para realizar tarefas de manutenção básica e inspeção regular.</li>
@@ -122,13 +228,14 @@
                 <li><strong>Segurança, Saúde e Meio Ambiente:</strong> Garantindo um ambiente de trabalho seguro e saudável para todos os colaboradores.</li>
             </ul>
 
+
             <h2 id="manutencao" class="subtitulo">Pilar da Manutenção</h2>
             <p>
                 O pilar da manutenção é um dos mais importantes do TPM, pois é responsável por garantir a confiabilidade e a eficiência dos equipamentos. 
                 Ele envolve a implementação de práticas de manutenção preventiva, preditiva e corretiva, além de capacitar os operadores para realizar tarefas de manutenção básica.
             </p>
 
-            <!-- CORRIGIDO: <h3> sem <ul><li> dentro -->
+            <!-- <h3> para subtópicos dentro do Pilar da Manutenção -->
             <h3 id="preventiva" class="subtitulo">Manutenção Preventiva</h3>
             <p>
                 A manutenção preventiva é realizada em intervalos regulares para prevenir falhas e garantir o bom funcionamento dos equipamentos. 
@@ -164,12 +271,14 @@
                 Isso permite implementar soluções eficazes e prevenir a ocorrência de problemas semelhantes no futuro.
             </p>
 
+
             <h2 id="5s" class="subtitulo">Modelo 5 Sensos</h2>
             <p>
                 Os 5 sensos (5S) são uma metodologia japonesa de organização e gestão do ambiente de trabalho, que complementa os princípios do TPM. 
                 Eles são fundamentais para criar um ambiente de trabalho eficiente, seguro e produtivo, promovendo a disciplina e a melhoria contínua.
             </p>
 
+            <!-- Lista dos 5 sensos -->
             <ul>
                 <li><strong>Senso de Utilização:</strong> Separar o que é necessário do que não é e descartar o desnecessário do ambiente de trabalho.</li>
                 <li><strong>Senso de Organização:</strong> Organizar os itens de forma sistemática, facilitando o acesso e a localização de ferramentas e materiais.</li>
@@ -178,17 +287,36 @@
                 <li><strong>Senso de Disciplina:</strong> Manter e melhorar continuamente os padrões estabelecidos pelos quatro sensos anteriores.</li>
             </ul>
 
-            <!-- CORRIGIDO: imagem dentro de grade-imagens e cartao-imagem, sem classe duplicada -->
-            <div class="grade-imagens">
+            <!-- Infográfico dos 5S -->
+            <figure class="grade-imagens">
                 <div class="cartao-imagem">
                     <img src="metodologia-5s-infografico.webp" alt="Modelo 5 sensos">
                 </div>
-            </div>
+            </figure>
 
-        </div>
-    </div>
 
+        </section>
+        <!-- Fim da seção de conteúdo -->
+
+
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+
+    <!-- ============================================================
+         JAVASCRIPT
+
+         O "cérebro" da página — faz as coisas se moverem e reagirem.
+         Fica no final do <body> para a página carregar mais rápido.
+         ============================================================ -->
     <script>
+
+        /* ----------------------------------------------------------
+           ESCONDER E MOSTRAR OS BOTÕES ☰ e ↓
+           Quando um menu abre, os botões somem para não atrapalhar.
+           Quando fecha, eles voltam.
+           ---------------------------------------------------------- */
+
         function esconderBotoes() {
             document.getElementById('menuBotao').style.display = 'none';
             document.getElementById('menuSecaoBotao').style.display = 'none';
@@ -198,6 +326,15 @@
             document.getElementById('menuBotao').style.display = 'block';
             document.getElementById('menuSecaoBotao').style.display = 'block';
         }
+
+
+        /* ----------------------------------------------------------
+           MENU PRINCIPAL — abrir e fechar
+
+           classList.add('aberto') adiciona a classe CSS "aberto"
+           classList.remove('aberto') remove a classe CSS "aberto"
+           O CSS usa essa classe para deslizar o painel para dentro/fora
+           ---------------------------------------------------------- */
 
         function abrirMenu() {
             document.getElementById('menuPainel').classList.add('aberto');
@@ -211,6 +348,11 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           MENU SUMÁRIO — abrir e fechar
+           ---------------------------------------------------------- */
+
         function abrirMenuSecao() {
             document.getElementById('menuSecaoPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');
@@ -223,11 +365,19 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           FECHAR TUDO DE UMA VEZ
+           Chamado quando o usuário clica no fundo escurecido.
+           ---------------------------------------------------------- */
+
         function fecharTudo() {
             fecharMenu();
             fecharMenuSecao();
         }
+
     </script>
+
 
 </body>
 </html>

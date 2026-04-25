@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<!--
+    DOCTYPE avisa o navegador: "este é um arquivo HTML moderno!"
+    Sem isso, o navegador pode exibir a página de forma errada.
+-->
+
+<html lang="pt-br">
+<!--
+    A tag <html> abraça TODO o conteúdo da página.
+    lang="pt-br" diz que o idioma é português do Brasil.
+-->
+
+<head>
+    <!--
+        O <head> é a "mochila invisível" da página.
+        Tudo aqui são configurações — o usuário não vê nada disso na tela.
+    -->
+
+    <!-- Permite usar letras especiais como ã, ç, é -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página funcionar bem no celular (não aparece minúscula) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>Lubrificação - Manual do Mecânico</title>
+
+    <!-- Liga o arquivo CSS que deixa a página bonita -->
+    <link rel="stylesheet" href="lubrificação.css">
+
+</head>
+
+<body>
+<!--
+    O <body> é onde mora tudo que o usuário VÊ na tela.
+    É como a folha de papel onde você desenha.
+-->
+
+
+    <!-- ============================================================
+         BOTÃO DE ABRIR O MENU PRINCIPAL (o ☰ no canto da tela)
+
+         position: fixed no CSS faz ele ficar sempre visível,
+         mesmo quando o usuário rola a página para baixo.
+         Quando clicado, chama a função abrirMenu() no JavaScript.
+         ============================================================ -->
+    <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
+
+
+    <!-- ============================================================
+         MENU LATERAL PRINCIPAL
+
+         Fica escondido do lado direito da tela (right: -300px no CSS).
+         Quando o botão ☰ é clicado, desliza para dentro da tela.
+         <aside> é a tag certa para conteúdo lateral como menus!
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuPainel">
+
+        <!-- Botão ✕ para fechar o menu -->
+        <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+
+        <!-- Lista de links para as outras páginas do manual -->
+        <nav class="grade-secoes">
+
+            <!-- BOTÃO: Voltar ao menu principal -->
+            <a href="../Pagina/pagina.html" class="botao-secao">
+                <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 00</small>
+                    <span>Voltar ao menu principal</span>
+                </div>
+            </a>
+
+            <!-- BOTÃO: Rolamentos -->
+            <a href="../Rolamento/rolamentos.html" class="botao-secao">
+                <div class="icone-secao"><img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 01</small>
+                    <span>Rolamentos</span>
+                </div>
+            </a>
+
+            <!-- BOTÃO: Sistemas de Transmissão -->
+            <a href="../Sistema_de_transmissão/sistemas-transmissao.html" class="botao-secao">
+                <div class="icone-secao"><img src="engrenagem.png" alt="Ícone de engrenagem" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 02</small>
+                    <span>Sistemas de Transmissão</span>
+                </div>
+            </a>
+
+            <!-- BOTÃO: Instrumentos de Medição -->
+            <a href="../TPM/tpm.html" class="botao-secao">
+                <div class="icone-secao"><img src="tpm.png" alt="Ícone de TPM" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 03</small>
+                    <span>TPM</span>
+                </div>
+            </a>
+
+            <!-- BOTÃO: Lubrificação Industrial -->
+            <a href="../Medição/instrumentos-medicao.html" class="botao-secao">
+                <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
+                <div class="texto-secao">
+                    <small>Seção 04</small>
+                    <span>Instrumentos de Medição</span>
+                </div>
+            </a>
+
+        </nav>
+    </aside>
+    <!-- Fim do menu lateral principal -->
+
+
+    <!-- ============================================================
+         BOTÃO DO SUMÁRIO (o ↓ abaixo do botão ☰)
+
+         O sumário mostra os tópicos DENTRO desta página,
+         para o usuário pular direto para o trecho que quer ler.
+         ============================================================ -->
+    <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
+
+
+    <!-- ============================================================
+         PAINEL LATERAL DO SUMÁRIO
+
+         Lista os tópicos desta página.
+         Os links com href="#id" pulam direto para o elemento
+         que tem aquele id na página.
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuSecaoPainel">
+
+        <!-- Botão ✕ para fechar o sumário -->
+        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+
+        <!-- Links que levam para cada parte desta página -->
+        <nav class="links-menu">
+            <a href="#tpm"        onclick="fecharMenuSecao()"> >> O que é TPM</a>
+            <a href="#composicao" onclick="fecharMenuSecao()"> >> Composição do TPM</a>
+            <a href="#manutencao" onclick="fecharMenuSecao()"> >> Pilar da Manutenção</a>
+            <a href="#preventiva" onclick="fecharMenuSecao()"> >> Manutenção Preventiva</a>
+            <a href="#preditiva"  onclick="fecharMenuSecao()"> >> Manutenção Preditiva</a>
+            <a href="#corretiva"  onclick="fecharMenuSecao()"> >> Manutenção Corretiva</a>
+            <a href="#autonoma"   onclick="fecharMenuSecao()"> >> Manutenção Autônoma</a>
+            <a href="#5s"         onclick="fecharMenuSecao()"> >> Modelo 5 Sensos</a>
+        </nav>
+
+    </aside>
+    <!-- Fim do sumário -->
+
+
+    <!-- ============================================================
+         FUNDO ESCURECIDO
+
+         A camada escura que aparece por trás do menu quando ele abre.
+         Clicar nela chama fecharTudo() — fecha os dois menus de vez.
+         ============================================================ -->
+    <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
+
+
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA
+
+         <main> é a tag certa para o conteúdo mais importante.
+         Só deve existir UM <main> por página.
+         ============================================================ -->
+    <main class="container-pagina">
+
+
+        <!-- --------------------------------------------------------
+             CABEÇALHO DA PÁGINA
+             -------------------------------------------------------- -->
+        <header class="cabecalho">
+            <h1>Lubrificação</h1>
+            <!-- <p> para o subtítulo — mais correto que <h2> no cabeçalho -->
+            <p>Sistemas de lubrificação industrial</p>
+        </header>
+
+
+        <!-- --------------------------------------------------------
+             IMAGEM DE CAPA
+             <figure> é a tag certa para imagens com contexto
+             -------------------------------------------------------- -->
+        <figure class="grade-imagens">
+            <div class="cartao-imagem">
+                <img src="capa.jpg" alt="TPM">
+            </div>
+        </figure>
+
+
+        <!-- --------------------------------------------------------
+             SEÇÃO DE CONTEÚDO
+             <section> agrupa um bloco de conteúdo relacionado
+             -------------------------------------------------------- -->
+        <section class="area-texto">
+
+
+            <!-- O id="tpm" permite o link do sumário pular até aqui -->
+            <h2 id="objetivo" class="subtitulo">Qual é o objetivo da Lubrificação?</h2>
+            <p>
+                A lubrificação é um processo fundamental para garantir o bom funcionamento e a longevidade dos equipamentos industriais. 
+                O objetivo principal da lubrificação é reduzir o atrito entre as superfícies em contato, minimizando o desgaste e prevenindo falhas mecânicas. 
+                Além disso, a lubrificação também ajuda a dissipar o calor gerado pelo movimento das peças, protegendo os componentes contra o superaquecimento.
+            </p>
+
+            <figure class="grade-imagens">
+                <div class="cartao-imagem">
+                    <h3>Rolamento com desgaste</h3>
+                    <img src="objetivo.jpg" alt="rolamento sem lubrif">
+                </div>
+            </figure>
+
+            <h2 id="onde" class="subtitulo">Onde é utilizado a lubrificação?</h2>
+            <p>
+                A lubrificação é amplamente utilizada em diversos setores da indústria, incluindo a manufatura, automotiva, aeroespacial, petroquímica e muitas outras. 
+                Ela é essencial para o funcionamento de máquinas e equipamentos como motores, engrenagens, rolamentos, compressores e sistemas hidráulicos. 
+                A lubrificação adequada é crucial para garantir a eficiência operacional, reduzir os custos de manutenção e prolongar a vida útil dos equipamentos.
+            </p>    
+
+            <h2 id="tipos" class="subtitulo">Tipos de lubrificação:</h2>
+            <figure class="grade-imagens">
+                <div class="cartao-imagem">
+                    <img src="tipos.png" alt="rolamento lubrificado">
+                </div>
+            </figure>
+            <p>
+                Existem diversos tipos de lubrificação utilizados na indústria, cada um adequado para diferentes aplicações e condições de operação. 
+                Os principais tipos de lubrificação incluem:
+                <ul>
+                    <li><strong>Lubrificação por óleo:</strong> Utiliza óleos lubrificantes para reduzir o atrito e proteger os componentes. É amplamente utilizada em motores, engrenagens e rolamentos.</li>
+                    <li><strong>Lubrificação por graxa:</strong> Utiliza graxas lubrificantes, que são mais espessas que os óleos, para aplicações onde a lubrificação por óleo não é adequada, como em rolamentos de alta carga.</li>
+                    <li><strong>Lubrificação por ar:</strong> Utiliza ar comprimido para criar uma camada de lubrificação entre as superfícies em contato. É utilizada em aplicações de alta velocidade e baixa carga.</li>
+                    <li><strong>Lubrificação por filme sólido:</strong> Utiliza materiais sólidos, como grafite ou dissulfeto de molibdênio, para criar uma camada de lubrificação entre as superfícies. É utilizada em condições extremas de temperatura e pressão.</li>
+            </p>
+
+            <h2 id="oleo" class="subtitulo">Lubrificação por Óleo:</h2>
+            <p>
+                A lubrificação por óleo é um dos métodos mais comuns e eficazes para reduzir o atrito e proteger os componentes mecânicos. 
+                Os óleos lubrificantes são formulados com aditivos que melhoram suas propriedades, como resistência à oxidação, proteção contra desgaste e capacidade de suportar altas temperaturas. 
+                A escolha do óleo lubrificante adequado é crucial para garantir a eficiência operacional e a longevidade dos equipamentos.
+            </p>
+            <h3 class="subtitulo">Tipos de lubrificantes a óleo:</h3>
+            <ul>
+                <li><strong><h2 class="subtitulo">Óleos minerais:</h2></strong> Derivados do petróleo, são os lubrificantes mais comuns e econômicos. São adequados para uma ampla gama de aplicações, mas podem não ser adequados para condições extremas.</li>
+                    <h3 class="exemplo">Exemplos:</h3>
+                    <div class="listagem">
+                        <h4>Óleos hidraulico:</h4>
+                        <p>Utilizados em sistemas hidráulicos para transmitir energia e lubrificar os componentes do sistema.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 48 / 68</p>
+                        <p>Uso em prensas, injetoras, maquinas industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para engrenagens (redutores)</h4>
+                        <p>Utilizados para lubrificar engrenagens e redutores, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 150 / 220 / 320 / 460</p>
+                        <p>Uso em redutores, caixas de engrenagens, transmissões industriais</p>
+                        <p>Possui aditivos EP (extrema pressão)</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para compressores</h4>
+                        <p>Utilizados para lubrificar e resfriar os componentes internos de compressores, garantindo o bom funcionamento e a durabilidade do equipamento.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 46 / 68</p>
+                        <p>Uso em compressores de ar, compressores de refrigeração, compressores industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para turbinas</h4>
+                        <p>Utilizados para lubrificar e resfriar os componentes internos de turbinas, garantindo o bom funcionamento e a durabilidade do equipamento.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 46 / 68</p>
+                        <p>Uso em turbinas a gás, turbinas a vapor, turbinas industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para guias e barramentos</h4>
+                        <p>Utilizados para lubrificar guias e barramentos, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 68 / 150 / 220</p>
+                        <p>Uso em guias de máquinas-ferramenta, barramentos de prensas, guias de equipamentos industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para rolamentos</h4>
+                        <p>Utilizados para lubrificar rolamentos, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 46 / 68</p>
+                        <p>Uso em rolamentos de máquinas, rolamentos de equipamentos industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para correntes</h4>
+                        <p>Utilizados para lubrificar correntes, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 150 / 220 / 320, SAE 90 >> chain lube</p>
+                        <p>Uso em correntes de transmissão, correntes de equipamentos industriais</p>
+                    </div>
+
+                <li><strong><h2 class="subtitulo">Óleos sintéticos:</h2></strong> Fabricados a partir de compostos químicos, oferecem melhor desempenho em condições extremas de temperatura e pressão. São mais caros que os óleos minerais, mas proporcionam maior proteção e eficiência.</li>
+                <h3 class="exemplo">Exemplos:</h3>
+                    <div class="listagem">
+                        <h4>Óleos hidraulico:</h4>
+                        <p>Utilizados em sistemas hidráulicos para transmitir energia e lubrificar os componentes do sistema.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 48 / 68</p>
+                        <p>Uso em prensas, injetoras, maquinas industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para engrenagens (redutores)</h4>
+                        <p>Utilizados para lubrificar engrenagens e redutores, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 150 / 220 / 320 / 460</p>
+                        <p>Uso em redutores, caixas de engrenagens, transmissões industriais</p>
+                        <p>Possui aditivos EP (extrema pressão)</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para compressores</h4>
+                        <p>Utilizados para lubrificar e resfriar os componentes internos de compressores, garantindo o bom funcionamento e a durabilidade do equipamento.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 46 / 68</p>
+                        <p>Uso em compressores de ar, compressores de refrigeração, compressores industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para turbinas</h4>
+                        <p>Utilizados para lubrificar e resfriar os componentes internos de turbinas, garantindo o bom funcionamento e a durabilidade do equipamento.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 46 / 68</p>
+                        <p>Uso em turbinas a gás, turbinas a vapor, turbinas industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para guias e barramentos</h4>
+                        <p>Utilizados para lubrificar guias e barramentos, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 68 / 150 / 220</p>
+                        <p>Uso em guias de máquinas-ferramenta, barramentos de prensas, guias de equipamentos industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para rolamentos</h4>
+                        <p>Utilizados para lubrificar rolamentos, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 32 / 46 / 68</p>
+                        <p>Uso em rolamentos de máquinas, rolamentos de equipamentos industriais</p>
+                    </div>
+                    <div class="listagem">
+                        <h4>Óleo para correntes</h4>
+                        <p>Utilizados para lubrificar correntes, proporcionando proteção contra desgaste e corrosão.</p>
+                        <p>Viscosidade comum : ISO VG 150 / 220 / 320, SAE 90 >> chain lube</p>
+                        <p>Uso em correntes de transmissão, correntes de equipamentos industriais</p>
+                    </div>
+                    
+                <li><strong><h2 class="subtitulo">Óleos biodegradáveis:</h2></strong> Feitos a partir de fontes renováveis, como óleos vegetais, são uma opção mais sustentável para aplicações onde o impacto ambiental é uma preocupação.</li>
+            </ul>
+
+        </section>
+        <!-- Fim da seção de conteúdo -->
+
+
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+
+    <!-- ============================================================
+         JAVASCRIPT
+
+         O "cérebro" da página — faz as coisas se moverem e reagirem.
+         Fica no final do <body> para a página carregar mais rápido.
+         ============================================================ -->
+    <script>
+
+        /* ----------------------------------------------------------
+           ESCONDER E MOSTRAR OS BOTÕES ☰ e ↓
+           Quando um menu abre, os botões somem para não atrapalhar.
+           Quando fecha, eles voltam.
+           ---------------------------------------------------------- */
+
+        function esconderBotoes() {
+            document.getElementById('menuBotao').style.display = 'none';
+            document.getElementById('menuSecaoBotao').style.display = 'none';
+        }
+
+        function mostrarBotoes() {
+            document.getElementById('menuBotao').style.display = 'block';
+            document.getElementById('menuSecaoBotao').style.display = 'block';
+        }
+
+
+        /* ----------------------------------------------------------
+           MENU PRINCIPAL — abrir e fechar
+
+           classList.add('aberto') adiciona a classe CSS "aberto"
+           classList.remove('aberto') remove a classe CSS "aberto"
+           O CSS usa essa classe para deslizar o painel para dentro/fora
+           ---------------------------------------------------------- */
+
+        function abrirMenu() {
+            document.getElementById('menuPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenu() {
+            document.getElementById('menuPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+
+        /* ----------------------------------------------------------
+           MENU SUMÁRIO — abrir e fechar
+           ---------------------------------------------------------- */
+
+        function abrirMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.add('aberto');
+            document.getElementById('menuOverlay').classList.add('aberto');
+            esconderBotoes();
+        }
+
+        function fecharMenuSecao() {
+            document.getElementById('menuSecaoPainel').classList.remove('aberto');
+            document.getElementById('menuOverlay').classList.remove('aberto');
+            mostrarBotoes();
+        }
+
+
+        /* ----------------------------------------------------------
+           FECHAR TUDO DE UMA VEZ
+           Chamado quando o usuário clica no fundo escurecido.
+           ---------------------------------------------------------- */
+
+        function fecharTudo() {
+            fecharMenu();
+            fecharMenuSecao();
+        }
+
+    </script>
+
+
+</body>
+</html>

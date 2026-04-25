@@ -130,6 +130,19 @@ body {
     color: #fff;
 }
 
+.exemplo {
+    font-size: 20px;
+    color: red;
+}
+
+.listagem{
+    font-size: 18px;
+    color: rgb(146, 123, 48);
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+}
 
 /* =============================================
    GRADE DE IMAGENS
