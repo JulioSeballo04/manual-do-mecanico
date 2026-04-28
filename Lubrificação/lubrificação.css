@@ -172,6 +172,7 @@ body {
 .cartao-imagem h3 {
     font-size: 14px;
     font-weight: 600;
+    border-color: rgb(146, 123, 48);
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -182,16 +183,19 @@ body {
 .cartao-capa img {
     width: 350px;
     height: 250px;
-    border: 1px solid var(--border);
-    animation: danceimg 5s infinite;
+    border: 15px solid var(--border);
+    border-color: rgb(146, 123, 48);
+    animation: flutuar 5s infinite;
 }
 
 /* Imagens maiores de conteúdo */
 .cartao-imagem img {
     width: 500px;
     height: 250px;
-    border: 1px solid var(--border);
-    animation: danceimg 5s infinite;
+    border: 15px solid;
+    border-radius: 10px;
+    border-color: rgb(146, 123, 48);
+    animation: flutuar 5s infinite;
 }
 
 /*
@@ -200,15 +204,9 @@ body {
    para parecer que está pulsando ou dançando.
    CORRIGIDO: @keyframes duplicado foi removido — só precisa de um!
 */
-@keyframes danceimg {
-    0%, 100% {
-        transform: scale(.9);
-        border-radius: 4% 95% 6% / 95% 4% 92% 5%;
-    }
-    50% {
-        transform: scale(.8);
-        border-radius: 95% 4% 97% / 4% 96% 3% 97%;
-    }
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-15px); }
 }
 
 /* Imagens menores usadas em listas de itens */
