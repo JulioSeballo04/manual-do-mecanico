@@ -528,7 +528,7 @@ body {
    ============================================= */
 
 table {
-    width: 50%;
+    width: 80%;
     border-collapse: collapse; /* Remove espaço duplo entre bordas */
     margin-top: 10px;
     background: var(--card-bg);
