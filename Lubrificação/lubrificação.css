@@ -208,7 +208,52 @@ body {
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(-15px); }
 }
+/* Container externo — esconde o que passa da borda */
+.carrosel {
+    width: 100%;
+    overflow: hidden;
+    
+}
 
+/* Faixa com todas as imagens lado a lado */
+/* CORRIGIDO: nome da classe era .image-carrosel — trocado para .imagem-carrosel */
+.imagem-carrosel {
+    display: grid;
+    gap: 20px;
+    color: #f2a900;
+    border-radius: 12px;
+    grid-auto-flow: column;      /* Imagens em linha horizontal */
+    grid-auto-columns: 250px;    /* Cada imagem ocupa 250px de largura */
+    animation: animar-carrosel 20s linear infinite;
+}
+
+/* Estilo de cada <img> dentro da faixa */
+.imagem-carrosel img {
+    
+    width: 250px;
+    height: 200px;
+    object-fit: contain;         /* Não distorce a imagem */
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 2px;
+}
+
+/*
+   A animação move a faixa para -50% da largura total.
+   Como as imagens estão duplicadas, quando chega no fim
+   da primeira sequência, a segunda já está começando —
+   criando o loop contínuo sem travar.
+*/
+@keyframes animar-carrosel {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Pausa o carrossel quando o mouse passa por cima */
+.carrosel:hover .imagem-carrosel {
+    animation-play-state: paused;
+}
 /* Imagens menores usadas em listas de itens */
 .imagem-pequena {
     width: auto;
@@ -473,4 +518,69 @@ body {
         overflow-x: auto;
     }
 
+}
+
+/* =============================================
+   TABELA DE ESPECIFICAÇÃO
+
+   Organiza os dados de especificação do rolamento
+   em linhas e colunas, como uma planilha.
+   ============================================= */
+
+table {
+    width: 50%;
+    border-collapse: collapse; /* Remove espaço duplo entre bordas */
+    margin-top: 10px;
+    background: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden; /* Garante que o border-radius funcione */
+}
+
+/* Fundo do cabeçalho da tabela (linha dos títulos) */
+thead {
+    background: #252525;
+}
+
+/* Células de título da tabela */
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    color: var(--accent); /* Amarelo */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+}
+
+/*
+   Texto secundário dentro do cabeçalho da tabela.
+   Aparece abaixo do título da coluna, em cinza menor.
+   Ex: "Primeiro dígito" (título) + "Modelo do rolamento" (detalhe)
+*/
+.cabecalho-tabela-detalhe {
+    display: block;      /* Quebra linha — fica abaixo do título */
+    font-size: 10px;
+    color: #aaa;         /* Cinza claro */
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    margin-top: 3px;
+}
+
+/* Células de dados da tabela */
+td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Remove a borda da última linha da tabela */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Destaca a linha ao passar o mouse */
+tbody tr:hover {
+    background: #252525;
 }
