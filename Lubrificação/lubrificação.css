@@ -216,27 +216,24 @@ body {
 }
 
 /* Faixa com todas as imagens lado a lado */
-/* CORRIGIDO: nome da classe era .image-carrosel — trocado para .imagem-carrosel */
 .imagem-carrosel {
     display: grid;
-    gap: 20px;
-    color: #f2a900;
-    border-radius: 12px;
+    gap: 0px;
+    border-radius: 0px;
     grid-auto-flow: column;      /* Imagens em linha horizontal */
-    grid-auto-columns: 250px;    /* Cada imagem ocupa 250px de largura */
-    animation: animar-carrosel 20s linear infinite;
+    grid-auto-columns: 210px;    /* Cada imagem ocupa 250px de largura */
+    animation: animar-carrosel 10s linear infinite;
 }
 
 /* Estilo de cada <img> dentro da faixa */
 .imagem-carrosel img {
-    
-    width: 250px;
+    width: 200px;
     height: 200px;
     object-fit: contain;         /* Não distorce a imagem */
     background: var(--card-bg);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    padding: 2px;
+    border-radius: 20px;
+    border: 1px solid rgb(146, 123, 48);
+    padding: 5px;
 }
 
 /*
@@ -528,12 +525,13 @@ body {
    ============================================= */
 
 table {
-    width: 80%;
+    width: 50%;
     border-collapse: collapse; /* Remove espaço duplo entre bordas */
     margin-top: 10px;
     background: var(--card-bg);
     border-radius: 6px;
     overflow: hidden; /* Garante que o border-radius funcione */
+    margin: 0 auto; /* Centraliza a tabela horizontalmente */
 }
 
 /* Fundo do cabeçalho da tabela (linha dos títulos) */
@@ -544,7 +542,7 @@ thead {
 /* Células de título da tabela */
 th {
     padding: 12px 16px;
-    text-align: left;
+    text-align: center;
     font-size: 11px;
     color: var(--accent); /* Amarelo */
     text-transform: uppercase;
@@ -573,6 +571,7 @@ td {
     font-size: 14px;
     color: var(--text);
     border-bottom: 1px solid var(--border);
+    text-align: center;
 }
 
 /* Remove a borda da última linha da tabela */
