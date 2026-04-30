@@ -218,21 +218,21 @@ body {
 /* Faixa com todas as imagens lado a lado */
 .imagem-carrosel {
     display: grid;
-    gap: 0px;
-    border-radius: 0px;
+    gap: 10px;
+    border-radius: 20px;
     grid-auto-flow: column;      /* Imagens em linha horizontal */
-    grid-auto-columns: 210px;    /* Cada imagem ocupa 250px de largura */
+    grid-auto-columns: 250px;    /* Cada imagem ocupa 250px de largura */
     animation: animar-carrosel 10s linear infinite;
 }
 
 /* Estilo de cada <img> dentro da faixa */
 .imagem-carrosel img {
-    width: 200px;
+    width: 250px;
     height: 200px;
     object-fit: contain;         /* Não distorce a imagem */
-    background: var(--card-bg);
+    background: white;
     border-radius: 20px;
-    border: 1px solid rgb(146, 123, 48);
+    border: 5px solid rgb(146, 123, 48);
     padding: 5px;
 }
 
