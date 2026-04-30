@@ -26,7 +26,7 @@
    ============================================= */
 
 * {
-    box-sizing: border-box; /* Tamanho inclui bordas e espaçamento interno */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -36,17 +36,14 @@ body {
     background-color: var(--bg);
     color: var(--text);
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    min-height: 100vh;        /* Ocupa no mínimo a altura toda da tela */
+    justify-content: center;
+    min-height: 100vh;
     padding: 40px 20px;
 }
 
 
 /* =============================================
    LAYOUT PRINCIPAL
-
-   O <main> que envolve todo o conteúdo visível.
-   Limita a largura para não ficar esticado demais.
    ============================================= */
 
 .container-pagina {
@@ -57,25 +54,21 @@ body {
 
 /* =============================================
    CABEÇALHO
-
-   Bloco do título no topo da página.
-   A fita amarela na esquerda é feita com border-left.
    ============================================= */
 
 .cabecalho {
-    border-left: 6px solid var(--accent); /* Fita amarela na esquerda */
+    border-left: 6px solid var(--accent);
     padding-left: 20px;
     margin-bottom: 40px;
 }
 
 .cabecalho h1 {
-    text-transform: uppercase; /* Título em MAIÚSCULAS */
+    text-transform: uppercase;
     font-size: 32px;
-    letter-spacing: 2px;       /* Espaço entre as letras */
+    letter-spacing: 2px;
     color: #fff;
 }
 
-/* Subtítulo abaixo do título principal */
 .cabecalho p {
     font-size: 14px;
     color: #888;
@@ -85,9 +78,6 @@ body {
 
 /* =============================================
    ÁREA DE TEXTO
-
-   Envolve parágrafos, listas e subtítulos.
-   gap: 16px cria espaço entre cada elemento filho.
    ============================================= */
 
 .area-texto {
@@ -96,7 +86,6 @@ body {
     gap: 16px;
 }
 
-/* Subtítulos amarelos dentro do conteúdo */
 .subtitulo {
     font-size: 20px;
     font-weight: 600;
@@ -104,16 +93,14 @@ body {
     margin-top: 10px;
 }
 
-/* Parágrafos */
 .area-texto p {
     font-size: 15px;
-    line-height: 1.8; /* Espaço entre linhas para facilitar a leitura */
+    line-height: 1.8;
     color: var(--text);
 }
 
-/* Listas com marcadores */
 .area-texto ul {
-    margin-left: 20px; /* Recuo da lista para a direita */
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -125,7 +112,6 @@ body {
     color: var(--text);
 }
 
-/* Palavras em negrito dentro dos itens */
 .area-texto ul li strong {
     color: #fff;
 }
@@ -135,7 +121,8 @@ body {
     color: red;
 }
 
-.listagem{
+/* Item de listagem estilizado com borda amarela */
+.listagem {
     font-size: 18px;
     color: rgb(146, 123, 48);
     background: var(--card-bg);
@@ -144,12 +131,9 @@ body {
     border-radius: 4px;
 }
 
+
 /* =============================================
    GRADE DE IMAGENS
-
-   Linha/grid que exibe imagens lado a lado.
-   flex-wrap: wrap faz as imagens quebrarem para
-   nova linha quando não cabem mais.
    ============================================= */
 
 .grade-imagens {
@@ -160,7 +144,6 @@ body {
     margin: 20px 0;
 }
 
-/* Cada bloco individual de imagem com título */
 .cartao-imagem {
     display: flex;
     flex-direction: column;
@@ -168,51 +151,51 @@ body {
     gap: 12px;
 }
 
-/* Título acima da imagem */
 .cartao-imagem h3 {
     font-size: 14px;
     font-weight: 600;
-    border-color: rgb(146, 123, 48);
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
 }
 
-/* Imagem de capa — tamanho e animação próprios */
 .cartao-capa img {
     width: 350px;
     height: 250px;
-    border: 15px solid var(--border);
-    border-color: rgb(146, 123, 48);
-    animation: flutuar 5s infinite;
+    border: 15px solid rgb(146, 123, 48);
+    animation: flutuar 5s infinite ease-in-out;
 }
 
-/* Imagens maiores de conteúdo */
 .cartao-imagem img {
     width: 500px;
     height: 250px;
-    border: 15px solid;
+    border: 15px solid rgb(146, 123, 48);
     border-radius: 10px;
-    border-color: rgb(146, 123, 48);
-    animation: flutuar 5s infinite;
+    animation: flutuar 5s infinite ease-in-out;
 }
 
 /*
-   Animação "danceimg"
-   A imagem muda de tamanho e de forma (border-radius)
-   para parecer que está pulsando ou dançando.
-   CORRIGIDO: @keyframes duplicado foi removido — só precisa de um!
+   Animação "flutuar"
+   A imagem sobe e desce suavemente.
 */
 @keyframes flutuar {
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(-15px); }
 }
+
+
+/* =============================================
+   CARROSSEL DE IMAGENS
+
+   Exibe imagens deslizando automaticamente da
+   direita para a esquerda, em loop contínuo.
+   ============================================= */
+
 /* Container externo — esconde o que passa da borda */
 .carrosel {
     width: 100%;
     overflow: hidden;
-    
 }
 
 /* Faixa com todas as imagens lado a lado */
@@ -220,16 +203,17 @@ body {
     display: grid;
     gap: 10px;
     border-radius: 20px;
-    grid-auto-flow: column;      /* Imagens em linha horizontal */
-    grid-auto-columns: 250px;    /* Cada imagem ocupa 250px de largura */
-    animation: animar-carrosel 10s linear infinite;
+    grid-auto-flow: column;
+    grid-auto-columns: 250px;
+    width: calc(12 * 260px); /* 250px da imagem + 10px do gap */
+    animation: animar-carrosel 20s linear infinite;
 }
 
-/* Estilo de cada <img> dentro da faixa */
+/* Cada imagem dentro do carrossel */
 .imagem-carrosel img {
     width: 250px;
     height: 200px;
-    object-fit: contain;         /* Não distorce a imagem */
+    object-fit: contain;
     background: white;
     border-radius: 20px;
     border: 5px solid rgb(146, 123, 48);
@@ -239,8 +223,7 @@ body {
 /*
    A animação move a faixa para -50% da largura total.
    Como as imagens estão duplicadas, quando chega no fim
-   da primeira sequência, a segunda já está começando —
-   criando o loop contínuo sem travar.
+   da primeira sequência, a segunda já começa — loop contínuo.
 */
 @keyframes animar-carrosel {
     0%   { transform: translateX(0); }
@@ -251,7 +234,12 @@ body {
 .carrosel:hover .imagem-carrosel {
     animation-play-state: paused;
 }
-/* Imagens menores usadas em listas de itens */
+
+
+/* =============================================
+   IMAGENS PEQUENAS E LEGENDAS
+   ============================================= */
+
 .imagem-pequena {
     width: auto;
     height: auto;
@@ -261,28 +249,77 @@ body {
     animation: balanço 3s ease-in-out infinite;
 }
 
-/*
-   Animação "balanço"
-   A imagem inclina levemente para os lados,
-   como se estivesse balançando devagar.
-*/
 @keyframes balanço {
     0%, 100% { transform: rotate(-2deg); }
     50%       { transform: rotate(2deg);  }
 }
 
-/* Texto de legenda abaixo das imagens */
 .legenda-imagem {
     font-size: 13px;
     color: var(--accent);
     text-align: center;
 }
 
+/* Container que permite scroll horizontal */
+.container-tabela {
+    width: 100%;
+    overflow-x: auto;    /* scroll horizontal quando a tabela for maior que a tela */
+    -webkit-overflow-scrolling: touch; /* scroll suave no iOS */
+}
+
+table {
+    width: 50%;          /* no desktop */
+    min-width: 300px;    /* largura mínima para não encolher demais */
+    border-collapse: collapse;
+    margin: 10px auto 0 auto;
+    background: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+thead {
+    background: #252525;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+}
+
+.cabecalho-tabela-detalhe {
+    display: block;
+    font-size: 10px;
+    color: #aaa;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    margin-top: 3px;
+}
+
+td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #252525;
+}
+
 
 /* =============================================
    MENU LATERAL — GRADE DE SEÇÕES
-
-   Agrupa os botões de navegação dentro do painel lateral.
    ============================================= */
 
 .grade-secoes {
@@ -291,7 +328,6 @@ body {
     gap: 10px;
 }
 
-/* Cada botão de seção (tag <a> estilizada como botão) */
 .botao-secao {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -301,8 +337,8 @@ body {
     align-items: center;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    text-decoration: none; /* Remove sublinhado do link */
-    color: inherit;        /* Não fica azul de link */
+    text-decoration: none;
+    color: inherit;
 }
 
 .botao-secao:hover {
@@ -311,7 +347,6 @@ body {
     transform: scale(1.02);
 }
 
-/* Caixinha quadrada que contém o ícone */
 .icone-secao {
     font-size: 24px;
     margin-right: 20px;
@@ -325,7 +360,6 @@ body {
     border: 1px solid var(--border);
 }
 
-/* Nome da seção — texto grande e branco */
 .texto-secao span {
     display: block;
     font-weight: 600;
@@ -333,7 +367,6 @@ body {
     color: #fff;
 }
 
-/* Número da seção — texto pequeno e amarelo */
 .texto-secao small {
     font-size: 10px;
     color: var(--accent);
@@ -341,7 +374,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Imagem dentro da caixinha do ícone */
 .imagem-icone {
     width: 40px;
     height: 40px;
@@ -352,9 +384,6 @@ body {
 
 /* =============================================
    BOTÕES DE ABRIR MENU (☰ e ↓)
-
-   position: fixed faz os botões ficarem sempre visíveis
-   na tela, mesmo quando o usuário rola a página.
    ============================================= */
 
 .botao-abrir-menu {
@@ -369,7 +398,7 @@ body {
     height: 45px;
     border-radius: 6px;
     cursor: pointer;
-    z-index: 1000; /* Fica na frente de quase tudo */
+    z-index: 1000;
     transition: background 0.2s;
 }
 
@@ -377,7 +406,6 @@ body {
     background: #252525;
 }
 
-/* O botão ↓ do sumário fica abaixo do botão ☰ */
 .botao-sumario {
     top: 75px;
 }
@@ -385,34 +413,29 @@ body {
 
 /* =============================================
    PAINEL LATERAL
-
-   Começa escondido em right: -300px (fora da tela).
-   Quando a classe "aberto" é adicionada pelo JavaScript,
-   vai para right: 0 (desliza para dentro da tela).
    ============================================= */
 
 .painel-lateral {
     position: fixed;
     top: 0;
-    right: -300px;   /* Começa fora da tela */
+    right: -300px;
     width: 280px;
     height: 100%;
     background: var(--card-bg);
     border-left: 1px solid var(--border);
     padding: 60px 20px 20px;
     z-index: 999;
-    transition: right 0.3s ease; /* Desliza suavemente */
+    transition: right 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    overflow-y: auto; /* Barra de rolagem se o conteúdo for grande */
+    overflow-y: auto;
 }
 
 .painel-lateral.aberto {
-    right: 0; /* Aparece na tela */
+    right: 0;
 }
 
-/* Botão ✕ para fechar — fica no canto superior direito do painel */
 .botao-fechar-menu {
     position: absolute;
     top: 15px;
@@ -431,8 +454,6 @@ body {
 
 /* =============================================
    LINKS DO SUMÁRIO
-
-   Os links que pulam para seções dentro da mesma página.
    ============================================= */
 
 .links-menu {
@@ -459,15 +480,12 @@ body {
 
 /* =============================================
    FUNDO ESCURECIDO
-
-   Camada escura que aparece por trás do menu.
-   Começa invisível — aparece quando o menu abre.
    ============================================= */
 
 .fundo-escurecido {
-    display: none;    /* Começa invisível */
+    display: none;
     position: fixed;
-    inset: 0;         /* Cobre toda a tela */
+    inset: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 998;
 }
@@ -480,15 +498,28 @@ body {
 /* =============================================
    RESPONSIVIDADE
 
-   Adapta o layout para telas menores.
-   @media (max-width: X) significa:
-   "aplique estas regras quando a tela for menor que X pixels"
+   CORRIGIDO: @media vem DEPOIS de todas as regras
+   principais, para poder sobrescrevê-las corretamente.
    ============================================= */
 
 /* 📱 MOBILE — telas até 768px */
 @media (max-width: 768px) {
+    .container-pagina {
+        padding-top: 60px; /* espaço para os botões ☰ e ↓ não cobrirem o texto */
+    }
 
-    /* Fita amarela vai para baixo do título no celular */
+    /* Impede que o carrossel encolha no celular */
+    .imagem-carrosel {
+        width: calc(12 * 260px); /* mesmo valor de cima */
+    }
+
+    /* Imagens do carrossel mantêm o tamanho */
+    .imagem-carrosel img {
+        width: 250px;
+        height: 200px;
+    }
+
+
     .cabecalho {
         border-left: none;
         border-bottom: 4px solid var(--accent);
@@ -497,89 +528,24 @@ body {
         text-align: center;
     }
 
-    /* Imagens ficam menores para caber na tela */
     .cartao-imagem img {
-        width: 90vw;  /* 90% da largura da tela */
-        height: auto; /* Altura proporcional — não distorce */
+        width: 90vw;
+        height: auto;
     }
 
-    /* Imagens pequenas também ficam menores */
     .imagem-pequena {
         width: 120px;
         height: 120px;
     }
 
-    /* Tabela ganha scroll horizontal no celular */
     table {
-        display: block;
-        overflow-x: auto;
+        width: 100%;     /* ocupa tudo no celular */
+        min-width: unset;
+        font-size: 12px; /* texto menor para caber melhor */
     }
 
-}
+    th, td {
+        padding: 8px;    /* menos espaço interno nas células */
+    }
 
-/* =============================================
-   TABELA DE ESPECIFICAÇÃO
-
-   Organiza os dados de especificação do rolamento
-   em linhas e colunas, como uma planilha.
-   ============================================= */
-
-table {
-    width: 50%;
-    border-collapse: collapse; /* Remove espaço duplo entre bordas */
-    margin-top: 10px;
-    background: var(--card-bg);
-    border-radius: 6px;
-    overflow: hidden; /* Garante que o border-radius funcione */
-    margin: 0 auto; /* Centraliza a tabela horizontalmente */
-}
-
-/* Fundo do cabeçalho da tabela (linha dos títulos) */
-thead {
-    background: #252525;
-}
-
-/* Células de título da tabela */
-th {
-    padding: 12px 16px;
-    text-align: center;
-    font-size: 11px;
-    color: var(--accent); /* Amarelo */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid var(--border);
-}
-
-/*
-   Texto secundário dentro do cabeçalho da tabela.
-   Aparece abaixo do título da coluna, em cinza menor.
-   Ex: "Primeiro dígito" (título) + "Modelo do rolamento" (detalhe)
-*/
-.cabecalho-tabela-detalhe {
-    display: block;      /* Quebra linha — fica abaixo do título */
-    font-size: 10px;
-    color: #aaa;         /* Cinza claro */
-    text-transform: none;
-    letter-spacing: 0;
-    font-weight: 400;
-    margin-top: 3px;
-}
-
-/* Células de dados da tabela */
-td {
-    padding: 12px 16px;
-    font-size: 14px;
-    color: var(--text);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-}
-
-/* Remove a borda da última linha da tabela */
-tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* Destaca a linha ao passar o mouse */
-tbody tr:hover {
-    background: #252525;
 }
