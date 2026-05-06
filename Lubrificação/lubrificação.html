@@ -135,14 +135,13 @@
 
         <!-- Links que levam para cada parte desta página -->
         <nav class="links-menu">
-            <a href="#tpm"        onclick="fecharMenuSecao()"> >> O que é TPM</a>
-            <a href="#composicao" onclick="fecharMenuSecao()"> >> Composição do TPM</a>
-            <a href="#manutencao" onclick="fecharMenuSecao()"> >> Pilar da Manutenção</a>
-            <a href="#preventiva" onclick="fecharMenuSecao()"> >> Manutenção Preventiva</a>
-            <a href="#preditiva"  onclick="fecharMenuSecao()"> >> Manutenção Preditiva</a>
-            <a href="#corretiva"  onclick="fecharMenuSecao()"> >> Manutenção Corretiva</a>
-            <a href="#autonoma"   onclick="fecharMenuSecao()"> >> Manutenção Autônoma</a>
-            <a href="#5s"         onclick="fecharMenuSecao()"> >> Modelo 5 Sensos</a>
+            <a href="#objetivo"    onclick="fecharMenuSecao()"> >> Objetivo da lubrificação</a>
+            <a href="#onde"        onclick="fecharMenuSecao()"> >> Onde a lubrificação é utilizada</a>
+            <a href="#viscosidade" onclick="fecharMenuSecao()"> >> Viscosidade</a>
+            <a href="#tipos"       onclick="fecharMenuSecao()"> >> Tipos de lubrificação</a>
+            <a href="#oleo"        onclick="fecharMenuSecao()"> >> Lubrificação por óleo</a>
+            <a href="#graxa"       onclick="fecharMenuSecao()"> >> Lubrificação por graxa</a>
+            <a href="#outros"      onclick="fecharMenuSecao()"> >> + Modelos de lubrificação</a>
         </nav>
 
     </aside>
@@ -235,7 +234,7 @@
             </p>
 
             <table>
-                <h2 id="comparacao" class="subtitulo" style="margin: 0 auto; text-align: center;">Comparação Rápida:</h2>
+                <h2 class="subtitulo" style="margin: 0 auto; text-align: center;">Comparação Rápida:</h2>
                 <thead>
                     <tr>
                         <th>ISO VG <span class="cabecalho-tabela-detalhe">Viscosidade</span></th>
@@ -718,7 +717,7 @@
                     </ul>
                     <h3 class="exemplo">Exemplos</h3>
                     <ul>
-                        <li>Mobilgrease XHP 222 Special</li>
+                        <li>SKF LGHB 2</li>
                         <li>Castrol Spheerol EPL 2</li>
                     </ul>
                 </div>
@@ -739,7 +738,7 @@
 
                     <h3 class="exemplo">Exemplos</h3>
                     <ul>
-                        <li>Mobilgrease XHP 222</li>
+                        <li>SKF LGWA 00</li>
                         <li>Mobil SHC 007</li>
                     </ul>
                 </div>
@@ -763,9 +762,85 @@
                         <li>Castrol Spheerol EPL 2</li>
                     </ul>
                 </div>
+
+                <figure class="carrosel">
+                    <div class="imagem-carrosel">
+                        <!-- Imagens originais -->
+                        <div>
+                            <img src="Mobilgrease XHP 222.png" alt="Mobilgrease XHP 222">
+                            <p style="margin: 0 auto; text-align: center;">Graxa a base de Lítio </p>
+                            <p style="margin: 0 auto; text-align: center;">Mobilgrease XHP 222</p>
+                        </div>
+                        <div>
+                            <img src="Shell-Gadus-S2-V100-2.jpg" alt="Shell Gadus S2 V100 2">
+                            <p style="margin: 0 auto; text-align: center;">Graxa a base de cálcio</p>
+                            <p style="margin: 0 auto; text-align: center;">Shell Gadus S2 V100 2</p>
+                        </div>
+                        <div>
+                            <img src="SKF LGHB 2.jpeg" alt="SKF LGHB 2">
+                            <p style="margin: 0 auto; text-align: center;" >Graxa EP</p>
+                            <p style="margin: 0 auto; text-align: center;">SKF LGHB 2</p>
+                        </div>
+                        <div>
+                            <img src="Mobil SHC 007.webp" alt="Mobil SHC 007">
+                            <p style="margin: 0 auto; text-align: center;">Graxa Fluida (semi-fluida)</p>
+                            <p style="margin: 0 auto; text-align: center;">Mobil SHC 007</p>
+                        </div>
+                        <div>
+                            <img src="Mobilith SHC 220.jpg" alt="Mobilith SHC 220">
+                            <p style="margin: 0 auto; text-align: center;" >Graxa sintética</p>
+                            <p style="margin: 0 auto; text-align: center;">Mobilith SHC 220</p>
+                        </div>
+                        
+                        <!-- Cópia das imagens — cria o efeito de loop infinito -->
+                        <div>
+                            <img src="Mobilgrease XHP 222.png" alt="Mobilgrease XHP 222">
+                            <p style="margin: 0 auto; text-align: center;">Graxa a base de Lítio </p>
+                            <p style="margin: 0 auto; text-align: center;">Mobilgrease XHP 222</p>
+                        </div>
+                        <div>
+                            <img src="Shell-Gadus-S2-V100-2.jpg" alt="Shell Gadus S2 V100 2">
+                            <p style="margin: 0 auto; text-align: center;">Graxa a base de cálcio</p>
+                            <p style="margin: 0 auto; text-align: center;">Shell Gadus S2 V100 2</p>
+                        </div>
+                        <div>
+                            <img src="SKF LGHB 2.jpeg" alt="SKF LGHB 2">
+                            <p style="margin: 0 auto; text-align: center;" >Graxa EP</p>
+                            <p style="margin: 0 auto; text-align: center;">SKF LGHB 2</p>
+                        </div>
+                        <div>
+                            <img src="Mobil SHC 007.webp" alt="Mobil SHC 007" width="550" height="500">
+                            <p style="margin: 0 auto; text-align: center;">Graxa Fluida (semi-fluida)</p>
+                            <p style="margin: 0 auto; text-align: center;">Mobil SHC 007</p>
+                        </div>
+                        <div>
+                            <img src="Mobilith SHC 220.jpg" alt="Mobilith SHC 220">
+                            <p style="margin: 0 auto; text-align: center;" >Graxa sintética</p>
+                            <p style="margin: 0 auto; text-align: center;">Mobilith SHC 220</p>
+                        </div>
+                    </div>
+                    </figure>
                 
             </ul>
+            <h2 id="outros" class="subtitulo">Outros tipos de lubrificação:</h2>
+            <p>
+                Além dos métodos tradicionais de lubrificação por óleo e graxa, existem outras técnicas especializadas para aplicações específicas. 
+                A lubrificação por ar, é um sistema onde pequenas quantidades de óleo são transportadas por ar comprimido até o ponto de contato. O ar leva o óleo em forma de gotas, formando um filme lubrificante fino e ao mesmo tempo ajudando a resfriar e manter o sistema limpo. Esse método é muito eficiente, pois usa pouco lubrificante e reduz o aquecimento.
+                É utilizada principalmente em rolamentos de alta rotação, como em fusos de máquinas CNC, motores rápidos, engrenagens de precisão e equipamentos industriais que trabalham continuamente, 
+                onde há necessidade de alta eficiência e controle térmico.
+            </p>
+            <figure class="cartao-imagem">
+                <img src="lubrificação ar.jpg" alt="Lubrificação por ar" style="width: 300px; height: 250px;">
+            </figure>
+            <p>
+                A lubrificação por filme sólido é um método onde materiais sólidos, como dissulfeto de molibdênio (MoS₂), grafite ou PTFE, formam uma camada fina sobre a superfície, reduzindo o atrito sem necessidade de óleo ou graxa. Esse filme permite o deslizamento entre as peças, mesmo em condições onde lubrificantes líquidos não funcionam.
+                É utilizada em altas temperaturas, ambientes com poeira, vácuo ou cargas elevadas, como em parafusos, engrenagens, 
+                equipamentos industriais e sistemas onde o óleo pode evaporar ou degradar.
+            </p>
 
+            <figure class="cartao-imagem">
+                <img src="Lubrificantes-sólidos-4.jpg" alt="Lubrificantes sólidos" style="width: 300px; height: 250px;">
+            </figure>
         </section>
         <!-- Fim da seção de conteúdo -->
 
