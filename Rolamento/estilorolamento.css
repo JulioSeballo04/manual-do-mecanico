@@ -184,7 +184,7 @@ body {
     border-radius: 12px;      /* Cantos arredondados */
     border: 1px solid var(--border);
     background: var(--card-bg);
-    animation: balanço 3s ease-in-out infinite; /* Animação de balançar */
+    animation: balanço 10s ease-in-out infinite; /* Animação de balançar */
 }
 
 /*

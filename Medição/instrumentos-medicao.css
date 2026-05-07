@@ -102,6 +102,38 @@ body {
 
 
 /* =============================================
+   ARTICLES DE EXPLICAÇÃO DOS INSTRUMENTOS
+
+   Cada <article> explica um instrumento.
+   display: flex + align-items: center centraliza
+   o conteúdo horizontalmente dentro do article.
+   margin: 0 auto centraliza o article na página.
+   ============================================= */
+
+.area-texto article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* centraliza o conteúdo horizontalmente */
+    text-align: center;   /* centraliza o texto */
+    max-width: 600px;     /* limita a largura para não ficar muito largo */
+    margin: 0 auto;       /* centraliza o article na tela */
+    gap: 12px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border-bottom: 4px solid var(--accent);
+    border-top: 1px solid var(--accent);
+}
+
+/* Listas dentro do article ficam alinhadas à esquerda para melhor leitura */
+.area-texto article ul {
+    text-align: left;
+    align-self: flex-start; /* a lista fica à esquerda dentro do article centralizado */
+    margin-left: 20px;
+}
+
+
+/* =============================================
    IMAGENS DE SEÇÃO (capa, infográficos)
    ============================================= */
 
@@ -141,6 +173,17 @@ body {
     height: 250px;
     border: 1px solid var(--border);
     animation: danceimg 5s infinite;
+}
+
+
+.img {
+    width: 350px;
+    height: 250px;
+    object-fit: contain;         /* não distorce a imagem */
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: block;              /* necessário para margin: auto funcionar */
+    margin: 0 auto;              /* centraliza a imagem horizontalmente */
 }
 
 @keyframes danceimg {
@@ -385,7 +428,7 @@ body {
     transition: 0.5s;
 }
 
-.info h1 {
+.info h2 {
     font-size: 18px;
 }
 
@@ -397,7 +440,6 @@ body {
     border-radius: 8px;
     color: white;
     font-weight: bold;
-    text-decoration: none;
     cursor: pointer;
     border: none;
     position: relative;
@@ -405,7 +447,7 @@ body {
     transition: background 0.3s;
 }
 
-/* A onda começa pequena e invisível no centro */
+/* Efeito de onda ao passar o mouse no botão */
 .info button::after {
     content: '';
     position: absolute;
@@ -417,20 +459,18 @@ body {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
-    opacity: 1; /* começa VISÍVEL */
+    opacity: 1;
 }
 
-/* No hover a onda CRESCE e some */
 .info button:hover::after {
     width: 250px;
     height: 250px;
-    opacity: 0; /* some enquanto cresce */
+    opacity: 0;
 }
 
 .info button:hover {
     background: #6a2ff0;
 }
-
 
 
 /* =============================================
@@ -460,7 +500,7 @@ body {
 
 /* 📱 TABLET (até 900px) */
 @media (max-width: 900px) {
-    .cartao {              /* era .card — classe errada */
+    .cartao {
         width: 45vw;
         height: 200px;
     }
@@ -468,6 +508,7 @@ body {
 
 /* 📱 MOBILE (até 550px) */
 @media (max-width: 550px) {
+
     .grupo-imagens {
         gap: 15px;
         padding: 20px 15px;
@@ -478,10 +519,9 @@ body {
         margin: 10px 0;
     }
 
-    /* CORRIGIDO: imagem de capa se adapta à tela */
     .cartao-imagem img {
-        width: 90vw;   /* 90% da largura da tela */
-        height: auto;  /* altura proporcional — não distorce */
+        width: 90vw;
+        height: auto;
     }
 
     .cartao-capa img {
@@ -489,12 +529,23 @@ body {
         height: auto;
     }
 
+    /* Imagem dos articles também se adapta ao celular */
+    .img {
+        width: 90vw;
+        height: auto;
+    }
+
+    /* Article de explicação ocupa mais espaço no celular */
+    .area-texto article {
+        max-width: 100%;
+        padding: 16px;
+    }
+
     .cartao {
         width: 90vw;
         height: 200px;
     }
 
-    /* Responsivo mobile — efeito sempre visível */
     .cartao .layer {
         opacity: 1;
     }
@@ -503,8 +554,8 @@ body {
         bottom: 0;
     }
 
-    /* Remove o desfoque no mobile */
     .grupo-imagens .cartao {
         filter: none !important;
     }
+
 }

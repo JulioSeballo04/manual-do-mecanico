@@ -1,94 +1,224 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas de Transmissão - Manual do Mecânico</title>
-    <link rel="stylesheet" href="sistemas-transmissao.css">
-</head>
-<body>
+<!--
+    DOCTYPE avisa o navegador: "este é um arquivo HTML moderno!"
+    Sem isso, o navegador pode exibir a página de forma errada.
+-->
 
-    <!-- Botão abrir menu principal -->
+<html lang="pt-br">
+<!--
+    A tag <html> abraça TODO o conteúdo da página.
+    lang="pt-br" diz que o idioma é português do Brasil.
+-->
+
+<head>
+    <!--
+        O <head> é a "mochila invisível" da página.
+        Tudo aqui são configurações — o usuário não vê nada disso na tela.
+    -->
+
+    <!-- Permite usar letras especiais como ã, ç, é -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página funcionar bem no celular (não aparece minúscula) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>Sistemas de Transmissão - Manual do Mecânico</title>
+
+    <!-- Liga o arquivo CSS que deixa a página bonita -->
+    <link rel="stylesheet" href="sistemas-transmissao.css">
+
+</head>
+
+<body>
+<!--
+    O <body> é onde mora tudo que o usuário VÊ na tela.
+    É como a folha de papel onde você desenha.
+-->
+
+
+    <!-- ============================================================
+         BOTÃO DE ABRIR O MENU PRINCIPAL (☰)
+
+         position: fixed no CSS faz ele ficar sempre visível,
+         mesmo quando o usuário rola a página para baixo.
+         id="menuBotao" é usado pelo JavaScript para esconder/mostrar.
+         onclick="abrirMenu()" chama a função lá no JavaScript.
+         ============================================================ -->
     <button id="menuBotao" class="botao-abrir-menu" onclick="abrirMenu()">☰</button>
 
-    <!-- Painel lateral principal -->
-    <div class="painel-lateral" id="menuPainel">
+
+    <!-- ============================================================
+         MENU LATERAL PRINCIPAL
+
+         <aside> = conteúdo lateral — tag certa para menus!
+         Começa escondido fora da tela (right: -300px no CSS).
+         Quando o botão ☰ é clicado, desliza para dentro.
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuPainel">
+
+        <!-- Botão ✕ para fechar o menu -->
         <button class="botao-fechar-menu" onclick="fecharMenu()">✕</button>
+
+        <!-- <nav> = bloco de navegação — tag certa para links de ir a outros lugares -->
         <nav class="grade-secoes">
+
+            <!-- Cada <a> leva para uma página do manual -->
+            <!-- "../Pasta/arquivo.html" = sair da pasta atual e ir para outra -->
+
+            <!-- BOTÃO: Voltar ao menu principal -->
             <a href="../Pagina/pagina.html" class="botao-secao">
-                <div class="icone-secao"><img src="menu.png" alt="Ícone de Menu" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="menu.png" alt="Ícone de Menu" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 00</small>
                     <span>Voltar ao menu principal</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Rolamentos -->
             <a href="../Rolamento/rolamentos.html" class="botao-secao">
-                <div class="icone-secao"><img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="rolamento.png" alt="Ícone de Rolamento" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 01</small>
                     <span>Rolamentos</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: TPM -->
             <a href="../TPM/tpm.html" class="botao-secao">
-                <div class="icone-secao"><img src="tpm.png" alt="Ícone de TPM" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="tpm.png" alt="Ícone de TPM" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 03</small>
                     <span>TPM</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Instrumentos de Medição -->
             <a href="../Medição/instrumentos-medicao.html" class="botao-secao">
-                <div class="icone-secao"><img src="medicao.png" alt="Ícone de Medição" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="medicao.png" alt="Ícone de Medição" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 04</small>
                     <span>Instrumentos de Medição</span>
                 </div>
             </a>
+
+            <!-- BOTÃO: Lubrificação Industrial -->
             <a href="../Lubrificação/lubrificação.html" class="botao-secao">
-                <div class="icone-secao"><img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone"></div>
+                <div class="icone-secao">
+                    <img src="lubi.png" alt="Ícone de Lubrificação" class="imagem-icone">
+                </div>
                 <div class="texto-secao">
                     <small>Seção 05</small>
                     <span>Lubrificação Industrial</span>
                 </div>
             </a>
-        </nav>
-    </div>
 
-    <!-- Botão sumário da página -->
+        </nav>
+    </aside>
+    <!-- Fim do menu lateral principal -->
+
+
+    <!-- ============================================================
+         BOTÃO DO SUMÁRIO (↓)
+
+         Fica abaixo do botão ☰ (top: 75px no CSS).
+         Abre um segundo painel com os tópicos DESTA página,
+         para o usuário pular direto para o trecho que quer ler.
+         ============================================================ -->
     <button id="menuSecaoBotao" class="botao-abrir-menu botao-sumario" onclick="abrirMenuSecao()">↓</button>
 
-    <!-- Painel lateral do sumário -->
-    <div class="painel-lateral" id="menuSecaoPainel">
-        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
-        <nav class="links-menu">
-            <a href="#ST" onclick="fecharMenuSecao()"> >> Sistemas de Transmissão</a>
-            <a href="#STEng" onclick="fecharMenuSecao()"> >> Engrenagens</a>
-            <a href="#STC" onclick="fecharMenuSecao()"> >> Correias</a>
-            <a href="#STCO" onclick="fecharMenuSecao()"> >> Correntes</a>
-            <a href="#STA" onclick="fecharMenuSecao()"> >> Acoplamento</a>
-            <a href="#STEx" onclick="fecharMenuSecao()"> >> Eixos</a>
-            <a href="#STCa" onclick="fecharMenuSecao()"> >> Cardan</a>
-            <a href="#STCh" onclick="fecharMenuSecao()"> >> Chavetas</a>
-        </nav>
-    </div>
 
-    <!-- Fundo escurecido -->
+    <!-- ============================================================
+         PAINEL LATERAL DO SUMÁRIO
+
+         Lista os títulos desta página.
+         href="#ST" pula para o elemento com id="ST" na página —
+         como um índice de livro que leva direto ao capítulo.
+         ============================================================ -->
+    <aside class="painel-lateral" id="menuSecaoPainel">
+
+        <button class="botao-fechar-menu" onclick="fecharMenuSecao()">✕</button>
+
+        <nav class="links-menu">
+            <!-- Cada link pula para uma seção desta página -->
+            <a href="#ST"    onclick="fecharMenuSecao()"> >> Sistemas de Transmissão</a>
+            <a href="#STEng" onclick="fecharMenuSecao()"> >> Engrenagens</a>
+            <a href="#STC"   onclick="fecharMenuSecao()"> >> Correias</a>
+            <a href="#STCO"  onclick="fecharMenuSecao()"> >> Correntes</a>
+            <a href="#STA"   onclick="fecharMenuSecao()"> >> Acoplamento</a>
+            <a href="#STEx"  onclick="fecharMenuSecao()"> >> Eixos</a>
+            <a href="#STCa"  onclick="fecharMenuSecao()"> >> Cardan</a>
+            <a href="#STCh"  onclick="fecharMenuSecao()"> >> Chavetas</a>
+        </nav>
+
+    </aside>
+    <!-- Fim do sumário -->
+
+
+    <!-- ============================================================
+         FUNDO ESCURECIDO
+
+         Camada preta semitransparente que aparece por trás
+         do menu quando ele está aberto.
+         Clicar nela chama fecharTudo() — fecha os dois menus.
+         ============================================================ -->
     <div class="fundo-escurecido" id="menuOverlay" onclick="fecharTudo()"></div>
 
-    <div class="container-pagina">
 
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA
+
+         <main> = conteúdo mais importante da página.
+         Só deve existir UM <main> por página!
+         Substituímos o <div class="container-pagina"> por <main>.
+         ============================================================ -->
+    <main class="container-pagina">
+
+
+        <!-- --------------------------------------------------------
+             CABEÇALHO DA PÁGINA
+
+             id="ST" permite o link do sumário pular até aqui,
+             já que o título é o primeiro tópico do sumário.
+             -------------------------------------------------------- -->
         <header class="cabecalho">
+            <!-- <h1> é o título mais importante — use só UM por página! -->
             <h1 id="ST">Sistemas de Transmissão</h1>
         </header>
 
-        <!-- Imagem de capa -->
-        <div class="grade-imagens">
+
+        <!-- --------------------------------------------------------
+             IMAGEM DE CAPA
+
+             <figure> = tag certa para imagens com contexto,
+             como ilustrações de um artigo ou foto de um produto.
+             -------------------------------------------------------- -->
+        <figure class="grade-imagens">
             <div class="cartao-imagem">
-                <img src="imagemcapa.png" alt="Elementos de um sistema de transmissão">
+                <img src="imagemcapa.png" alt="Elementos de um sistema de transmissão" style="width: 400px; height: 300px; background-color: #f0f0f0;">
             </div>
-        </div>
+        </figure>
 
-        <div class="area-texto">
 
+        <!-- --------------------------------------------------------
+             SEÇÃO DE CONTEÚDO
+
+             <section> = bloco de conteúdo relacionado,
+             como um capítulo de livro.
+             Substituímos o <div class="area-texto"> por <section>.
+             -------------------------------------------------------- -->
+        <section class="area-texto">
+
+
+            <!-- Introdução geral -->
             <h2 class="subtitulo">O que são os sistemas de transmissão?</h2>
             <p>
                 Os sistemas de transmissão são conjuntos de componentes mecânicos responsáveis por transferir potência e movimento de um eixo para outro, 
@@ -96,23 +226,24 @@
                 garantindo a transmissão adequada de energia para atender às necessidades específicas de cada aplicação.
             </p>
 
+
+            <!-- Composição -->
             <h2 class="subtitulo">Composição dos sistemas de transmissão</h2>
-            <div class="grade-imagens">
+            <figure class="grade-imagens">
                 <div class="cartao-imagem">
                     <h3>Componentes de um sistema de transmissão</h3>
-                    <img src="elementos-de-maquinas.jpg" alt="Componentes de um sistema de transmissão">
+                    <img src="elementos-de-maquinas.jpg" alt="Componentes de um sistema de transmissão" style="width: 400px; height: 300px; background-color: #f0f0f0;">
                 </div>
-            </div>
+            </figure>
             <p>
                 Os sistemas de transmissão são compostos por diversos elementos, incluindo engrenagens, correias, correntes, polias e acoplamentos. 
                 Cada componente desempenha um papel específico na transferência de potência e controle do movimento, e a escolha adequada desses elementos é crucial para o desempenho e a durabilidade do sistema.
             </p>
 
+
+            <!-- Lista dos modelos -->
             <h2 class="subtitulo">Modelos de sistemas de transmissão</h2>
-            <p>
-                Existem diversos tipos de sistemas de transmissão, cada um projetado para atender a necessidades específicas. 
-                Os principais tipos incluem:
-            </p>
+            <p>Os principais tipos incluem:</p>
             <ul>
                 <li><strong>Sistemas de transmissão por engrenagens:</strong> Utilizam engrenagens para transferir potência e controle do movimento, oferecendo alta eficiência e durabilidade.</li>
                 <li><strong>Sistemas de transmissão por correias:</strong> Utilizam correias para transmitir potência, sendo ideais para aplicações com distância média entre os eixos.</li>
@@ -123,6 +254,11 @@
                 <li><strong>Sistemas de transmissão por chavetas:</strong> Utilizam chavetas para conectar componentes e transmitir potência, sendo adequados para aplicações que requerem fácil montagem e desmontagem.</li>
             </ul>
 
+
+            <!-- --------------------------------------------------------
+                 ENGRENAGENS
+                 id="STEng" — o link do sumário ">> Engrenagens" pula até aqui
+                 -------------------------------------------------------- -->
             <h2 id="STEng" class="subtitulo">Sistemas de transmissão por engrenagens</h2>
             <p>
                 Os sistemas de transmissão por engrenagens são amplamente utilizados em diversas aplicações devido à sua alta eficiência e durabilidade. 
@@ -130,41 +266,65 @@
                 A escolha do tipo de engrenagem depende das necessidades específicas da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
             </p>
 
+            <!-- <h3> para subtópico dentro de engrenagens — hierarquia: h1 > h2 > h3 -->
             <h3 class="subtitulo">Tipos de engrenagens</h3>
-            <div class="grade-imagens">
+
+            <!-- Grade de imagens dos tipos de engrenagem -->
+            <figure class="grade-imagens">
+
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="engrenagem-cilindrica-de-dentes-retos-3.jpg" alt="Engrenagem cilíndrica de dentes retos">
                     <p class="legenda-imagem">Engrenagem cilíndrica de dentes retos</p>
                 </div>
+
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="engrenagem-helicoidal.jpeg" alt="Engrenagem helicoidal">
                     <p class="legenda-imagem">Engrenagem helicoidal</p>
                 </div>
+
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="engrenagem-conica.jpg" alt="Engrenagem cônica">
                     <p class="legenda-imagem">Engrenagem cônica</p>
                 </div>
+
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="engrenagem-interna.jpg" alt="Engrenagem interna">
                     <p class="legenda-imagem">Engrenagem interna</p>
                 </div>
+
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="engrenagem-planetária.jpg" alt="Engrenagem planetária">
                     <p class="legenda-imagem">Engrenagem planetária</p>
                 </div>
+
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="engrenagem-cremalheira.jpeg" alt="Engrenagem cremalheira">
                     <p class="legenda-imagem">Engrenagem cremalheira</p>
                 </div>
-            </div>
 
+            </figure>
+
+
+            <!-- --------------------------------------------------------
+                 CORREIAS
+                 id="STC" — o link do sumário ">> Correias" pula até aqui
+                 -------------------------------------------------------- -->
             <h2 id="STC" class="subtitulo">Sistemas de transmissão por Correias</h2>
             <p>
                 Os sistemas de transmissão por correias consistem em um conjunto de correias que transferem potência e controle do movimento entre os eixos. 
                 A escolha do tipo de correia, como correias planas, trapezoidais ou sincronizadas, depende das necessidades da aplicação.
             </p>
-            <h3>Tipos de correias</h3>
-            <div class="grade-imagens">
+
+            <h3 class="subtitulo">Tipos de correias</h3>
+
+            <!-- Grade com cada tipo de correia — cada cartao-imagem tem:
+                 - foto da correia
+                 - foto da polia correspondente
+                 - legenda
+                 - lista de características -->
+            <figure class="grade-imagens">
+
+                <!-- Correia plana -->
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="correia-plana.webp" alt="Correia plana">
                     <img class="imagem-pequena" src="polia correia plana.jpg" alt="Polia da correia plana">
@@ -174,9 +334,11 @@
                         <li>Alta eficiência em distâncias curtas</li>
                     </ul>
                 </div>
+
+                <!-- Correia em V (trapezoidal) -->
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="correia-trapezoidal.jpg" alt="Correia trapezoidal">
-                    <img class="imagem-pequena" src="polia em v.jpg" alt="Polia da correia trapezoidal"> 
+                    <img class="imagem-pequena" src="polia em v.jpg" alt="Polia da correia trapezoidal">
                     <p class="legenda-imagem">Correia em V (trapezoidal)</p>
                     <ul>
                         <li>Aplicação em transmissões de média potência</li>
@@ -184,6 +346,8 @@
                         <li>Formato em "V"</li>
                     </ul>
                 </div>
+
+                <!-- Correia dentada (sincronizada) -->
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="correia-sincronizada.webp" alt="Correia sincronizada">
                     <img class="imagem-pequena" src="polia correia sincronizada.webp" alt="Polia da correia sincronizada">
@@ -194,10 +358,11 @@
                     </ul>
                 </div>
 
+                <!-- Correia Poly-V (multicanal) -->
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="correia-multicanal.webp" alt="Correia multicanal">
                     <img class="imagem-pequena" src="polia polly v.jpg" alt="Polia da correia multicanal">
-                    <p class="legenda-imagem">Correia Poly - V (multicanal)</p>
+                    <p class="legenda-imagem">Correia Poly-V (multicanal)</p>
                     <ul>
                         <li>Aplicação em transmissões de média potência</li>
                         <li>Capacidade de transmissão de alta potência</li>
@@ -205,6 +370,7 @@
                     </ul>
                 </div>
 
+                <!-- Correia redonda -->
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="correia redonda.jpg" alt="Correia redonda">
                     <img class="imagem-pequena" src="polia correia redonda.jpg" alt="Polia da correia redonda">
@@ -215,6 +381,7 @@
                     </ul>
                 </div>
 
+                <!-- Correia variadora -->
                 <div class="cartao-imagem">
                     <img class="imagem-pequena" src="correia-variavel.webp" alt="Correia variadora">
                     <img class="imagem-pequena" src="polia correia variadora.jpg" alt="Polia da correia variadora">
@@ -224,42 +391,165 @@
                         <li>Capacidade de ajuste de velocidade</li>
                     </ul>
                 </div>
-            </div>
 
+            </figure>
+
+
+            <!-- --------------------------------------------------------
+                 CORRENTES
+                 id="STCO" — o link do sumário pula até aqui
+                 -------------------------------------------------------- -->
             <h2 id="STCO" class="subtitulo">Sistemas de transmissão por Correntes</h2>
             <p>
-                Os sistemas de transmissão por correntes consistem em um conjunto de correntes que transferem potência e controle do movimento entre os eixos. 
+                Os sistemas de transmissão por correntes consistem em um conjunto de correntes que transferem potência e controle do movimento entre os eixos.
                 A escolha do tipo de corrente depende das necessidades da aplicação, incluindo a relação de transmissão, a carga e a velocidade.
             </p>
+            <figure class="grade-imagens">
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="corrente-comum.jpg" alt="Corrente comum">
+                    <p class="legenda-imagem" style="font-size: 20px; font-style: oblique; color: var(--accent);">Corrente comum</p>
+                    <p class="descricao-imagem" style="text-align: center;">Também conhecida como corrente de rolos, é utilizada em <br> transmissões de média potência, 
+                        oferecendo boa resistência ao desgaste.</p>
+                    <ul>
+                        <p class="legenda-imagem" style="font-size: 20px; font-style: unset; color: var(--accent);">Aplicações</p>
+                        <li>Transportadores</li>
+                        <li>Máquinas industriais</li>
+                    </ul>
+                </div>
 
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="corrente silenciosa.avif" alt="Corrente silenciosa">
+                    <p class="legenda-imagem" style="font-size: 20px; font-style: oblique; color: var(--accent);">Corrente silenciosa</p>
+                    <p class="descricao-imagem" style="text-align: center;">Também chamada de corrente dentada, tem menor <br> ruído, funcionamento suave e alta velocidade.
+                    </p>
+                    <ul>
+                        <p class="legenda-imagem" style="font-size: 20px; font-style: unset; color: var(--accent);">Aplicações</p>
+                        <li>Transportadores</li>
+                        <li>Máquinas industriais</li>
+                    </ul>
+                </div>
+
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="corrente-dupla.jpg" alt="Corrente dupla">
+                    <p class="legenda-imagem" style="font-size: 20px; font-style: oblique; color: var(--accent);">Corrente dupla</p>
+                    <p class="descricao-imagem" style="text-align: center; ">Também conhecida como corrente de rolos, <br> é utilizada em transmissões de média potência, 
+                        oferecendo boa resistência ao desgaste.</p>
+                    <ul>
+                        <p class="legenda-imagem" style="font-size: 20px; font-style: unset; color: var(--accent);">Aplicações</p>
+                        <li>sistemas de sincronismo</li>
+                        <li>Equipamentos de alta velocidade</li>
+                        <li>Máquinas com ncessidade baixo ruído</li>
+                    </ul>
+                </div>
+
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="corrente-engenharia.png" alt="Corrente engenharia">
+                    <p class="legenda-imagem" style="font-size: 20px; font-style: oblique; color: var(--accent);">Corrente engenharia</p>
+                    <p class="descricao-imagem" style="text-align: center;">Também conhecida como corrente de rolos, <br> é utilizada em transmissões de média potência, 
+                        oferecendo boa resistência ao desgaste.</p>
+                    <ul>
+                        <p class="legenda-imagem" style="font-size: 20px; font-style: unset; color: var(--accent);">Aplicações</p>
+                        <li>Transportadores</li>
+                        <li>Máquinas industriais</li>
+                    </ul>
+                </div>
+
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="corrente-transportadora.png" alt="Corrente transportadora">
+                    <p class="legenda-imagem" style="font-size: 20px; font-style: oblique; color: var(--accent);">Corrente transportadora</p>
+                    <p class="descricao-imagem" style="text-align: center;">Também conhecida como corrente de rolos, <br> é utilizada em transmissões de média potência, 
+                        oferecendo boa resistência ao desgaste.</p>
+                    <ul>
+                        <p class="legenda-imagem" style="font-size: 20px; font-style: unset; color: var(--accent);">Aplicações</p>
+                        <li>Transportadores</li>
+                        <li>Máquinas industriais</li>
+                    </ul>
+                </div>
+
+                <div class="cartao-imagem">
+                    <img class="imagem-pequena" src="corrente-folha.avif" alt="Corrente folha">
+                    <p class="legenda-imagem" style="font-size: 20px; font-style: oblique; color: var(--accent);">Corrente folha</p>
+                    <p class="descricao-imagem" style="text-align: center;">Também conhecida como corrente de rolos, <br> é utilizada em transmissões de média potência, 
+                        oferecendo boa resistência ao desgaste.</p>
+                    <ul>
+                        <p class="legenda-imagem" style="font-size: 20px; font-style: unset; color: var(--accent);">Aplicações</p>
+                        <li>Transportadores</li>
+                        <li>Máquinas industriais</li>
+                    </ul>
+                </div>
+
+                
+            </figure>
+
+
+            <!-- --------------------------------------------------------
+                 ACOPLAMENTO
+                 -------------------------------------------------------- -->
             <h2 id="STA" class="subtitulo">Sistemas de transmissão por Acoplamento</h2>
             <p>
                 Os sistemas de transmissão por acoplamento consistem em acoplamentos que transferem potência entre os eixos. 
                 A escolha do tipo de acoplamento, como mecânicos, hidráulicos ou pneumáticos, depende das necessidades da aplicação.
             </p>
 
+
+            <!-- --------------------------------------------------------
+                 EIXOS
+                 -------------------------------------------------------- -->
             <h2 id="STEx" class="subtitulo">Sistemas de transmissão por Eixos</h2>
             <p>
                 Os sistemas de transmissão por eixos consistem em eixos que transferem potência entre as peças. 
                 A escolha do tipo de eixo, como cilíndricos, cônicos ou helicoidais, depende das necessidades da aplicação.
             </p>
 
+
+            <!-- --------------------------------------------------------
+                 CARDAN
+                 -------------------------------------------------------- -->
             <h2 id="STCa" class="subtitulo">Sistemas de transmissão por Cardan</h2>
             <p>
                 Os sistemas de transmissão por cardan consistem em cardans que transferem potência entre eixos não alinhados. 
                 A escolha entre cardans simples ou duplos depende das necessidades da aplicação.
             </p>
 
+
+            <!-- --------------------------------------------------------
+                 CHAVETAS
+                 -------------------------------------------------------- -->
             <h2 id="STCh" class="subtitulo">Sistemas de transmissão por Chavetas</h2>
             <p>
                 Os sistemas de transmissão por chavetas consistem em chavetas que conectam componentes e transferem potência entre os eixos. 
                 A escolha do tipo de chaveta, como retas, curvas ou helicoidais, depende das necessidades da aplicação.
             </p>
 
-        </div>
-    </div>
 
+        </section>
+        <!-- Fim da seção de conteúdo -->
+
+
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+
+    <!-- ============================================================
+         JAVASCRIPT
+
+         O "cérebro" da página — faz as coisas se moverem e reagirem.
+         Fica no final do <body> para a página carregar mais rápido,
+         pois o navegador lê o HTML de cima para baixo.
+         ============================================================ -->
     <script>
+
+        /* ----------------------------------------------------------
+           ESCONDER E MOSTRAR OS BOTÕES ☰ e ↓
+
+           Quando um menu abre, os botões somem para não atrapalhar.
+           Quando o menu fecha, eles voltam.
+
+           document.getElementById('id') encontra o elemento pelo id.
+           .style.display = 'none' esconde o elemento.
+           .style.display = 'block' mostra o elemento.
+           ---------------------------------------------------------- */
+
         function esconderBotoes() {
             document.getElementById('menuBotao').style.display = 'none';
             document.getElementById('menuSecaoBotao').style.display = 'none';
@@ -269,6 +559,17 @@
             document.getElementById('menuBotao').style.display = 'block';
             document.getElementById('menuSecaoBotao').style.display = 'block';
         }
+
+
+        /* ----------------------------------------------------------
+           MENU PRINCIPAL — abrir e fechar
+
+           classList.add('aberto') adiciona a classe CSS "aberto"
+           ao elemento — o CSS usa essa classe para deslizar o painel.
+
+           classList.remove('aberto') remove a classe —
+           o painel volta a se esconder fora da tela.
+           ---------------------------------------------------------- */
 
         function abrirMenu() {
             document.getElementById('menuPainel').classList.add('aberto');
@@ -282,6 +583,14 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           MENU SUMÁRIO — abrir e fechar
+
+           Funciona exatamente igual ao menu principal,
+           mas controla o painel do sumário (menuSecaoPainel).
+           ---------------------------------------------------------- */
+
         function abrirMenuSecao() {
             document.getElementById('menuSecaoPainel').classList.add('aberto');
             document.getElementById('menuOverlay').classList.add('aberto');
@@ -294,11 +603,21 @@
             mostrarBotoes();
         }
 
+
+        /* ----------------------------------------------------------
+           FECHAR TUDO DE UMA VEZ
+
+           Chamado quando o usuário clica no fundo escurecido.
+           Fecha tanto o menu principal quanto o sumário de uma vez.
+           ---------------------------------------------------------- */
+
         function fecharTudo() {
             fecharMenu();
             fecharMenuSecao();
         }
+
     </script>
+
 
 </body>
 </html>
